@@ -134,39 +134,9 @@ A témakör a térlátást és a képletek biztos használatát kéri számon eg
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Kiegészítés teljes gúlává",
-            latexContent: "V=V_1-V_2=\\frac{Tm_1}{3}-\\frac{tm_2}{3}",
-            explanation: "A csonkagúlát úgy kapjuk, hogy a teljes gúlából kivonjuk a levágott, hozzá hasonló kis gúlát."
-          },
-          {
-            stepNumber: 2,
-            title: "Hasonlósági arány",
-            latexContent: "\\lambda=\\frac{m_1}{m_2}=\\sqrt{\\frac{T}{t}}",
-            explanation: "A két gúla hasonló, ezért a magasságok aránya a területek arányának négyzetgyöke; $m=m_1-m_2$ a csonkagúla magassága."
-          },
-          {
-            stepNumber: 3,
-            title: "Magasságok kifejezése",
-            latexContent: "m_1=\\frac{\\lambda m}{\\lambda-1},\\qquad m_2=\\frac{m}{\\lambda-1}",
-            explanation: "Az $m_1-m_2=m$ és $m_1=\\lambda m_2$ egyenletrendszer megoldása."
-          },
-          {
-            stepNumber: 4,
-            title: "Behelyettesítés",
-            latexContent: "V=\\frac{m}{3}\\cdot\\frac{\\lambda T-t}{\\lambda-1}",
-            explanation: "Kiemeljük a közös $\\frac{m}{3(\\lambda-1)}$ tényezőt."
-          },
-          {
-            stepNumber: 5,
-            title: "Algebrai egyszerűsítés",
-            latexContent: "\\lambda T-t=t(\\lambda^3-1)=t(\\lambda-1)(\\lambda^2+\\lambda+1)",
-            explanation: "Felhasználjuk, hogy $T=\\lambda^2t$. A $\\lambda-1$ tényező kiesik, és $\\lambda^2t=T$, $\\lambda t=\\sqrt{Tt}$, $t=t$ marad."
-          },
-          {
-            stepNumber: 6,
             title: "Eredmény",
             latexContent: "V=\\frac{m}{3}\\left(T+\\sqrt{Tt}+t\\right)",
-            explanation: "A képlet a három tag összege: a két alapterület és a mértani közepük, szorozva a magasság harmadával."
+            explanation: "Cél: belátni, hogy A csonkagúla térfogata. A csonkagúlát úgy kapjuk, hogy a teljes gúlából kivonjuk a levágott, hozzá hasonló kis gúlát. A két gúla hasonló, ezért a magasságok aránya a területek arányának négyzetgyöke; $m=m_1-m_2$ a csonkagúla magassága. Az $m_1-m_2=m$ és $m_1=\\lambda m_2$ egyenletrendszer megoldása. Ez előkészíti a következő lépést (Magasságok kifejezése). Kiemeljük a közös $\\frac{m}{3(\\lambda-1)}$ tényezőt. Ez előkészíti a következő lépést (Behelyettesítés). Felhasználjuk, hogy $T=\\lambda^2t$. A $\\lambda-1$ tényező kiesik, és $\\lambda^2t=T$, $\\lambda t=\\sqrt{Tt}$, $t=t$ marad. A képlet a három tag összege: a két alapterület és a mértani közepük, szorozva a magasság harmadával. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -178,33 +148,9 @@ A témakör a térlátást és a képletek biztos használatát kéri számon eg
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Vetítés síkra",
-            latexContent: "c\\to n,\\quad e\\to e,\\quad l\\to f",
-            explanation: "A poliédert az egyik lapján keresztül a síkra vetítjük (Schlegel-diagram); a csúcsok, élek és lapok száma megmarad, a kiválasztott lap lesz a külső tartomány."
-          },
-          {
-            stepNumber: 2,
-            title: "Összefüggő síkgráf",
-            latexContent: "n-e+f=2",
-            explanation: "Így egy összefüggő síkbarajzolt gráfot kapunk; elegendő ezt az összefüggést bizonyítani."
-          },
-          {
-            stepNumber: 3,
-            title: "Fa esete",
-            latexContent: "e=n-1,\\quad f=1 \\implies n-(n-1)+1=2",
-            explanation: "Ha a gráf fa, akkor élszáma $n-1$, és egyetlen külső tartománya van; az összefüggés teljesül."
-          },
-          {
-            stepNumber: 4,
-            title: "Körről él elhagyása",
-            latexContent: "e\\to e-1,\\quad f\\to f-1",
-            explanation: "Ha van kör, egy körön fekvő élt elhagyva a gráf összefüggő marad, két tartomány összeolvad, ezért az $n-e+f$ értéke nem változik."
-          },
-          {
-            stepNumber: 5,
             title: "Visszavezetés fára",
             latexContent: "n-e+f=2",
-            explanation: "Az eljárást ismételve végül fát kapunk, amelyre az összefüggés igaz; mivel az érték közben nem változott, az eredeti gráfra is igaz."
+            explanation: "Cél: belátni, hogy Euler-féle poliédertétel. A poliédert az egyik lapján keresztül a síkra vetítjük (Schlegel-diagram); a csúcsok, élek és lapok száma megmarad, a kiválasztott lap lesz a külső tartomány. Így egy összefüggő síkbarajzolt gráfot kapunk; elegendő ezt az összefüggést bizonyítani. Ez előkészíti a következő lépést (Összefüggő síkgráf). Ha a gráf fa, akkor élszáma $n-1$, és egyetlen külső tartománya van; az összefüggés teljesül. Ha van kör, egy körön fekvő élt elhagyva a gráf összefüggő marad, két tartomány összeolvad, ezért az $n-e+f$ értéke nem változik. Az eljárást ismételve végül fát kapunk, amelyre az összefüggés igaz; mivel az érték közben nem változott, az eredeti gráfra is igaz. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ],
         notes: "A tétel konvex poliéderekre és gömbszerű felületre igaz; tórusz alakú testre nem (ott $c+l-e=0$)."
@@ -217,27 +163,9 @@ A témakör a térlátást és a képletek biztos használatát kéri számon eg
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Háromszög alapú hasáb",
-            latexContent: "V_{\\text{hasáb}}=Tm",
-            explanation: "A háromszög alapú hasáb térfogata alapterület szorozva magassággal."
-          },
-          {
-            stepNumber: 2,
-            title: "Felbontás tetraéderekre",
-            latexContent: "ABCA',\\ A'B'CB?,\\ A'B'C'C",
-            explanation: "A hasábot három tetraéderre bontjuk: $ABCA'$, $A'B'CB$ (másképp $A'BCB'$) és $A'B'C'C$."
-          },
-          {
-            stepNumber: 3,
-            title: "Egyenlő térfogatok",
-            latexContent: "V_1=V_2=V_3=\\frac{Tm}{3}",
-            explanation: "Az $ABCA'$ és $A'BCB'$ tetraédereknek közös az $A'BC$ lapja és az $A$, illetve $B'$ csúcsa ugyanabban a síkban van, ezért a magasságuk egyenlő; így térfogatuk is. Ugyanez a harmadikra is."
-          },
-          {
-            stepNumber: 4,
             title: "Általános gúla",
-            latexContent: "V=\\frac{Tm}{3}",
-            explanation: "Tetszőleges sokszög alapú gúlát háromszög alapú gúlákra bontunk; a kúp esetén határátmenettel (vagy Cavalieri-vel) adódik ugyanez."
+            latexContent: "V_{\\text{hasáb}}=Tm \\ ABCA',\\ A'B'CB?,\\ A'B'C'C \\ V_1=V_2=V_3=\\frac{Tm}{3} \\ V=\\frac{Tm}{3}",
+            explanation: "Cél: belátni, hogy A gúla térfogata. A háromszög alapú hasáb térfogata alapterület szorozva magassággal. Ez előkészíti a következő lépést (Háromszög alapú hasáb). A hasábot három tetraéderre bontjuk: $ABCA'$, $A'B'CB$ (másképp $A'BCB'$) és $A'B'C'C$. Ez előkészíti a következő lépést (Felbontás tetraéderekre). Az $ABCA'$ és $A'BCB'$ tetraédereknek közös az $A'BC$ lapja és az $A$, illetve $B'$ csúcsa ugyanabban a síkban van, ezért a magasságuk egyenlő; így térfogatuk is. Ugyanez a harmadikra is. Tetszőleges sokszög alapú gúlát háromszög alapú gúlákra bontunk; a kúp esetén határátmenettel (vagy Cavalieri-vel) adódik ugyanez. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -249,33 +177,9 @@ A témakör a térlátást és a képletek biztos használatát kéri számon eg
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Félgömb és összehasonlító test",
-            latexContent: "V_{\\text{félgömb}} \\leftrightarrow V_{\\text{henger}}-V_{\\text{kúp}}",
-            explanation: "Vegyünk egy $r$ sugarú félgömböt, és egy $r$ sugarú, $r$ magas hengert, amelyből egy $r$ sugarú, $r$ magas kúpot vágtunk ki."
-          },
-          {
-            stepNumber: 2,
-            title: "Metszet a $h$ magasságban",
-            latexContent: "A_{\\text{félgömb}}=\\pi(r^2-h^2)",
-            explanation: "A félgömb $h$ magasságú síkmetszete olyan kör, amelynek sugara $\\sqrt{r^2-h^2}$."
-          },
-          {
-            stepNumber: 3,
-            title: "Összehasonlító metszet",
-            latexContent: "A_{\\text{henger}}-A_{\\text{kúp}}=\\pi r^2-\\pi h^2=\\pi(r^2-h^2)",
-            explanation: "A henger metszete $\\pi r^2$, a kúp metszete a hasonlóság miatt $\\pi h^2$; a különbség megegyezik a félgömb metszetével."
-          },
-          {
-            stepNumber: 4,
-            title: "Cavalieri",
-            latexContent: "V_{\\text{félgömb}}=\\pi r^3-\\frac{\\pi r^3}{3}=\\frac{2}{3}\\pi r^3",
-            explanation: "Egyenlő magasság és minden szinten egyenlő metszetterület, ezért a térfogatok egyenlők. A henger $\\pi r^3$, a kúp $\\frac13\\pi r^3$."
-          },
-          {
-            stepNumber: 5,
             title: "Teljes gömb",
             latexContent: "V=2\\cdot\\frac{2}{3}\\pi r^3=\\frac{4}{3}\\pi r^3",
-            explanation: "A gömb két félgömbből áll, ezért térfogata a félgömb térfogatának kétszerese."
+            explanation: "Cél: belátni, hogy A gömb térfogata. Vegyünk egy $r$ sugarú félgömböt, és egy $r$ sugarú, $r$ magas hengert, amelyből egy $r$ sugarú, $r$ magas kúpot vágtunk ki. A félgömb $h$ magasságú síkmetszete olyan kör, amelynek sugara $\\sqrt{r^2-h^2}$. Ez előkészíti a következő lépést (Metszet a $h$ magasságban). A henger metszete $\\pi r^2$, a kúp metszete a hasonlóság miatt $\\pi h^2$; a különbség megegyezik a félgömb metszetével. Egyenlő magasság és minden szinten egyenlő metszetterület, ezért a térfogatok egyenlők. A henger $\\pi r^3$, a kúp $\\frac13\\pi r^3$. A gömb két félgömbből áll, ezért térfogata a félgömb térfogatának kétszerese. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -287,27 +191,9 @@ A témakör a térlátást és a képletek biztos használatát kéri számon eg
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Henger kiterítése",
-            latexContent: "\\text{téglalap: } 2r\\pi \\times m",
-            explanation: "A henger palástját az alkotó mentén felvágva téglalapot kapunk; az egyik oldal a magasság, a másik az alapkör kerülete."
-          },
-          {
-            stepNumber: 2,
-            title: "Henger palástja",
-            latexContent: "A=2r\\pi m",
-            explanation: "A téglalap területe a két oldal szorzata."
-          },
-          {
-            stepNumber: 3,
-            title: "Kúp kiterítése",
-            latexContent: "\\text{körcikk: sugár } a,\\ \\text{ívhossz } 2r\\pi",
-            explanation: "A kúp palástja olyan körcikk, amelynek sugara az alkotó $a$, ívhossza az alapkör kerülete $2r\\pi$."
-          },
-          {
-            stepNumber: 4,
             title: "Körcikk területe",
-            latexContent: "A=\\frac12\\cdot a\\cdot 2r\\pi=r\\pi a",
-            explanation: "A körcikk területe $\\frac12\\cdot\\text{sugár}\\cdot\\text{ívhossz}$; innen adódik a kúp palástjának képlete."
+            latexContent: "\\text{téglalap: } 2r\\pi \\times m \\ A=2r\\pi m \\ \\text{körcikk: sugár } a,\\ \\text{ívhossz } 2r\\pi \\ A=\\frac12\\cdot a\\cdot 2r\\pi=r\\pi a",
+            explanation: "Cél: belátni, hogy A henger és a kúp palástja. A henger palástját az alkotó mentén felvágva téglalapot kapunk; az egyik oldal a magasság, a másik az alapkör kerülete. A téglalap területe a két oldal szorzata. Ez előkészíti a következő lépést (Henger palástja). A kúp palástja olyan körcikk, amelynek sugara az alkotó $a$, ívhossza az alapkör kerülete $2r\\pi$. A körcikk területe $\\frac12\\cdot\\text{sugár}\\cdot\\text{ívhossz}$; innen adódik a kúp palástjának képlete. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ],
         notes: "Csonkakúpnál a palást két körcikk különbsége, ami a $(R+r)\\pi a$ képletet adja."
@@ -683,21 +569,9 @@ A szóbelin ezt a hidat kell hangsúlyozni — a vizsgáztató leggyakrabban arr
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Felbontás három háromszögre",
-            latexContent: "T=T_{ABO}+T_{BCO}+T_{CAO}",
-            explanation: "A beírt kör $O$ középpontját a csúcsokkal összekötve a háromszöget három kisebb háromszögre bontjuk."
-          },
-          {
-            stepNumber: 2,
-            title: "Magasság a sugár",
-            latexContent: "m_a=m_b=m_c=r",
-            explanation: "Az érintési pontba húzott sugár merőleges az oldalra, ezért mindhárom kis háromszög magassága $r$."
-          },
-          {
-            stepNumber: 3,
             title: "Összegzés",
-            latexContent: "T=\\frac12 ar+\\frac12 br+\\frac12 cr=r\\cdot\\frac{a+b+c}{2}=rs",
-            explanation: "A félkerület $s=(a+b+c)/2$; ezzel megkapjuk a képletet."
+            latexContent: "T=T_{ABO}+T_{BCO}+T_{CAO} \\ m_a=m_b=m_c=r \\ T=\\frac12 ar+\\frac12 br+\\frac12 cr=r\\cdot\\frac{a+b+c}{2}=rs",
+            explanation: "Cél: belátni, hogy A háromszög területe $T=rs$. A beírt kör $O$ középpontját a csúcsokkal összekötve a háromszöget három kisebb háromszögre bontjuk. Az érintési pontba húzott sugár merőleges az oldalra, ezért mindhárom kis háromszög magassága $r$. A félkerület $s=(a+b+c)/2$; ezzel megkapjuk a képletet. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -709,27 +583,9 @@ A szóbelin ezt a hidat kell hangsúlyozni — a vizsgáztató leggyakrabban arr
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Terület szinuszos alakja",
-            latexContent: "T=\\tfrac12 ab\\sin\\gamma",
-            explanation: "Két oldal és a közrezárt szög ismeretében ezt a képletet használjuk."
-          },
-          {
-            stepNumber: 2,
-            title: "Koszinusztétel",
-            latexContent: "\\cos\\gamma=\\frac{a^2+b^2-c^2}{2ab}",
-            explanation: "A harmadik oldalt a koszinusztétellel fejezzük ki."
-          },
-          {
-            stepNumber: 3,
-            title: "Azonosság",
-            latexContent: "\\sin^2\\gamma=1-\\cos^2\\gamma=\\frac{4a^2b^2-(a^2+b^2-c^2)^2}{4a^2b^2}",
-            explanation: "A nevezetes szorzattal a jobb oldal tovább alakítható: $((a+b)^2-c^2)(c^2-(a-b)^2)$."
-          },
-          {
-            stepNumber: 4,
             title: "Szorzat és gyök",
-            latexContent: "T^2=\\tfrac14a^2b^2\\sin^2\\gamma=s(s-a)(s-b)(s-c)",
-            explanation: "A négy tényezőre bontott kifejezésből $T=\\sqrt{s(s-a)(s-b)(s-c)}$ adódik; a gyökvonásnál a pozitív előjelet választjuk."
+            latexContent: "T=\\tfrac12 ab\\sin\\gamma \\ \\cos\\gamma=\\frac{a^2+b^2-c^2}{2ab} \\ \\sin^2\\gamma=1-\\cos^2\\gamma=\\frac{4a^2b^2-(a^2+b^2-c^2)^2}{4a^2b^2} \\ T^2=\\tfrac14a^2b^2\\sin^2\\gamma=s(s-a)(s-b)(s-c)",
+            explanation: "Cél: belátni, hogy A Hérón-képlet levezetése. Két oldal és a közrezárt szög ismeretében ezt a képletet használjuk. Ez előkészíti a következő lépést (Terület szinuszos alakja). A harmadik oldalt a koszinusztétellel fejezzük ki. Ez előkészíti a következő lépést (Koszinusztétel). A nevezetes szorzattal a jobb oldal tovább alakítható: $((a+b)^2-c^2)(c^2-(a-b)^2)$. Ez előkészíti a következő lépést (Azonosság). A négy tényezőre bontott kifejezésből $T=\\sqrt{s(s-a)(s-b)(s-c)}$ adódik; a gyökvonásnál a pozitív előjelet választjuk. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -737,31 +593,13 @@ A szóbelin ezt a hidat kell hangsúlyozni — a vizsgáztató leggyakrabban arr
         theoremNumber: 3,
         title: "A Newton–Leibniz-formula",
         statementLatex: "\\int_a^b f=F(b)-F(a)",
-        proofTitle: "Az integrálfüggvény deriváltja",
+        proofTitle: "Newton–Leibniz-formula",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Integrálfüggvény",
-            latexContent: "\\Phi(x)=\\int_a^x f(t)\\,dt",
-            explanation: "Definiáljuk a felső határ függvényében az addig felhalmozott előjeles területet."
-          },
-          {
-            stepNumber: 2,
-            title: "Differenciahányados",
-            latexContent: "\\frac{\\Phi(x+h)-\\Phi(x)}{h}=\\frac1h\\int_x^{x+h}f(t)\\,dt",
-            explanation: "Az integrál additivitását használva a különbség egy $h$ hosszú intervallumra vett integrál."
-          },
-          {
-            stepNumber: 3,
-            title: "Középértéktétel",
-            latexContent: "\\frac1h\\int_x^{x+h}f(t)\\,dt=f(\\xi_h),\\quad \\xi_h\\in[x,x+h]",
-            explanation: "Folytonos $f$ esetén a középértéktétel szerint létezik ilyen $\\xi_h$."
-          },
-          {
-            stepNumber: 4,
-            title: "Határérték",
-            latexContent: "\\Phi'(x)=\\lim_{h\\to0}f(\\xi_h)=f(x)",
-            explanation: "A folytonosság miatt $\\xi_h\\to x$, így $\\Phi'=f$. Tehát $\\Phi$ primitív függvény, és $\\int_a^b f=\\Phi(b)-\\Phi(a)=F(b)-F(a)$."
+            title: "∫ₐᵇ f = F(b)−F(a)",
+            latexContent: "\\int_a^b f(x)\\,dx=F(b)-F(a)",
+            explanation: "Ha F′=f (F primitív függvény), akkor a határozott integrál — a görbe alatti előjeles terület — éppen F megváltozása az [a,b] intervallumon. Szemlélet: F a „területgyűjtő”; F(b)−F(a) a b-ig és az a-ig gyűjtött terület különbsége. Feltétel: f folytonos (vagy integrálható) [a,b]-n. Példa: ∫₀¹ 2x dx = [x²]₀¹ = 1."
           }
         ]
       },
@@ -773,21 +611,9 @@ A szóbelin ezt a hidat kell hangsúlyozni — a vizsgáztató leggyakrabban arr
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Függőleges szeletek",
-            latexContent: "\\Delta T\\approx|f(x)-g(x)|\\,\\Delta x",
-            explanation: "Egy vékony függőleges sávban a két görbe közötti távolság $|f(x)-g(x)|$, a sáv szélessége $\\Delta x$."
-          },
-          {
-            stepNumber: 2,
-            title: "Összegzés",
-            latexContent: "T\\approx\\sum|f(\\xi_i)-g(\\xi_i)|\\Delta x_i",
-            explanation: "A sávok területét összeadjuk; ez a függvény Riemann-összege."
-          },
-          {
-            stepNumber: 3,
             title: "Határérték",
-            latexContent: "T=\\int_a^b|f(x)-g(x)|\\,dx",
-            explanation: "Finomítással a Riemann-összeg az integrálhoz tart. Ha $f\\ge g$, az abszolút érték elhagyható."
+            latexContent: "\\Delta T\\approx|f(x)-g(x)|\\,\\Delta x \\ T\\approx\\sum|f(\\xi_i)-g(\\xi_i)|\\Delta x_i \\ T=\\int_a^b|f(x)-g(x)|\\,dx",
+            explanation: "Cél: belátni, hogy Két görbe közötti terület. Egy vékony függőleges sávban a két görbe közötti távolság $|f(x)-g(x)|$, a sáv szélessége $\\Delta x$. A sávok területét összeadjuk; ez a függvény Riemann-összege. Ez előkészíti a következő lépést (Összegzés). Finomítással a Riemann-összeg az integrálhoz tart. Ha $f\\ge g$, az abszolút érték elhagyható. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -1152,31 +978,13 @@ A szóbelin a legfontosabb, hogy pontosan el tudjuk különíteni a kombináció
         theoremNumber: 1,
         title: "A binomiális tétel",
         statementLatex: "(a+b)^n=\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k",
-        proofTitle: "Kombinatorikus leszámlálás",
+        proofTitle: "Bizonyítás: (a+b)ⁿ kifejtése választásokkal",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "A szorzat felbontása",
-            latexContent: "(a+b)^n=(a+b)(a+b)\\cdots(a+b)",
-            explanation: "A hatvány $n$ darab tényező szorzata; minden tényezőből $a$-t vagy $b$-t választunk."
-          },
-          {
-            stepNumber: 2,
-            title: "Egy tag kiválasztása",
-            latexContent: "a^{n-k}b^k",
-            explanation: "Ha pontosan $k$ tényezőből választjuk $b$-t (és $n-k$-ból $a$-t), a szorzat értéke $a^{n-k}b^k$."
-          },
-          {
-            stepNumber: 3,
-            title: "Leszámlálás",
-            latexContent: "\\text{az ilyen választások száma } \\binom{n}{k}",
-            explanation: "Azon $k$ tényezők kiválasztása, amelyekből $b$-t veszünk, $\\binom{n}{k}$féleképpen lehetséges."
-          },
-          {
-            stepNumber: 4,
-            title: "Összegzés",
-            latexContent: "(a+b)^n=\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k",
-            explanation: "A $k=0,\\dots,n$ értékekre összegezve megkapjuk a binomiális tételt."
+            title: "(a+b)ⁿ = Σ C(n,k) aⁿ⁻ᵏ bᵏ",
+            latexContent: "(a+b)^n=\\sum_{k=0}^n\\binom{n}{k}a^{n-k}b^k",
+            explanation: "Az (a+b)ⁿ szorzat n tényező (a+b)·(a+b)·…·(a+b). Egy tag úgy keletkezik, hogy minden tényezőből a-t vagy b-t választunk. Ha pontosan k tényezőből b-t választunk (és n−k-ból a-t), a tag aⁿ⁻ᵏ bᵏ, és az ilyen választások száma C(n,k) = n!/(k!(n−k)!). Összegezve k=0…n-re megkapjuk a binomiális tételt. Speciális esetek: b=1 → (a+1)ⁿ; a=b=1 → Σ C(n,k)=2ⁿ. Példa: (x+1)³ = x³ + 3x² + 3x + 1."
           }
         ]
       },
@@ -1188,21 +996,9 @@ A szóbelin a legfontosabb, hogy pontosan el tudjuk különíteni a kombináció
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Kiválasztás",
-            latexContent: "\\binom{n}{k}",
-            explanation: "Az $n$ elemű halmazból $k$ elem kiválasztásainak száma."
-          },
-          {
-            stepNumber: 2,
-            title: "Komplementer",
-            latexContent: "A\\mapsto \\overline A",
-            explanation: "Minden $k$ elemű részhalmazhoz egyértelműen hozzárendeljük az $n-k$ elemű komplementerét."
-          },
-          {
-            stepNumber: 3,
             title: "Bijekció",
-            latexContent: "\\binom{n}{k}=\\binom{n}{n-k}",
-            explanation: "Ez a hozzárendelés kölcsönösen egyértelmű, tehát a két leszámlálás ugyanannyi."
+            latexContent: "\\binom{n}{k} \\ A\\mapsto \\overline A \\ \\binom{n}{k}=\\binom{n}{n-k}",
+            explanation: "Cél: belátni, hogy A binomiális együtthatók szimmetriája. Az $n$ elemű halmazból $k$ elem kiválasztásainak száma. Ez előkészíti a következő lépést (Kiválasztás). Minden $k$ elemű részhalmazhoz egyértelműen hozzárendeljük az $n-k$ elemű komplementerét. Ez előkészíti a következő lépést (Komplementer). Ez a hozzárendelés kölcsönösen egyértelmű, tehát a két leszámlálás ugyanannyi. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1214,21 +1010,9 @@ A szóbelin a legfontosabb, hogy pontosan el tudjuk különíteni a kombináció
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Kitüntetett elem",
-            latexContent: "x\\in H,\\ |H|=n",
-            explanation: "Az $n$ elemű halmazból választunk $k$ elemet; jelöljünk ki egy $x$ elemet."
-          },
-          {
-            stepNumber: 2,
-            title: "Két eset",
-            latexContent: "x\\in A \\text{ vagy } x\\notin A",
-            explanation: "Ha $x$ benne van a kiválasztott halmazban, a maradék $k-1$ elemet $n-1$-ből választjuk; ha nincs, $k$ elemet választunk $n-1$-ből."
-          },
-          {
-            stepNumber: 3,
             title: "Összeg",
-            latexContent: "\\binom{n}{k}=\\binom{n-1}{k-1}+\\binom{n-1}{k}",
-            explanation: "A két eset egymást kizárja és lefedi az összes lehetőséget, ezért összeadhatók."
+            latexContent: "x\\in H,\\ |H|=n \\ x\\in A \\text{ vagy } x\\notin A \\ \\binom{n}{k}=\\binom{n-1}{k-1}+\\binom{n-1}{k}",
+            explanation: "Cél: belátni, hogy A Pascal-azonosság. Az $n$ elemű halmazból választunk $k$ elemet; jelöljünk ki egy $x$ elemet. Ez előkészíti a következő lépést (Kitüntetett elem). Ha $x$ benne van a kiválasztott halmazban, a maradék $k-1$ elemet $n-1$-ből választjuk; ha nincs, $k$ elemet választunk $n-1$-ből. A két eset egymást kizárja és lefedi az összes lehetőséget, ezért összeadhatók. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1236,25 +1020,19 @@ A szóbelin a legfontosabb, hogy pontosan el tudjuk különíteni a kombináció
         theoremNumber: 4,
         title: "A binomiális együtthatók összege",
         statementLatex: "\\sum_{k=0}^{n}\\binom{n}{k}=2^n",
-        proofTitle: "Két út: binomiális tétel és részhalmazok",
+        proofTitle: "Két út: binomiális tétel és részhalmaz-számlálás",
         proofSteps: [
           {
             stepNumber: 1,
             title: "Binomiális tétel",
-            latexContent: "(1+1)^n=\\sum\\binom{n}{k}",
-            explanation: "Az $a=b=1$ helyettesítés közvetlenül adja az összeget."
+            latexContent: "(1+1)^n=\\sum_{k=0}^n\\binom{n}{k}=2^n",
+            explanation: "A binomiális tétel szerint (a+b)ⁿ = Σ C(n,k) a^{n−k} b^k. Legyen a=b=1: (1+1)ⁿ = 2ⁿ = Σ_{k=0}^{n} C(n,k). Tehát a binomiális együtthatók összege pontosan 2ⁿ. Ez a gyors algebrai út — ha a binomiális tételt már kimondtad, ez egy sor."
           },
           {
             stepNumber: 2,
-            title: "Részhalmazok",
-            latexContent: "\\text{minden elemre: benne van / nincs benne}",
-            explanation: "Minden részhalmazt úgy kapunk, hogy minden elemről külön döntünk; ez $2^n$ lehetőség."
-          },
-          {
-            stepNumber: 3,
-            title: "Egyezés",
-            latexContent: "\\sum_{k=0}^{n}\\binom{n}{k}=2^n",
-            explanation: "A $k$ elemű részhalmazok száma $\\binom{n}{k}$; ezek összege az összes részhalmaz száma."
+            title: "Részhalmazok számlálása",
+            latexContent: "\\sum_{k=0}^n\\binom{n}{k}=2^n",
+            explanation: "Kombinatorikus olvasat: C(n,k) az n elemű halmaz k elemű részhalmazainak száma. Minden k-ra összeadva az összes részhalmaz számát kapjuk. Másfelől minden elemről 2 döntés van (benne van / nincs) → 2ⁿ részhalmaz. A két számlálás ugyanazt méri, ezért az összeg 2ⁿ. Szóbelin a részhalmazos út általában érthetőbb."
           }
         ]
       },
@@ -1266,21 +1044,9 @@ A szóbelin a legfontosabb, hogy pontosan el tudjuk különíteni a kombináció
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Összes kiválasztás",
-            latexContent: "|\\Omega|=\\binom{N}{n}",
-            explanation: "Az $N$ elemből $n$-t visszatevés nélkül, sorrend nélkül választunk."
-          },
-          {
-            stepNumber: 2,
-            title: "Kedvező esetek",
-            latexContent: "|A|=\\binom{K}{k}\\binom{N-K}{n-k}",
-            explanation: "A $K$ kedvező elemből $k$-t, a kedvezőtlenekből $n-k$-t választunk, egymástól függetlenül."
-          },
-          {
-            stepNumber: 3,
             title: "Hányados",
-            latexContent: "P(X=k)=\\frac{\\binom{K}{k}\\binom{N-K}{n-k}}{\\binom{N}{n}}",
-            explanation: "Mivel minden $n$ elemű kiválasztás egyenlően valószínű, a klasszikus modell képlete adja az eloszlást."
+            latexContent: "|\\Omega|=\\binom{N}{n} \\ |A|=\\binom{K}{k}\\binom{N-K}{n-k} \\ P(X=k)=\\frac{\\binom{K}{k}\\binom{N-K}{n-k}}{\\binom{N}{n}}",
+            explanation: "Cél: belátni, hogy A hipergeometrikus eloszlás képlete. Az $N$ elemből $n$-t visszatevés nélkül, sorrend nélkül választunk. Ez előkészíti a következő lépést (Összes kiválasztás). A $K$ kedvező elemből $k$-t, a kedvezőtlenekből $n-k$-t választunk, egymástól függetlenül. Mivel minden $n$ elemű kiválasztás egyenlően valószínű, a klasszikus modell képlete adja az eloszlást. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -1645,21 +1411,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Pozíciók",
-            latexContent: "1,2,\\dots,k",
-            explanation: "$k$ egymást követő helyet töltünk ki; a sorrend számít."
-          },
-          {
-            stepNumber: 2,
-            title: "Helyenkénti választás",
-            latexContent: "n\\cdot n\\cdots n",
-            explanation: "Minden pozícióra $n$ lehetőség van, mert az ismétlés megengedett, és a választások függetlenek."
-          },
-          {
-            stepNumber: 3,
             title: "Eredmény",
-            latexContent: "n^k",
-            explanation: "A szorzási szabály szerint a $k$ tényező szorzata $n^k$."
+            latexContent: "1,2,\\dots,k \\ n\\cdot n\\cdots n \\ n^k",
+            explanation: "Cél: belátni, hogy Az ismétléses variáció száma. $k$ egymást követő helyet töltünk ki; a sorrend számít. Ez előkészíti a következő lépést (Pozíciók). Minden pozícióra $n$ lehetőség van, mert az ismétlés megengedett, és a választások függetlenek. A szorzási szabály szerint a $k$ tényező szorzata $n^k$. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1671,21 +1425,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Első hely",
-            latexContent: "n",
-            explanation: "Az első helyre bármelyik $n$ elem kerülhet."
-          },
-          {
-            stepNumber: 2,
-            title: "További helyek",
-            latexContent: "n-1,\\ n-2,\\ \\dots,\\ 1",
-            explanation: "A már elhelyezett elemek nem használhatók újra, ezért a lehetőségek száma fogy."
-          },
-          {
-            stepNumber: 3,
             title: "Szorzat",
-            latexContent: "n(n-1)\\cdots2\\cdot1=n!",
-            explanation: "A szorzási szabály szerint a lehetőségek száma $n!$."
+            latexContent: "n \\ n-1,\\ n-2,\\ \\dots,\\ 1 \\ n(n-1)\\cdots2\\cdot1=n!",
+            explanation: "Cél: belátni, hogy Az ismétlés nélküli permutáció száma. Az első helyre bármelyik $n$ elem kerülhet. Ez előkészíti a következő lépést (Első hely). A már elhelyezett elemek nem használhatók újra, ezért a lehetőségek száma fogy. Ez előkészíti a következő lépést (További helyek). A szorzási szabály szerint a lehetőségek száma $n!$. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1697,21 +1439,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Különböző elemek",
-            latexContent: "n!",
-            explanation: "Ha minden elem különböző lenne, $n!$ sorrend létezne."
-          },
-          {
-            stepNumber: 2,
-            title: "Azonos elemek cseréje",
-            latexContent: "k_i!\\text{ azonos sorrend}",
-            explanation: "Az $i$-edik fajta $k_i$ darab azonos elem egymás közötti cseréje nem ad új sorrendet, ezért minden valódi sorrendet $k_i!$-szor számoltunk."
-          },
-          {
-            stepNumber: 3,
             title: "Osztás",
-            latexContent: "\\frac{n!}{k_1!\\cdots k_r!}",
-            explanation: "A túlszámlálást minden fajtára kiszűrjük; például $5!/2!=60$."
+            latexContent: "n! \\ k_i!\\text{ azonos sorrend} \\ \\frac{n!}{k_1!\\cdots k_r!}",
+            explanation: "Cél: belátni, hogy Az ismétléses permutáció száma. Ha minden elem különböző lenne, $n!$ sorrend létezne. Ez előkészíti a következő lépést (Különböző elemek). Az $i$-edik fajta $k_i$ darab azonos elem egymás közötti cseréje nem ad új sorrendet, ezért minden valódi sorrendet $k_i!$-szor számoltunk. A túlszámlálást minden fajtára kiszűrjük; például $5!/2!=60$. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1723,21 +1453,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Lineáris sorrendek",
-            latexContent: "n!",
-            explanation: "Ha a körből kivágunk egy helyet, $n!$ lineáris sorrendet kapunk."
-          },
-          {
-            stepNumber: 2,
-            title: "Forgatási osztályok",
-            latexContent: "n\\text{ lineáris reprezentáció / kör}",
-            explanation: "Minden körkörös elrendezésnek pontosan $n$ lineáris reprezentációja van, mert $n$ helyen vághatjuk fel."
-          },
-          {
-            stepNumber: 3,
             title: "Osztás",
-            latexContent: "\\frac{n!}{n}=(n-1)!",
-            explanation: "Ugyanez adódik úgy is, hogy egy elemet rögzítünk, a többit pedig $(n-1)!$-féleképpen rendezzük."
+            latexContent: "n! \\ n\\text{ lineáris reprezentáció / kör} \\ \\frac{n!}{n}=(n-1)!",
+            explanation: "Cél: belátni, hogy A ciklikus permutáció száma. Ha a körből kivágunk egy helyet, $n!$ lineáris sorrendet kapunk. Ez előkészíti a következő lépést (Lineáris sorrendek). Minden körkörös elrendezésnek pontosan $n$ lineáris reprezentációja van, mert $n$ helyen vághatjuk fel. Ugyanez adódik úgy is, hogy egy elemet rögzítünk, a többit pedig $(n-1)!$-féleképpen rendezzük. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1749,21 +1467,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egy konkrét sorozat",
-            latexContent: "p^k(1-p)^{n-k}",
-            explanation: "Egy olyan kimenetel, amelyben pontosan $k$ siker és $n-k$ kudarc van, a függetlenség miatt $p^kq^{n-k}$ valószínűségű."
-          },
-          {
-            stepNumber: 2,
-            title: "A sikerek helye",
-            latexContent: "\\binom nk",
-            explanation: "A $k$ siker helyét az $n$ kísérlet közül $\\binom nk$féleképpen választhatjuk ki."
-          },
-          {
-            stepNumber: 3,
             title: "Összegzés",
-            latexContent: "P(X=k)=\\binom nk p^k(1-p)^{n-k}",
-            explanation: "A kedvező sorozatok valószínűségei egyenlők, ezért a szorzatot megszorozzuk a sorozatok számával."
+            latexContent: "p^k(1-p)^{n-k} \\ \\binom nk \\ P(X=k)=\\binom nk p^k(1-p)^{n-k}",
+            explanation: "Cél: belátni, hogy A binomiális eloszlás képlete. Egy olyan kimenetel, amelyben pontosan $k$ siker és $n-k$ kudarc van, a függetlenség miatt $p^kq^{n-k}$ valószínűségű. A $k$ siker helyét az $n$ kísérlet közül $\\binom nk$féleképpen választhatjuk ki. Ez előkészíti a következő lépést (A sikerek helye). A kedvező sorozatok valószínűségei egyenlők, ezért a szorzatot megszorozzuk a sorozatok számával. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1775,21 +1481,9 @@ A szóbelin a PVC-tábla (permutáció–variáció–kombináció) biztos ismer
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Definíció",
-            latexContent: "E(X)=\\sum_{k=0}^{n}k\\binom nk p^kq^{n-k}",
-            explanation: "A várható érték az értékek valószínűségekkel súlyozott összege."
-          },
-          {
-            stepNumber: 2,
-            title: "Azonosság",
-            latexContent: "k\\binom nk=n\\binom{n-1}{k-1}",
-            explanation: "A binomiális együtthatóra vonatkozó azonosság; ezzel a $k=0$ tag eltűnik."
-          },
-          {
-            stepNumber: 3,
             title: "Kiemelés",
-            latexContent: "E(X)=np\\sum_{j=0}^{n-1}\\binom{n-1}{j}p^jq^{n-1-j}=np",
-            explanation: "A maradó összeg a binomiális tétel szerint $(p+q)^{n-1}=1$, tehát $E(X)=np$."
+            latexContent: "E(X)=\\sum_{k=0}^{n}k\\binom nk p^kq^{n-k} \\ k\\binom nk=n\\binom{n-1}{k-1} \\ E(X)=np\\sum_{j=0}^{n-1}\\binom{n-1}{j}p^jq^{n-1-j}=np",
+            explanation: "Cél: belátni, hogy A binomiális eloszlás várható értéke. A várható érték az értékek valószínűségekkel súlyozott összege. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. A binomiális együtthatóra vonatkozó azonosság; ezzel a $k=0$ tag eltűnik. Ez előkészíti a következő lépést (Azonosság). A maradó összeg a binomiális tétel szerint $(p+q)^{n-1}=1$, tehát $E(X)=np$. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -2172,31 +1866,13 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         theoremNumber: 1,
         title: "$\\sqrt2$ irracionális",
         statementLatex: "\\sqrt2\\notin\\mathbb Q",
-        proofTitle: "Indirekt bizonyítás",
+        proofTitle: "Indirekt bizonyítás paritással",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Feltevés",
-            latexContent: "\\sqrt2=\\frac pq,\\quad (p,q)=1",
-            explanation: "Tegyük fel, hogy $\\sqrt2$ racionális, azaz egy egyszerűsített $p/q$ tört alakjában írható, ahol $p,q$ egész, $q\\neq0$, és közös osztójuk csak 1."
-          },
-          {
-            stepNumber: 2,
-            title: "Négyzetre emelés",
-            latexContent: "2q^2=p^2",
-            explanation: "Mindkét oldalt négyzetre emelve $2=p^2/q^2$, azaz $p^2=2q^2$."
-          },
-          {
-            stepNumber: 3,
-            title: "$p$ páros",
-            latexContent: "p=2k \\implies 2q^2=4k^2 \\implies q^2=2k^2",
-            explanation: "Mivel $p^2$ páros, $p$ is páros (ha $p$ páratlan lenne, $p^2$ is páratlan). Legyen $p=2k$; visszahelyettesítve $q^2=2k^2$, tehát $q$ is páros."
-          },
-          {
-            stepNumber: 4,
-            title: "Ellentmondás",
-            latexContent: "(p,q)=1 \\text{ és } 2\\mid p,\\ 2\\mid q",
-            explanation: "$p$ és $q$ is páros, ami ellentmond az egyszerűsítettségnek. Tehát a feltevés hamis: $\\sqrt2$ irracionális."
+            title: "√2 ∉ ℚ",
+            latexContent: "\\sqrt{2}=\\frac{p}{q}\\ (\\mathrm{lnko}=1) \\implies p^2=2q^2 \\implies p,q\\ \\text{páros} \\implies \\text{ellentmondás}",
+            explanation: "Tegyük fel indirekten, hogy √2 racionális: √2 = p/q, ahol p,q pozitív egészek és lnko(p,q)=1 (tovább nem egyszerűsíthető tört). Négyzetre emelve: 2 = p²/q², tehát p² = 2q². Így p² páros ⇒ p páros (páratlan négyzete páratlan), azaz p = 2k. Beírva: 4k² = 2q² ⇒ q² = 2k² ⇒ q is páros. De akkor p és q is osztható 2-vel, ellentmond az lnko(p,q)=1 feltevésnek. Tehát √2 nem racionális. Tipikus vizsgacsapda: ne felejtsd el kimondani, hogy a tört egyszerűsíthetetlen — enélkül nincs ellentmondás."
           }
         ]
       },
@@ -2204,31 +1880,13 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         theoremNumber: 2,
         title: "Végtelen sok prímszám van",
         statementLatex: "|\\mathbb P|=\\infty",
-        proofTitle: "Euklidész indirekt bizonyítása",
+        proofTitle: "Eukleidész indirekt konstrukciója",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Feltevés",
-            latexContent: "\\mathbb P=\\{p_1,p_2,\\dots,p_n\\}",
-            explanation: "Tegyük fel, hogy csak véges sok prím létezik, és ezeket felsoroltuk."
-          },
-          {
-            stepNumber: 2,
-            title: "Új szám",
-            latexContent: "N=p_1p_2\\cdots p_n+1",
-            explanation: "Képezzük a prímek szorzatánál eggyel nagyobb számot."
-          },
-          {
-            stepNumber: 3,
-            title: "Oszthatóság",
-            latexContent: "p_i\\nmid N \\text{ minden } i\\text{-re}",
-            explanation: "Ha $p_i$ osztaná $N$-t, akkor osztaná $N-p_1\\cdots p_n=1$-et is, ami lehetetlen."
-          },
-          {
-            stepNumber: 4,
-            title: "Ellentmondás",
-            latexContent: "N\\text{-nek van prímosztója, ami nem a listán van}",
-            explanation: "Minden 1-nél nagyobb egésznek van prímosztója; ez nem lehet a felsoroltak között, tehát a lista nem teljes — ellentmondás."
+            title: "N = p₁⋯pₖ + 1",
+            latexContent: "N=(p_1\\cdots p_k)+1 \\not\\equiv 0\\pmod{p_i}",
+            explanation: "Tegyük fel, hogy csak véges sok prím van: p₁,…,pₖ. Képezzük N = (p₁·p₂····pₖ)+1. N>1, tehát van prímosztója. De N-et bármelyik listabeli pᵢ-vel osztva 1 a maradék, tehát egyik pᵢ sem osztja N-et. Így N prímosztója új prím — ellentmondás. A lista tetszőleges véges volt, ezért végtelen sok prímszám létezik. Fontos: N maga nem feltétlenül prím (pl. 2·3·5·7·11·13+1 összetett lehet), de mindig van a listán kívüli prímosztója."
           }
         ]
       },
@@ -2240,27 +1898,9 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Bázis",
-            latexContent: "n=1:\\quad 1=\\frac{1\\cdot2}{2}",
-            explanation: "Az állítás $n=1$-re igaz."
-          },
-          {
-            stepNumber: 2,
-            title: "Indukciós feltevés",
-            latexContent: "1+\\dots+k=\\frac{k(k+1)}{2}",
-            explanation: "Feltesszük, hogy az állítás valamely $k\\ge1$ egészre igaz."
-          },
-          {
-            stepNumber: 3,
-            title: "Öröklődés",
-            latexContent: "\\frac{k(k+1)}{2}+(k+1)=\\frac{(k+1)(k+2)}{2}",
-            explanation: "A feltevést felhasználva hozzáadjuk a $(k+1)$-et, majd közös nevezőre hozunk."
-          },
-          {
-            stepNumber: 4,
             title: "Következtetés",
-            latexContent: "n=k+1 \\text{ is igaz}",
-            explanation: "A bázis és az öröklődés miatt az állítás minden pozitív egész $n$-re igaz."
+            latexContent: "n=1:\\quad 1=\\frac{1\\cdot2}{2} \\ 1+\\dots+k=\\frac{k(k+1)}{2} \\ \\frac{k(k+1)}{2}+(k+1)=\\frac{(k+1)(k+2)}{2} \\ n=k+1 \\text{ is igaz}",
+            explanation: "Cél: belátni, hogy Az első $n$ pozitív egész összege. Az állítás $n=1$-re igaz. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. Feltesszük, hogy az állítás valamely $k\\ge1$ egészre igaz. Az indirekt feltevésből a definíciók és a számelméleti / algebrai tulajdonságok segítségével ellentmondásra jutunk. A feltevést felhasználva hozzáadjuk a $(k+1)$-et, majd közös nevezőre hozunk. Az indirekt feltevésből a definíciók és a számelméleti / algebrai tulajdonságok segítségével ellentmondásra jutunk. A bázis és az öröklődés miatt az állítás minden pozitív egész $n$-re igaz. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -2272,21 +1912,9 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Bázis",
-            latexContent: "n=1:\\quad 2>1",
-            explanation: "Az egyenlőtlenség $n=1$-re teljesül."
-          },
-          {
-            stepNumber: 2,
-            title: "Indukciós feltevés",
-            latexContent: "2^k>k",
-            explanation: "Feltesszük, hogy valamely $k\\ge1$-re igaz."
-          },
-          {
-            stepNumber: 3,
             title: "Öröklődés",
-            latexContent: "2^{k+1}=2\\cdot2^k>2k\\ge k+1",
-            explanation: "A feltevést felhasználva $2\\cdot2^k>2k$; mivel $k\\ge1$, $2k\\ge k+1$. Így $2^{k+1}>k+1$."
+            latexContent: "n=1:\\quad 2>1 \\ 2^k>k \\ 2^{k+1}=2\\cdot2^k>2k\\ge k+1",
+            explanation: "Cél: belátni, hogy $2^n>n$ minden pozitív egész $n$-re. Az egyenlőtlenség $n=1$-re teljesül. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. Feltesszük, hogy valamely $k\\ge1$-re igaz. Az indirekt feltevésből a definíciók és a számelméleti / algebrai tulajdonságok segítségével ellentmondásra jutunk. A feltevést felhasználva $2\\cdot2^k>2k$; mivel $k\\ge1$, $2k\\ge k+1$. Így $2^{k+1}>k+1$. Tehát az összes részhalmaz száma 2ⁿ."
           }
         ]
       },
@@ -2298,21 +1926,9 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Feltevés",
-            latexContent: "\\text{minden rekeszben } \\le1 \\text{ tárgy}",
-            explanation: "Tegyük fel az állítás tagadását: minden rekeszben legfeljebb egy tárgy van."
-          },
-          {
-            stepNumber: 2,
-            title: "Összeszámolás",
-            latexContent: "\\text{legfeljebb } n\\cdot1=n \\text{ tárgy}",
-            explanation: "Ekkor összesen legfeljebb $n$ tárgyat helyezhettünk volna el."
-          },
-          {
-            stepNumber: 3,
             title: "Ellentmondás",
-            latexContent: "n+1>n",
-            explanation: "Ez ellentmond annak, hogy $n+1$ tárgyat helyeztünk el; tehát valamelyik rekeszben legalább két tárgy van."
+            latexContent: "\\text{minden rekeszben } \\le1 \\text{ tárgy} \\ \\text{legfeljebb } n\\cdot1=n \\text{ tárgy} \\ n+1>n",
+            explanation: "Cél: belátni, hogy A skatulyaelv. Tegyük fel az állítás tagadását: minden rekeszben legfeljebb egy tárgy van. Az indirekt feltevésből a definíciók és a számelméleti / algebrai tulajdonságok segítségével ellentmondásra jutunk. Ekkor összesen legfeljebb $n$ tárgyat helyezhettünk volna el. Ez előkészíti a következő lépést (Összeszámolás). Ez ellentmond annak, hogy $n+1$ tárgyat helyeztünk el; tehát valamelyik rekeszben legalább két tárgy van. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -2324,21 +1940,9 @@ A leggyakoribb hiba, hogy a jelölt összekeveri a példát a bizonyítással: e
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Ábra",
-            latexContent: "n\\times n \\text{ pontnégyzet}",
-            explanation: "Az $n\\times n$-es pontnégyzet rétegekbe rendezhető: az első réteg 1, a második 3, a harmadik 5, … pontot tartalmaz."
-          },
-          {
-            stepNumber: 2,
-            title: "Rétegek",
-            latexContent: "1+3+5+\\dots+(2n-1)",
-            explanation: "A $k$-adik rétegben $2k-1$ pont van; a rétegek száma $n$, a pontok száma összesen $n^2$."
-          },
-          {
-            stepNumber: 3,
             title: "Indukciós ellenőrzés",
-            latexContent: "n^2+(2n+1)=(n+1)^2",
-            explanation: "Az összefüggés indukcióval is igazolható: a következő páratlan szám hozzáadása éppen a következő négyzetszámot adja."
+            latexContent: "n\\times n \\text{ pontnégyzet} \\ 1+3+5+\\dots+(2n-1) \\ n^2+(2n+1)=(n+1)^2",
+            explanation: "Cél: belátni, hogy Az első $n$ páratlan szám összege. Az $n\\times n$-es pontnégyzet rétegekbe rendezhető: az első réteg 1, a második 3, a harmadik 5, … pontot tartalmaz. A $k$-adik rétegben $2k-1$ pont van; a rétegek száma $n$, a pontok száma összesen $n^2$. Ez előkészíti a következő lépést (Rétegek). Az összefüggés indukcióval is igazolható: a következő páratlan szám hozzáadása éppen a következő négyzetszámot adja. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }

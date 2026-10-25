@@ -116,25 +116,13 @@ Definiáld a deriváltat határértékkel, írd fel az érintőt, említs folyto
         theoremNumber: 1,
         title: 'A hatványfüggvény deriváltja: (x^n)\'=n x^{n-1}',
         statementLatex: "(x^n)'=n x^{n-1} \\quad (n\\in\\mathbb{N}^+)",
-        proofTitle: 'Bizonyítás a differenciahányados és az x^n−a^n azonosság alapján',
+        proofTitle: 'Levezetés a differenciahányados határértékéből',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Differenciahányados felírása',
-            latexContent: "\\frac{x^n-a^n}{x-a}",
-            explanation: 'Az f(x)=x^n függvény differenciahányadosát az a pontban vizsgáljuk.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Számláló szorzattá alakítása',
-            latexContent: 'x^n-a^n=(x-a)(x^{n-1}+x^{n-2}a+\\dots+xa^{n-2}+a^{n-1})',
-            explanation: 'Alkalmazzuk a hatványok különbségének ismert algebrai azonosságát.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Határérték x→a esetén',
-            latexContent: "f'(a)=\\lim_{x\\to a}(x^{n-1}+\\dots+a^{n-1})=n a^{n-1}",
-            explanation: 'Egyszerűsítés után n darab a^{n-1} tag összege marad, így f\'(x)=n x^{n-1}.'
+            title: '(xⁿ)\' = n xⁿ⁻¹',
+            latexContent: '(x^n)\'=n x^{n-1}',
+            explanation: 'Az f(x)=xⁿ függvény a pontbeli deriváltja a differenciahányados határértéke: lim_{x→a} (xⁿ−aⁿ)/(x−a). A számlálót szorzattá bontjuk: xⁿ−aⁿ = (x−a)(xⁿ⁻¹ + xⁿ⁻²a + … + xaⁿ⁻² + aⁿ⁻¹). Az (x−a)-val egyszerűsítve n darab tag összege marad; x→a határértékben mindegyik aⁿ⁻¹ lesz, ezért f′(a)=n aⁿ⁻¹. Az a helyére x-et írva: (xⁿ)′ = n xⁿ⁻¹. Ellenőrzés: n=2 → (x²)′=2x; n=1 → (x)′=1.'
           }
         ]
       },
@@ -142,25 +130,13 @@ Definiáld a deriváltat határértékkel, írd fel az érintőt, említs folyto
         theoremNumber: 2,
         title: 'Fermat-tétel: differenciálható lokális szélsőértékhelyen f\'(x₀)=0',
         statementLatex: "f'(x_0)=0",
-        proofTitle: 'Bizonyítás a jobb és bal oldali differenciahányados előjeléből',
+        proofTitle: 'Fermat: lokális szélsőértéken a derivált nulla',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Lokális maximum feltételezése',
-            latexContent: 'f(x)\\le f(x_0) \\quad (x_0 \\text{ környezetében})',
-            explanation: 'A bizonyítást maximumra végezzük; minimum esetén a jelek fordítottak.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Jobb oldali hányados',
-            latexContent: "x>x_0 \\implies \\frac{f(x)-f(x_0)}{x-x_0}\\le 0 \\implies f'_+(x_0)\\le 0",
-            explanation: 'A számláló nempozitív, a nevező pozitív.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Bal oldali hányados és konklúzió',
-            latexContent: "x<x_0 \\implies \\frac{f(x)-f(x_0)}{x-x_0}\\ge 0 \\implies f'_-(x_0)\\ge 0 \\implies f'(x_0)=0",
-            explanation: 'Differenciálhatóságkor a két oldali derivált egyenlő, ezért csak 0 lehet.'
+            title: 'f\'(x₀) = 0',
+            latexContent: 'f\'(x_0)=0',
+            explanation: 'Tegyük fel, hogy f differenciálható x₀-ban, és ott lokális maximuma van (minimum ugyanígy, fordított egyenlőtlenségekkel): a környezetben f(x) ≤ f(x₀). Jobbról (x>x₀) a differenciahányados ≤ 0, mert a számláló nempozitív, a nevező pozitív — tehát a jobb oldali derivált ≤ 0. Balról (x<x₀) a nevező negatív, a számláló nempozitív, ezért a hányados ≥ 0 — bal oldali derivált ≥ 0. Differenciálhatóság miatt a két oldali derivált egyenlő, így csak 0 lehet: f′(x₀)=0. Figyelem: a megfordítás nem igaz (pl. x³-nak x=0-ban inflexiója van, deriváltja 0, de nincs szélsőérték).'
           }
         ]
       },
@@ -172,15 +148,9 @@ Definiáld a deriváltat határértékkel, írd fel az érintőt, említs folyto
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Növekmény felírása',
-            latexContent: 'f(x+h)g(x+h)-f(x)g(x)=f(x+h)[g(x+h)-g(x)]+[f(x+h)-f(x)]g(x)',
-            explanation: 'Hozzáadunk és kivonunk egy f(x+h)g(x) tagot.'
-          },
-          {
-            stepNumber: 2,
             title: 'Osztás h-val és határérték',
-            latexContent: "\\frac{\\Delta(fg)}{h}=f(x+h)\\cdot\\frac{\\Delta g}{h}+\\frac{\\Delta f}{h}\\cdot g(x) \\xrightarrow{h\\to 0} f(x)g'(x)+f'(x)g(x)",
-            explanation: 'A folytonosság miatt f(x+h)→f(x), a differenciahányadosok pedig a deriváltakhoz tartanak.'
+            latexContent: '\\frac{\\Delta(fg)}{h}=f(x+h)\\cdot\\frac{\\Delta g}{h}+\\frac{\\Delta f}{h}\\cdot g(x) \\xrightarrow{h\\to 0} f(x)g\'(x)+f\'(x)g(x)',
+            explanation: 'Cél: belátni, hogy Szorzatszabály. Hozzáadunk és kivonunk egy f(x+h)g(x) tagot. Ez előkészíti a következő lépést (Növekmény felírása). A folytonosság miatt f(x+h)→f(x), a differenciahányadosok pedig a deriváltakhoz tartanak. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -381,25 +351,13 @@ A szóbelin ez a tétel két dolgot kér számon egyszerre: a geometriai tétele
         theoremNumber: 1,
         title: 'Pitagorasz tétele',
         statementLatex: 'a^2+b^2=c^2',
-        proofTitle: 'Bizonyítás befogótételekkel',
+        proofTitle: 'Bizonyítás befogótételekkel / területekkel',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Befogótételek',
-            latexContent: 'a^2=cp, \\quad b^2=cq',
-            explanation: 'A magasság által létrehozott két kis háromszög hasonló az eredetihez, ebből adódnak a befogótételek.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Összeadás',
-            latexContent: 'a^2+b^2=c(p+q)=c\\cdot c=c^2',
-            explanation: 'Mivel $p+q=c$, a két egyenlőség összeadásával a Pitagorasz-tételt kapjuk.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Megfordítás',
-            latexContent: 'a^2+b^2=c^2 \\implies \\gamma=90^\\circ',
-            explanation: 'A koszinusztételből $c^2=a^2+b^2-2ab\\cos\\gamma$; ha $c^2=a^2+b^2$, akkor $\\cos\\gamma=0$, azaz $\\gamma=90^\\circ$.'
+            title: 'a² + b² = c²',
+            latexContent: 'a^2+b^2=c^2',
+            explanation: 'Derékszögű háromszögben a,b befogók, c átfogó. Egy tiszta út: a magasság az átfogóra két kisebb, az eredetihez hasonló háromszöget vág. A befogótétel: a² = c·a′ és b² = c·b′, ahol a′,b′ az átfogó szeletei. Összeadva a²+b² = c(a′+b′) = c·c = c². (Területes bizonyítás is van: négy háromszög + belső négyzet.) Ellenőrzés: 3-4-5 → 9+16=25.'
           }
         ],
         notes: 'A megfordítás bizonyítása koszinusztétellel a legrövidebb; a tankönyvi átdarabolásos bizonyítás ugyanerre az eredményre vezet.'
@@ -412,27 +370,9 @@ A szóbelin ez a tétel két dolgot kér számon egyszerre: a geometriai tétele
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Hasonló háromszögek',
-            latexContent: '\\triangle ATC \\sim \\triangle BTC \\sim \\triangle ABC',
-            explanation: 'Az átfogóhoz tartozó magasság két derékszögű háromszögre bontja az eredetit; mindháromban megjelenik az $\\alpha$ és a $90^\\circ-\\alpha$ szög.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Magasságtétel',
-            latexContent: '\\frac{m}{p}=\\frac{q}{m} \\implies m^2=pq',
-            explanation: 'Az $ATC$ és $BTC$ háromszögekben a megfelelő befogók aránya egyenlő; keresztszorzással adódik a magasságtétel.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Befogótétel',
-            latexContent: '\\frac{b}{q}=\\frac{c}{b} \\implies b^2=qc',
-            explanation: 'Az $ATC$ és $ABC$ háromszögek hasonlóságából; a másik befogóra ugyanígy $a^2=pc$.'
-          },
-          {
-            stepNumber: 4,
             title: 'Ellenőrzés',
-            latexContent: 'a^2+b^2=c(p+q)=c^2',
-            explanation: 'A két befogótétel összege visszaadja a Pitagorasz-tételt, ami mutatja az állítások konzisztenciáját.'
+            latexContent: '\\triangle ATC \\sim \\triangle BTC \\sim \\triangle ABC \\ \\frac{m}{p}=\\frac{q}{m} \\implies m^2=pq \\ \\frac{b}{q}=\\frac{c}{b} \\implies b^2=qc \\ a^2+b^2=c(p+q)=c^2',
+            explanation: 'Cél: belátni, hogy Magasság- és befogótétel. Az átfogóhoz tartozó magasság két derékszögű háromszögre bontja az eredetit; mindháromban megjelenik az $\\alpha$ és a $90^\\circ-\\alpha$ szög. Az $ATC$ és $BTC$ háromszögekben a megfelelő befogók aránya egyenlő; keresztszorzással adódik a magasságtétel. Az $ATC$ és $ABC$ háromszögek hasonlóságából; a másik befogóra ugyanígy $a^2=pc$. Ez előkészíti a következő lépést (Befogótétel). A két befogótétel összege visszaadja a Pitagorasz-tételt, ami mutatja az állítások konzisztenciáját. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -444,27 +384,9 @@ A szóbelin ez a tétel két dolgot kér számon egyszerre: a geometriai tétele
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Sugár behúzása',
-            latexContent: 'OA=OB=OC=r',
-            explanation: 'Az $AB$ az átmérő, $C$ a körön van, $O$ a középpont. Az $OAC$ és $OBC$ háromszögek egyenlő szárúak.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Alapszögek',
-            latexContent: '\\angle OAC=\\angle OCA=\\alpha, \\quad \\angle OBC=\\angle OCB=\\beta',
-            explanation: 'Egyenlő szárú háromszögekben az alapon fekvő szögek egyenlők.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Szögek összege',
-            latexContent: '2\\alpha+2\\beta=180^\\circ \\implies \\alpha+\\beta=90^\\circ',
-            explanation: 'Az $ABC$ háromszög szögeinek összege $180^\\circ$, és $\\angle ACB=\\alpha+\\beta$.'
-          },
-          {
-            stepNumber: 4,
             title: 'Megfordítás',
-            latexContent: '\\angle ACB=90^\\circ \\implies AB \\text{ átmérő}',
-            explanation: 'A köré írt kör középpontja a derékszögű háromszögnél az átfogó felezőpontja, tehát az átfogó átmérő.'
+            latexContent: 'OA=OB=OC=r \\ \\angle OAC=\\angle OCA=\\alpha, \\quad \\angle OBC=\\angle OCB=\\beta \\ 2\\alpha+2\\beta=180^\\circ \\implies \\alpha+\\beta=90^\\circ \\ \\angle ACB=90^\\circ \\implies AB \\text{ átmérő}',
+            explanation: 'Cél: belátni, hogy Thalész tétele. Az $AB$ az átmérő, $C$ a körön van, $O$ a középpont. Az $OAC$ és $OBC$ háromszögek egyenlő szárúak. Egyenlő szárú háromszögekben az alapon fekvő szögek egyenlők. Ez előkészíti a következő lépést (Alapszögek). Az $ABC$ háromszög szögeinek összege $180^\\circ$, és $\\angle ACB=\\alpha+\\beta$. Ez előkészíti a következő lépést (Szögek összege). A köré írt kör középpontja a derékszögű háromszögnél az átfogó felezőpontja, tehát az átfogó átmérő. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -476,27 +398,9 @@ A szóbelin ez a tétel két dolgot kér számon egyszerre: a geometriai tétele
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Definíciók',
-            latexContent: '\\sin\\alpha=\\frac{a}{c}, \\quad \\cos\\alpha=\\frac{b}{c}',
-            explanation: 'A derékszögű háromszög befogóinak és átfogójának arányai.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Négyzetösszeg',
-            latexContent: '\\sin^2\\alpha+\\cos^2\\alpha=\\frac{a^2+b^2}{c^2}',
-            explanation: 'Közös nevezőre hozva a számlálóban a két befogó négyzetösszege áll.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Pitagorasz',
-            latexContent: '\\frac{a^2+b^2}{c^2}=\\frac{c^2}{c^2}=1',
-            explanation: 'A Pitagorasz-tétel szerint $a^2+b^2=c^2$, tehát a hányados 1.'
-          },
-          {
-            stepNumber: 4,
             title: 'Egységkörös megjelenés',
-            latexContent: '(\\cos\\alpha)^2+(\\sin\\alpha)^2=1',
-            explanation: 'Az egységkörön a pont koordinátái $\\cos\\alpha$ és $\\sin\\alpha$; a pont a körön van, ezért a koordináták négyzetösszege 1.'
+            latexContent: '\\sin\\alpha=\\frac{a}{c}, \\quad \\cos\\alpha=\\frac{b}{c} \\ \\sin^2\\alpha+\\cos^2\\alpha=\\frac{a^2+b^2}{c^2} \\ \\frac{a^2+b^2}{c^2}=\\frac{c^2}{c^2}=1 \\ (\\cos\\alpha)^2+(\\sin\\alpha)^2=1',
+            explanation: 'Cél: belátni, hogy Az alapazonosság. A derékszögű háromszög befogóinak és átfogójának arányai. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. Közös nevezőre hozva a számlálóban a két befogó négyzetösszege áll. Ez előkészíti a következő lépést (Négyzetösszeg). A Pitagorasz-tétel szerint $a^2+b^2=c^2$, tehát a hányados 1. Ez előkészíti a következő lépést (Pitagorasz). Az egységkörön a pont koordinátái $\\cos\\alpha$ és $\\sin\\alpha$; a pont a körön van, ezért a koordináták négyzetösszege 1. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -508,21 +412,9 @@ A szóbelin ez a tétel két dolgot kér számon egyszerre: a geometriai tétele
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'A két hegyesszög',
-            latexContent: '\\alpha+\\beta=90^\\circ',
-            explanation: 'A derékszögű háromszög két hegyesszögének összege $90^\\circ$, tehát $\\beta=90^\\circ-\\alpha$.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Szinusz $\\beta$-ra',
-            latexContent: '\\sin\\beta=\\frac{b}{c}',
-            explanation: 'A $\\beta$ szöggel szemközti befogó $b$, az átfogó $c$.'
-          },
-          {
-            stepNumber: 3,
             title: 'Összevetés',
-            latexContent: '\\sin(90^\\circ-\\alpha)=\\frac{b}{c}=\\cos\\alpha',
-            explanation: 'Ugyanez a hányados a $\\alpha$ szög koszinusza; a másik azonosság a szerepek felcserélésével adódik.'
+            latexContent: '\\alpha+\\beta=90^\\circ \\ \\sin\\beta=\\frac{b}{c} \\ \\sin(90^\\circ-\\alpha)=\\frac{b}{c}=\\cos\\alpha',
+            explanation: 'Cél: belátni, hogy A pótszög-összefüggések. A derékszögű háromszög két hegyesszögének összege $90^\\circ$, tehát $\\beta=90^\\circ-\\alpha$. A $\\beta$ szöggel szemközti befogó $b$, az átfogó $c$. Ez előkészíti a következő lépést (Szinusz $\\beta$-ra). Ugyanez a hányados a $\\alpha$ szög koszinusza; a másik azonosság a szerepek felcserélésével adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -789,27 +681,9 @@ A témakör a szóbelin azért kedvelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Középvonal',
-            latexContent: 'F_aF_b\\parallel AB, \\quad F_aF_b=\\frac{AB}{2}',
-            explanation: 'Két oldal felezőpontját összekötő szakasz középvonala a harmadik oldalnak: párhuzamos vele és fele olyan hosszú.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Hasonló háromszögek',
-            latexContent: '\\triangle ABS \\sim \\triangle F_bSF_a',
-            explanation: 'Az $AB$ és $F_aF_b$ párhuzamos, ezért az $ASB$ és $F_bSF_a$ háromszögek csúcsszögei és váltószögei egyenlők, tehát hasonlók.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Hasonlósági arány',
-            latexContent: '\\frac{AS}{SF_a}=\\frac{AB}{F_aF_b}=2',
-            explanation: 'A hasonlóság aránya a megfelelő oldalak hányadosa: $AB:F_aF_b=2:1$, tehát $AS=2\\,SF_a$.'
-          },
-          {
-            stepNumber: 4,
             title: 'Egyértelműség',
-            latexContent: 'S \\text{ mindhárom súlyvonalon rajta van}',
-            explanation: 'Ugyanez az arány a másik két súlyvonalra is; mivel két súlyvonal egyetlen pontban metszi egymást, a harmadik is átmegy ezen a ponton.'
+            latexContent: 'F_aF_b\\parallel AB, \\quad F_aF_b=\\frac{AB}{2} \\ \\triangle ABS \\sim \\triangle F_bSF_a \\ \\frac{AS}{SF_a}=\\frac{AB}{F_aF_b}=2 \\ S \\text{ mindhárom súlyvonalon rajta van}',
+            explanation: 'Cél: belátni, hogy A súlypont 2:1 arányban osztja a súlyvonalat. Két oldal felezőpontját összekötő szakasz középvonala a harmadik oldalnak: párhuzamos vele és fele olyan hosszú. Az $AB$ és $F_aF_b$ párhuzamos, ezért az $ASB$ és $F_bSF_a$ háromszögek csúcsszögei és váltószögei egyenlők, tehát hasonlók. A hasonlóság aránya a megfelelő oldalak hányadosa: $AB:F_aF_b=2:1$, tehát $AS=2\\,SF_a$. Ez előkészíti a következő lépést (Hasonlósági arány). Ugyanez az arány a másik két súlyvonalra is; mivel két súlyvonal egyetlen pontban metszi egymást, a harmadik is átmegy ezen a ponton. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -817,31 +691,13 @@ A témakör a szóbelin azért kedvelt, mert egyetlen ábrán egyszerre kérhet�
         theoremNumber: 2,
         title: 'Az oldalfelező merőlegesek egy pontban metszik egymást',
         statementLatex: 'e\\cap f\\cap g=K',
-        proofTitle: 'Bizonyítás egyenlő távolságok tranzitivitásával',
+        proofTitle: 'Bizonyítás: egyenlő távolságok tranzitivitása',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Két felezőmerőleges metszéspontja',
-            latexContent: 'K=e\\cap f, \\quad e\\bot AB, \\quad f\\bot BC',
-            explanation: 'Az $AB$ és $BC$ oldalak felezőmerőlegesei egy $K$ pontban metszik egymást (nem párhuzamosak).'
-          },
-          {
-            stepNumber: 2,
-            title: 'Egyenlő távolságok',
-            latexContent: 'KA=KB, \\quad KB=KC',
-            explanation: 'A felezőmerőleges pontjai a szakasz végpontjaitól egyenlő távolságra vannak.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Tranzitivitás',
-            latexContent: 'KA=KC \\implies K\\in g',
-            explanation: 'A $K$ az $AC$ végpontjaitól is egyenlő távolságra van, tehát rajta van az $AC$ felezőmerőlegesén is.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Köré írt kör',
-            latexContent: 'R=KA=KB=KC',
-            explanation: 'A $K$ körüli $R$ sugarú kör átmegy mindhárom csúcson: ez a köré írt kör.'
+            title: 'Köré írt kör középpontja',
+            latexContent: 'K = e \\cap f \\implies KA = KB = KC',
+            explanation: 'Vegyük az AB és BC oldalak e és f felezőmerőlegesét. Mivel az oldalak nem párhuzamosak, e és f egyetlen K pontban metszi egymást. A felezőmerőleges mértani hely: e pontjai egyenlő távol vannak A-tól és B-től, tehát KA = KB; hasonlóan KB = KC. A távolságok tranzitivitásával KA = KB = KC, azaz K az A-tól és C-től is egyenlő távol van — ezért K rajta van az AC felezőmerőlegesén is. Tehát a három felezőmerőleges egy pontban metszi egymást, és ez a K pont a köré írt kör középpontja (sugár KA). Szemlélet: K az a pont, ahonnan mindhárom csúcs „ugyanolyan messze” van.'
           }
         ]
       },
@@ -849,31 +705,13 @@ A témakör a szóbelin azért kedvelt, mert egyetlen ábrán egyszerre kérhet�
         theoremNumber: 3,
         title: 'A belső szögfelezők egy pontban metszik egymást',
         statementLatex: 'O=e\\cap f\\cap g',
-        proofTitle: 'Bizonyítás oldaltávolságok egyenlőségével',
+        proofTitle: 'Bizonyítás: oldaltávolságok egyenlősége',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Két szögfelező metszéspontja',
-            latexContent: 'O=e\\cap f',
-            explanation: 'Az $\\alpha$ és $\\beta$ belső szögfelezőinek metszéspontja $O$.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Távolság a száraktól',
-            latexContent: 'd(O,AB)=d(O,AC)=d(O,BC)',
-            explanation: 'A szögfelező mértani hely: $O$ egyenlő távol van a szögszáraktól, azaz a megfelelő oldalegyenesektől.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Harmadik szögfelező',
-            latexContent: 'd(O,AB)=d(O,BC) \\implies O\\in g',
-            explanation: 'Mivel $O$ az $AB$ és $BC$ egyenesétől is egyenlő távol van, rajta van a $\\beta$ szögfelezőjén; a harmadik szögfelezőn való benne lét ugyanígy adódik.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Beírt kör',
-            latexContent: 'r=d(O,\\text{oldal}), \\quad T=rs',
-            explanation: 'Az $O$ körüli $r$ sugarú kör mindhárom oldalt érinti; a terület a három kis háromszög területének összege, innen $T=rs$.'
+            title: 'Beírható kör középpontja',
+            latexContent: 'd(O,AB)=d(O,BC)=d(O,CA)=r',
+            explanation: 'Legyen e az α, f a β szögfelezője, O = e ∩ f. A szögfelező mértani helye: pontjai egyenlő távol vannak a két szártól, ezért d(O,AB) = d(O,AC) és d(O,BA) = d(O,BC). Innen d(O,AC) = d(O,BC) is, tehát O a γ szögfelezőjén is rajta van. O mindhárom oldaltól ugyanarra az r távolságra van: ez a beírható kör középpontja, r a sugár. Megjegyzés: a magasságpont / súlypont más mértani hely; itt a kulcs az „egyenlő oldaltávolság”.'
           }
         ]
       },
@@ -885,27 +723,9 @@ A témakör a szóbelin azért kedvelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Súlypont helyzete',
-            latexContent: '\\vec s=\\frac{\\vec a+\\vec b+\\vec c}{3}',
-            explanation: 'A súlypont helyvektora a csúcsok helyvektorainak átlaga.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Magasságpont és köré írt kör',
-            latexContent: '\\vec m=\\vec a+\\vec b+\\vec c-2\\vec k',
-            explanation: 'A köré írt kör középpontjára vonatkozó tükrözés és a magasságpont kapcsolata; a csúcsok helyvektorai és $\\vec k$ segítségével felírható.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Lineáris kapcsolat',
-            latexContent: '\\vec s=\\frac{2\\vec k+\\vec m}{3}',
-            explanation: 'Az előző két összefüggésből $\\vec m=3\\vec s-2\\vec k$, ami átrendezve $\\vec s=\\frac{2\\vec k+\\vec m}{3}$. Ez éppen azt jelenti, hogy $S$ a $KM$ szakaszt $K$-tól számítva $1:2$ arányban osztja.'
-          },
-          {
-            stepNumber: 4,
             title: 'Következmény',
-            latexContent: 'K,S,M \\text{ egy egyenesen}',
-            explanation: 'A vektoros összefüggés szerint a három pont kollineáris; ez az Euler-egyenes. A Feuerbach-kör középpontja a $KM$ felezőpontja.'
+            latexContent: '\\vec s=\\frac{\\vec a+\\vec b+\\vec c}{3} \\ \\vec m=\\vec a+\\vec b+\\vec c-2\\vec k \\ \\vec s=\\frac{2\\vec k+\\vec m}{3} \\ K,S,M \\text{ egy egyenesen}',
+            explanation: 'Cél: belátni, hogy Euler-egyenes: $K,S,M$ kollineárisak. A súlypont helyvektora a csúcsok helyvektorainak átlaga. Ez előkészíti a következő lépést (Súlypont helyzete). A köré írt kör középpontjára vonatkozó tükrözés és a magasságpont kapcsolata; a csúcsok helyvektorai és $\\vec k$ segítségével felírható. Az előző két összefüggésből $\\vec m=3\\vec s-2\\vec k$, ami átrendezve $\\vec s=\\frac{2\\vec k+\\vec m}{3}$. Ez éppen azt jelenti, hogy $S$ a $KM$ szakaszt $K$-tól számítva $1:2$ arányban osztja. A vektoros összefüggés szerint a három pont kollineáris; ez az Euler-egyenes. A Feuerbach-kör középpontja a $KM$ felezőpontja. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ],
         notes: 'Az állítás vektoros bizonyítása a leggyorsabb; az elemi bizonyítás a középponti vetítést (homotéciát) használja $S$ körül $-\\frac12$ aránnyal.'
@@ -918,21 +738,9 @@ A témakör a szóbelin azért kedvelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Segédegyenes',
-            latexContent: 'CE\\parallel AD, \\quad E\\in AB',
-            explanation: 'A $C$ csúcson át párhuzamost húzunk a szögfelezővel; ez az $AB$ egyenesét $E$-ben metszi.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Váltószögek',
-            latexContent: '\\angle ACE=\\angle CAD=\\angle DAB=\\angle AEC',
-            explanation: 'A párhuzamosok miatt a váltószögek egyenlők; így az $ACE$ háromszög egyenlő szárú, $AC=AE$.'
-          },
-          {
-            stepNumber: 3,
             title: 'Párhuzamos szelők',
-            latexContent: '\\frac{BD}{DC}=\\frac{AB}{AE}=\\frac{AB}{AC}',
-            explanation: 'A párhuzamos szelők tételét alkalmazzuk az $ABE$ háromszögre; $AE=AC$ helyettesítéssel adódik az állítás.'
+            latexContent: 'CE\\parallel AD, \\quad E\\in AB \\ \\angle ACE=\\angle CAD=\\angle DAB=\\angle AEC \\ \\frac{BD}{DC}=\\frac{AB}{AE}=\\frac{AB}{AC}',
+            explanation: 'Cél: belátni, hogy Szögfelező-tétel. A $C$ csúcson át párhuzamost húzunk a szögfelezővel; ez az $AB$ egyenesét $E$-ben metszi. Ez előkészíti a következő lépést (Segédegyenes). A párhuzamosok miatt a váltószögek egyenlők; így az $ACE$ háromszög egyenlő szárú, $AC=AE$. A párhuzamos szelők tételét alkalmazzuk az $ABE$ háromszögre; $AE=AC$ helyettesítéssel adódik az állítás. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -1243,27 +1051,9 @@ A szóbelin kiemelt szerepe van a **kétértelmű esetnek**: ez az egyetlen hely
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Magasság kétféleképpen',
-            latexContent: 'm_c=a\\sin\\beta=b\\sin\\alpha',
-            explanation: 'A $c$ oldalhoz tartozó magasságot a két derékszögű részháromszögben írjuk fel; hegyesszögeknél a szinusz definíciója közvetlenül adja, tompaszögnél a kiegészítő szöggel ugyanez érvényes.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Átrendezés',
-            latexContent: '\\frac{a}{\\sin\\alpha}=\\frac{b}{\\sin\\beta}',
-            explanation: 'Az $a\\sin\\beta=b\\sin\\alpha$ egyenlőséget osztva $\\sin\\alpha\\sin\\beta$-val kapjuk az első aránypárt.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Harmadik arány',
-            latexContent: '\\frac{a}{\\sin\\alpha}=\\frac{c}{\\sin\\gamma}',
-            explanation: 'Ugyanezt a gondolatmenetet a $b$ oldalhoz tartozó magasságra megismételve adódik a harmadik oldal aránya.'
-          },
-          {
-            stepNumber: 4,
-            title: 'A $2R$ kapcsolat',
-            latexContent: 'a=2R\\sin\\alpha',
-            explanation: 'A köré írt körben az $a$ húrhoz tartozó kerületi szög $\\alpha$, a középponti szög $2\\alpha$; a húr hossza $2R\\sin\\alpha$. Innen az arány értéke $2R$.'
+            title: 'a/sin α = 2R',
+            latexContent: '\\frac{a}{\\sin\\alpha}=\\frac{b}{\\sin\\beta}=\\frac{c}{\\sin\\gamma}=2R',
+            explanation: 'Egyszerű út magassággal: az A csúcsból a BC-re emelt m magasságra m = b sin γ = c sin β, innen b/sin β = c/sin γ. Ugyanígy a többi arány. Erősebb alak: a köré írt körben a kerületi szög és a húr miatt a = 2R sin α (átmérős Thalész-helyzet / területképlet), tehát a/sin α = 2R. Használat: két oldal + nemközrezárt szög, vagy két szög + egy oldal.'
           }
         ]
       },
@@ -1271,31 +1061,13 @@ A szóbelin kiemelt szerepe van a **kétértelmű esetnek**: ez az egyetlen hely
         theoremNumber: 2,
         title: 'Koszinusztétel',
         statementLatex: 'c^2=a^2+b^2-2ab\\cos\\gamma',
-        proofTitle: 'Bizonyítás skaláris szorzattal',
+        proofTitle: 'Bizonyítás skaláris szorzattal (vagy Pitagorasz + vetület)',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Vektorösszefüggés',
-            latexContent: '\\vec c=\\vec a-\\vec b',
-            explanation: 'A $\\gamma$ csúcsból kiinduló két oldalvektor $\\vec a$ és $\\vec b$; a harmadik oldal a különbségük.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Hossz négyzete',
-            latexContent: '|\\vec c|^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b',
-            explanation: 'A különbségvektor önmagával vett skaláris szorzata; felhasználjuk a disztributivitást és a kommutativitást.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Skaláris szorzat',
-            latexContent: '\\vec a\\cdot\\vec b=ab\\cos\\gamma',
-            explanation: 'A skaláris szorzat geometriai definíciója szerint.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Eredmény',
+            title: 'c² = a² + b² − 2ab cos γ',
             latexContent: 'c^2=a^2+b^2-2ab\\cos\\gamma',
-            explanation: 'Behelyettesítve adódik a koszinusztétel. Derékszög esetén $\\cos90^\\circ=0$, így a Pitagorasz-tételt kapjuk vissza.'
+            explanation: 'Vektorosan: legyen c = a − b (oldalvektorok). Ekkor |c|² = (a−b)·(a−b) = |a|²+|b|²−2 a·b = a²+b²−2ab cos γ, ahol γ a két oldal közti szög. Elemi út: a magasság egyik befogóra; Pitagorasz a két derékszögű darabon, a koszinusz a vetület. Ha γ=90°, cos γ=0 → Pitagorasz. Ha γ tompaszög, cos negatív, c² > a²+b² — ez is stimmel.'
           }
         ]
       },
@@ -1307,21 +1079,9 @@ A szóbelin kiemelt szerepe van a **kétértelmű esetnek**: ez az egyetlen hely
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Magasság',
-            latexContent: 'm_b=a\\sin\\gamma',
-            explanation: 'A $b$ oldalhoz tartozó magasság az $a$ oldal és a $\\gamma$ szög szinuszának szorzata; tompaszög esetén a magasság $a\\sin(180^\\circ-\\gamma)=a\\sin\\gamma$.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Behelyettesítés',
-            latexContent: 'T=\\frac12 b\\,m_b=\\frac12 ab\\sin\\gamma',
-            explanation: 'A háromszög területképletébe ($\\frac12\\cdot$ alap $\\cdot$ magasság) helyettesítünk.'
-          },
-          {
-            stepNumber: 3,
             title: 'Ciklikus változatok',
-            latexContent: 'T=\\frac12 bc\\sin\\alpha=\\frac12 ac\\sin\\beta',
-            explanation: 'A szerepek ciklikus felcserélésével a másik két szög-párra is felírható ugyanez.'
+            latexContent: 'm_b=a\\sin\\gamma \\ T=\\frac12 b\\,m_b=\\frac12 ab\\sin\\gamma \\ T=\\frac12 bc\\sin\\alpha=\\frac12 ac\\sin\\beta',
+            explanation: 'Cél: belátni, hogy A trigonometrikus területképlet. A $b$ oldalhoz tartozó magasság az $a$ oldal és a $\\gamma$ szög szinuszának szorzata; tompaszög esetén a magasság $a\\sin(180^\\circ-\\gamma)=a\\sin\\gamma$. A háromszög területképletébe ($\\frac12\\cdot$ alap $\\cdot$ magasság) helyettesítünk. Ez előkészíti a következő lépést (Behelyettesítés). A szerepek ciklikus felcserélésével a másik két szög-párra is felírható ugyanez. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1333,33 +1093,9 @@ A szóbelin kiemelt szerepe van a **kétértelmű esetnek**: ez az egyetlen hely
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Terület szinuszos alakja',
-            latexContent: 'T=\\frac12 ab\\sin\\gamma',
-            explanation: 'Kiindulunk a trigonometrikus területképletből.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Koszinusztétel',
-            latexContent: '\\cos\\gamma=\\frac{a^2+b^2-c^2}{2ab}',
-            explanation: 'A $\\gamma$ szög koszinuszát a koszinusztételből fejezzük ki.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Szinusz négyzete',
-            latexContent: '\\sin^2\\gamma=1-\\cos^2\\gamma=\\frac{4a^2b^2-(a^2+b^2-c^2)^2}{4a^2b^2}',
-            explanation: 'Közös nevezőre hozás után a számláló nevezetes szorzattá alakítható.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Tényezőkre bontás',
-            latexContent: '4a^2b^2-(a^2+b^2-c^2)^2=((a+b)^2-c^2)(c^2-(a-b)^2)',
-            explanation: 'Két négyzet különbsége: $4a^2b^2=(2ab)^2$, majd az $(a^2+b^2-c^2)$ kifejezéssel alkalmazzuk az $x^2-y^2$ azonosságot.'
-          },
-          {
-            stepNumber: 5,
             title: 'Hérón alak',
             latexContent: 'T^2=s(s-a)(s-b)(s-c)',
-            explanation: 'A tényezők tovább bontva $(a+b+c)(a+b-c)(c+a-b)(c-a+b)$ alakúak, ami a félkerülettel éppen a Hérón-képlet négyzetét adja.'
+            explanation: 'Cél: belátni, hogy Hérón-képlet. Kiindulunk a trigonometrikus területképletből. Ez előkészíti a következő lépést (Terület szinuszos alakja). A $\\gamma$ szög koszinuszát a koszinusztételből fejezzük ki. Ez előkészíti a következő lépést (Koszinusztétel). Közös nevezőre hozás után a számláló nevezetes szorzattá alakítható. Ez előkészíti a következő lépést (Szinusz négyzete). Két négyzet különbsége: $4a^2b^2=(2ab)^2$, majd az $(a^2+b^2-c^2)$ kifejezéssel alkalmazzuk az $x^2-y^2$ azonosságot. A tényezők tovább bontva $(a+b+c)(a+b-c)(c+a-b)(c-a+b)$ alakúak, ami a félkerülettel éppen a Hérón-képlet négyzetét adja. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ],
         notes: 'A levezetés lényege, hogy $\\sin\\gamma$-t algebrai úton fejezzük ki az oldalakból; a gyökvonásnál a pozitív előjelet választjuk, mert a terület nemnegatív.'
@@ -1372,27 +1108,9 @@ A szóbelin kiemelt szerepe van a **kétértelmű esetnek**: ez az egyetlen hely
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Szinusztétel',
-            latexContent: '\\frac{a}{b}=\\frac{\\sin\\alpha}{\\sin\\beta}',
-            explanation: 'A szinusztételből az oldalak aránya a szemközti szögek szinuszának arányával egyenlő.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Monotonitás',
-            latexContent: 'a>b \\iff \\sin\\alpha>\\sin\\beta',
-            explanation: 'A háromszög szögeire $\\alpha,\\beta\\in(0,180^\\circ)$, és a szinusz ezen a tartományon nem monoton — ezért itt óvatosan kell érvelni.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Háromszög-egyenlőtlenség',
-            latexContent: '\\alpha+\\beta<180^\\circ \\implies \\alpha>\\beta \\iff \\sin\\alpha>\\sin\\beta',
-            explanation: 'Két olyan szögre, amelyek összege $180^\\circ$ alatt van, a szinusz szigorúan monoton nő; ezért az összehasonlítás érvényes marad.'
-          },
-          {
-            stepNumber: 4,
             title: 'Következtetés',
-            latexContent: 'a>b \\iff \\alpha>\\beta',
-            explanation: 'A lépések megfordíthatók, így az ekvivalencia mindkét irányban teljesül.'
+            latexContent: '\\frac{a}{b}=\\frac{\\sin\\alpha}{\\sin\\beta} \\ a>b \\iff \\sin\\alpha>\\sin\\beta \\ \\alpha+\\beta<180^\\circ \\implies \\alpha>\\beta \\iff \\sin\\alpha>\\sin\\beta \\ a>b \\iff \\alpha>\\beta',
+            explanation: 'Cél: belátni, hogy Nagyobb oldallal szemben nagyobb szög. A szinusztételből az oldalak aránya a szemközti szögek szinuszának arányával egyenlő. Ez előkészíti a következő lépést (Szinusztétel). A háromszög szögeire $\\alpha,\\beta\\in(0,180^\\circ)$, és a szinusz ezen a tartományon nem monoton — ezért itt óvatosan kell érvelni. Két olyan szögre, amelyek összege $180^\\circ$ alatt van, a szinusz szigorúan monoton nő; ezért az összehasonlítás érvényes marad. A lépések megfordíthatók, így az ekvivalencia mindkét irányban teljesül. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -1687,27 +1405,9 @@ A témakör a szóbelin azért kiemelt, mert itt derül ki, hogy a jelölt tud-e
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Szögek egyenlősége',
-            latexContent: '\\angle ADE=\\angle ABC, \\quad \\angle AED=\\angle ACB',
-            explanation: 'A $DE\\parallel BC$ miatt a megfelelő szögek egyenlők (egyállású szögek).'
-          },
-          {
-            stepNumber: 2,
-            title: 'Hasonlóság',
-            latexContent: '\\triangle ADE\\sim\\triangle ABC \\quad (AA)',
-            explanation: 'Két szög egyezik, ezért a két háromszög hasonló; a hasonlósági arány $k=\\frac{AD}{AB}$.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Oldalarányok',
-            latexContent: '\\frac{AD}{AB}=\\frac{AE}{AC}=\\frac{DE}{BC}',
-            explanation: 'Hasonló háromszögek megfelelő oldalai arányosak.'
-          },
-          {
-            stepNumber: 4,
             title: 'Osztott arány',
-            latexContent: '\\frac{AD}{DB}=\\frac{AE}{EC}',
-            explanation: 'Az $AB=AD+DB$ és $AC=AE+EC$ felhasználásával az aránypár átrendezhető a szelőkre vonatkozó alakra.'
+            latexContent: '\\angle ADE=\\angle ABC, \\quad \\angle AED=\\angle ACB \\ \\triangle ADE\\sim\\triangle ABC \\quad (AA) \\ \\frac{AD}{AB}=\\frac{AE}{AC}=\\frac{DE}{BC} \\ \\frac{AD}{DB}=\\frac{AE}{EC}',
+            explanation: 'Cél: belátni, hogy A párhuzamos szelők tétele. A $DE\\parallel BC$ miatt a megfelelő szögek egyenlők (egyállású szögek). Ez előkészíti a következő lépést (Szögek egyenlősége). Két szög egyezik, ezért a két háromszög hasonló; a hasonlósági arány $k=\\frac{AD}{AB}$. Ez előkészíti a következő lépést (Hasonlóság). Hasonló háromszögek megfelelő oldalai arányosak. Ez előkészíti a következő lépést (Oldalarányok). Az $AB=AD+DB$ és $AC=AE+EC$ felhasználásával az aránypár átrendezhető a szelőkre vonatkozó alakra. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1719,21 +1419,9 @@ A témakör a szóbelin azért kiemelt, mert itt derül ki, hogy a jelölt tud-e
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Harmadik szög',
-            latexContent: '\\gamma=180^\\circ-\\alpha-\\beta=\\gamma',
-            explanation: 'A háromszög szögeinek összege $180^\\circ$, ezért a harmadik szög is automatikusan egyenlő.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Egyállású elhelyezés',
-            latexContent: "A'B' \\text{ az } AB \\text{ egyenesére, } A'=A",
-            explanation: 'A két háromszöget közös csúccsal helyezzük el úgy, hogy a megfelelő oldalak párhuzamosak legyenek.'
-          },
-          {
-            stepNumber: 3,
             title: 'Párhuzamos szelők',
-            latexContent: "\\frac{AB}{AB'}=\\frac{AC}{AC'}=\\frac{BC}{B'C'}",
-            explanation: 'A párhuzamos szelők tétele miatt a megfelelő oldalak aránya közös $k$; ez éppen a hasonlóság.'
+            latexContent: '\\gamma=180^\\circ-\\alpha-\\beta=\\gamma \\ A\'B\' \\text{ az } AB \\text{ egyenesére, } A\'=A \\ \\frac{AB}{AB\'}=\\frac{AC}{AC\'}=\\frac{BC}{B\'C\'}',
+            explanation: 'Cél: belátni, hogy A háromszögek AA hasonlósági alapesete. A háromszög szögeinek összege $180^\\circ$, ezért a harmadik szög is automatikusan egyenlő. A két háromszöget közös csúccsal helyezzük el úgy, hogy a megfelelő oldalak párhuzamosak legyenek. A párhuzamos szelők tétele miatt a megfelelő oldalak aránya közös $k$; ez éppen a hasonlóság. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1745,27 +1433,9 @@ A témakör a szóbelin azért kiemelt, mert itt derül ki, hogy a jelölt tud-e
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Háromszög esete',
-            latexContent: 'a_1=ka_2, \\quad m_1=km_2',
-            explanation: 'Hasonló háromszögeknél minden alap és a hozzá tartozó magasság ugyanazzal a $k$ aránnyal skálázódik.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Területek hányadosa',
-            latexContent: '\\frac{T_1}{T_2}=\\frac{\\frac12 a_1m_1}{\\frac12 a_2m_2}=k\\cdot k=k^2',
-            explanation: 'A területképletbe helyettesítve a két $k$ tényező szorzata $k^2$.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Sokszögek',
-            latexContent: 'T=\\sum T_i \\implies \\frac{T_1}{T_2}=k^2',
-            explanation: 'A hasonló sokszögeket megfelelő háromszögekre bontjuk; minden részterület $k^2$-szeresére változik, így az összeg is.'
-          },
-          {
-            stepNumber: 4,
             title: 'Görbe vonallal határolt idomok',
-            latexContent: 'T_1/T_2=k^2',
-            explanation: 'Közelítő sokszögekkel (vagy integrállal) az állítás tetszőleges hasonló síkidomra kiterjeszthető.'
+            latexContent: 'a_1=ka_2, \\quad m_1=km_2 \\ \\frac{T_1}{T_2}=\\frac{\\frac12 a_1m_1}{\\frac12 a_2m_2}=k\\cdot k=k^2 \\ T=\\sum T_i \\implies \\frac{T_1}{T_2}=k^2 \\ T_1/T_2=k^2',
+            explanation: 'Cél: belátni, hogy Hasonló síkidomok területaránya $k^2$. Hasonló háromszögeknél minden alap és a hozzá tartozó magasság ugyanazzal a $k$ aránnyal skálázódik. A területképletbe helyettesítve a két $k$ tényező szorzata $k^2$. Ez előkészíti a következő lépést (Területek hányadosa). A hasonló sokszögeket megfelelő háromszögekre bontjuk; minden részterület $k^2$-szeresére változik, így az összeg is. Közelítő sokszögekkel (vagy integrállal) az állítás tetszőleges hasonló síkidomra kiterjeszthető. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1777,27 +1447,9 @@ A témakör a szóbelin azért kiemelt, mert itt derül ki, hogy a jelölt tud-e
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Lineáris méretek',
-            latexContent: 'a_1=ka_2, \\quad b_1=kb_2, \\quad c_1=kc_2',
-            explanation: 'Hasonló testeknél minden megfelelő él és magasság a $k$ aránnyal skálázódik.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Felszín',
-            latexContent: '\\frac{A_1}{A_2}=\\frac{\\sum T_i^{(1)}}{\\sum T_i^{(2)}}=k^2',
-            explanation: 'A felszín lapok területeinek összege; minden laptábla hasonló, ezért területe $k^2$-szeres.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Térfogat',
-            latexContent: '\\frac{V_1}{V_2}=k^3',
-            explanation: 'A térfogat három lineáris méret szorzata (hasáb, gúla, gömb képletében is); mindhárom tényező $k$-szoros, így $k^3$ adódik.'
-          },
-          {
-            stepNumber: 4,
             title: 'Következmény',
-            latexContent: '\\frac{m_1}{m_2}=k^3 \\quad (\\text{homogén anyag})',
-            explanation: 'A tömeg a térfogattal arányos, ezért a nagyobb, hasonló test relatíve nehezebb — ez a négyzet–kocka törvény.'
+            latexContent: 'a_1=ka_2, \\quad b_1=kb_2, \\quad c_1=kc_2 \\ \\frac{A_1}{A_2}=\\frac{\\sum T_i^{(1)}}{\\sum T_i^{(2)}}=k^2 \\ \\frac{V_1}{V_2}=k^3 \\ \\frac{m_1}{m_2}=k^3 \\quad (\\text{homogén anyag})',
+            explanation: 'Cél: belátni, hogy Hasonló testek felszín- és térfogataránya. Hasonló testeknél minden megfelelő él és magasság a $k$ aránnyal skálázódik. Ez előkészíti a következő lépést (Lineáris méretek). A felszín lapok területeinek összege; minden laptábla hasonló, ezért területe $k^2$-szeres. A térfogat három lineáris méret szorzata (hasáb, gúla, gömb képletében is); mindhárom tényező $k$-szoros, így $k^3$ adódik. A tömeg a térfogattal arányos, ezért a nagyobb, hasonló test relatíve nehezebb — ez a négyzet–kocka törvény. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1809,27 +1461,9 @@ A témakör a szóbelin azért kiemelt, mert itt derül ki, hogy a jelölt tud-e
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Három hasonló háromszög',
-            latexContent: '\\triangle ATC\\sim\\triangle BTC\\sim\\triangle ABC',
-            explanation: 'Az átfogóhoz tartozó magasság két derékszögű háromszögre bontja az eredetit; mindháromban ugyanazok a szögek szerepelnek.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Magasságtétel',
-            latexContent: '\\frac{m}{p}=\\frac{q}{m} \\implies m^2=pq',
-            explanation: 'Az $ATC$ és $BTC$ háromszögek megfelelő befogóinak arányából.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Befogótétel',
-            latexContent: '\\frac{b}{q}=\\frac{c}{b} \\implies b^2=cq',
-            explanation: 'Az $ATC$ és $ABC$ hasonlóságából; a másik befogóra $a^2=cp$.'
-          },
-          {
-            stepNumber: 4,
             title: 'Pitagorasz',
-            latexContent: 'a^2+b^2=c(p+q)=c^2',
-            explanation: 'A két befogótétel összege a Pitagorasz-tételt adja; ez mutatja, hogy a hasonlóság milyen mélyen összekapcsolja a tételeket.'
+            latexContent: '\\triangle ATC\\sim\\triangle BTC\\sim\\triangle ABC \\ \\frac{m}{p}=\\frac{q}{m} \\implies m^2=pq \\ \\frac{b}{q}=\\frac{c}{b} \\implies b^2=cq \\ a^2+b^2=c(p+q)=c^2',
+            explanation: 'Cél: belátni, hogy Magasság- és befogótétel hasonlósággal. Az átfogóhoz tartozó magasság két derékszögű háromszögre bontja az eredetit; mindháromban ugyanazok a szögek szerepelnek. Az $ATC$ és $BTC$ háromszögek megfelelő befogóinak arányából. Ez előkészíti a következő lépést (Magasságtétel). Az $ATC$ és $ABC$ hasonlóságából; a másik befogóra $a^2=cp$. Ez előkészíti a következő lépést (Befogótétel). A két befogótétel összege a Pitagorasz-tételt adja; ez mutatja, hogy a hasonlóság milyen mélyen összekapcsolja a tételeket. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }

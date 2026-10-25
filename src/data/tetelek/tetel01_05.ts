@@ -96,25 +96,13 @@ Georg Cantor 19. századi német matematikus vezetett be olyan új forradalmi fo
       {
         theoremNumber: 1,
         title: 'Az n elemű halmaz részhalmazainak száma 2^n',
-        proofTitle: 'Bizonyítás kombinatorikus úton és binomiális tétellel',
+        proofTitle: 'Bizonyítás: minden elemről 2 döntés',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Kombinatorikus döntési fa',
-            latexContent: '\\text{Minden } x_i \\in A \\text{ elemre 2 opció van: } x_i \\in R \\text{ vagy } x_i \\notin R',
-            explanation: 'Egy részhalmaz képzésekor a halmaz minden egyes eleméről egymástól függetlenül eldöntjük, hogy benne legyen-e a részhalmazban vagy sem. Ez n darab független 2-es választás.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Szorzási szabály alkalmazása',
+            title: 'Szorzási szabály',
             latexContent: '2 \\cdot 2 \\cdot 2 \\dotsm 2 = 2^n',
-            explanation: 'Az egymástól független lehetőségeket összeszorozva megkapjuk, hogy összesen 2^n darab részhalmaz hozható létre.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Alternatív bizonyítás binomiális tétellel',
-            latexContent: '\\sum_{k=0}^n \\binom{n}{k} = \\binom{n}{0} + \\binom{n}{1} + \\dotsm + \\binom{n}{n} = (1 + 1)^n = 2^n',
-            explanation: 'Az n elemű halmaznak (n felett k) darab k elemű részhalmaza van. Ezek összege a binomiális tétel szerint pontosan 2^n.'
+            explanation: 'Legyen A = {a₁, a₂, …, aₙ}, és keressük az összes R ⊆ A részhalmazt. Egy konkrét R-t úgy határozunk meg, hogy sorban végigmegyünk az elemeken, és mindegyikről eldöntjük: belekerül-e R-be, vagy sem. Az a₁-re 2 választás van (benne / nincs), az a₂-re szintén 2, és így tovább, egészen aₙ-ig — összesen n darab, egymástól független 2-es döntés. A szorzási szabály miatt a lehetőségek száma tehát 2 · 2 · … · 2 (n tényező) = 2ⁿ. Speciális esetek is beleférnek: ha minden döntés „nincs”, az üres halmazt kapjuk; ha minden döntés „benne van”, magát A-t. Kis ellenőrzés: n = 1 → 2 részhalmaz (∅ és {a₁}); n = 2 → 4; n = 3 → 8.'
           }
         ]
       },
@@ -122,75 +110,39 @@ Georg Cantor 19. századi német matematikus vezetett be olyan új forradalmi fo
         theoremNumber: 2,
         title: 'A halmazok metszet- és unióképzése asszociatív művelet',
         statementLatex: '(A \\cap B) \\cap C = A \\cap (B \\cap C) \\quad \\text{és} \\quad (A \\cup B) \\cup C = A \\cup (B \\cup C)',
-        proofTitle: 'A metszet asszociativitásának igazolása elemi tartalmazással',
+        proofTitle: 'Bizonyítás elemi tartalmazással (metszet; unió ugyanígy)',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Bal oldal definíció szerinti felbontása',
-            latexContent: 'x \\in (A \\cap B) \\cap C \\iff x \\in (A \\cap B) \\land x \\in C \\iff (x \\in A \\land x \\in B) \\land x \\in C',
-            explanation: 'Alkalmazzuk a metszet definícióját és a logikai ÉS (konjunkció) műveletet.'
-          },
-          {
-            stepNumber: 2,
-            title: 'A logikai konjunkció asszociativitásának kihasználása',
-            latexContent: '(x \\in A \\land x \\in B) \\land x \\in C \\iff x \\in A \\land (x \\in B \\land x \\in C)',
-            explanation: 'Mivel a matematikai logikában a konjunkció csoportosítható (asszociatív), a zárójelezés áthelyezhető.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Jobb oldal visszanyerése',
-            latexContent: 'x \\in A \\land (x \\in B \\cap C) \\iff x \\in A \\cap (B \\cap C)',
-            explanation: 'Ezzel igazoltuk az azonosságot mindkét irányú tartalmazásra.'
+            title: 'Asszociativitás tartalmazással',
+            latexContent: 'x \\in (A \\cap B) \\cap C \\iff (x \\in A \\land x \\in B) \\land x \\in C \\iff x \\in A \\land (x \\in B \\land x \\in C) \\iff x \\in A \\cap (B \\cap C)',
+            explanation: 'Az unióra a bizonyítás szó szerint ugyanez ∨-vel; itt a metszetet részletezzük. Legyen x tetszőleges elem. Az x benne van (A ∩ B) ∩ C-ben pontosan akkor, ha x ∈ (A ∩ B) és x ∈ C. A metszet definíciója szerint x ∈ (A ∩ B) azt jelenti, hogy x ∈ A és x ∈ B, tehát összesen: (x ∈ A ∧ x ∈ B) ∧ x ∈ C. A logikai ÉS asszociatív (a zárójelezés nem számít), ezért ez ugyanaz, mint x ∈ A ∧ (x ∈ B ∧ x ∈ C), ami pedig pont x ∈ A ∩ (B ∩ C). Mivel x tetszőleges volt, a két halmaz ugyanazokat az elemeket tartalmazza — tehát egyenlők. Az unióra ugyanez a gondolatmenet, csak ∧ helyett ∨ szerepel. Ellenőrzés: ha A={1}, B={1,2}, C={2}, mindkét zárójelezés { } illetve {1,2} ugyanarra vezet.'
           }
         ]
       },
       {
         theoremNumber: 3,
         title: 'A háromszög oldalfelező merőlegesei egy pontban metszik egymást (Köré írható kör)',
-        proofTitle: 'Geometriai bizonyítás egyenlő távolságok tranzitivitásával',
+        proofTitle: 'Bizonyítás: egyenlő távolságok tranzitivitása',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Két oldalfelező merőleges metszéspontjának felvétele',
-            latexContent: 'e \\bot AB, \\; f \\bot BC, \\quad K = e \\cap f',
-            explanation: 'Mivel AB és BC oldalak nem párhuzamosak, az e és f felezőmerőlegesek egyetlen közös K pontban metszik egymást.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Szakaszfelező merőleges mértani hely tulajdonsága',
-            latexContent: 'K \\in e \\implies KA = KB, \\quad K \\in f \\implies KB = KC',
-            explanation: 'Az e egyenes pontjai egyenlő távol vannak A-tól és B-től, az f egyenes pontjai B-től és C-től.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Tranzitivitás és konklúzió',
-            latexContent: 'KA = KB = KC \\implies KA = KC \\implies K \\text{ rajta van az } AC \\text{ felezőmerőlegesén is.}',
-            explanation: 'Mivel K egyenlő távol van A-tól és C-től, szükségképpen illeszkedik az AC oldal felezőmerőlegesére is. Így a három egyenes egy pontban metszi egymást, és K a köré írt kör középpontja.'
+            title: 'Köré írt kör középpontja',
+            latexContent: 'K = e \\cap f \\implies KA = KB = KC',
+            explanation: 'Vegyük az AB és BC oldalak e és f felezőmerőlegesét. Mivel az oldalak nem párhuzamosak, e és f egyetlen K pontban metszi egymást. A felezőmerőleges mértani hely: e pontjai egyenlő távol vannak A-tól és B-től, tehát KA = KB; hasonlóan KB = KC. A távolságok tranzitivitásával KA = KB = KC, azaz K az A-tól és C-től is egyenlő távol van — ezért K rajta van az AC felezőmerőlegesén is. Tehát a három felezőmerőleges egy pontban metszi egymást, és ez a K pont a köré írt kör középpontja (sugár KA). Szemlélet: K az a pont, ahonnan mindhárom csúcs „ugyanolyan messze” van.'
           }
         ]
       },
       {
         theoremNumber: 4,
         title: 'A háromszög belső szögfelezői egy pontban metszik egymást (Beírható kör)',
-        proofTitle: 'Geometriai bizonyítás oldaltávolságok egyenlőségével',
+        proofTitle: 'Bizonyítás: oldaltávolságok egyenlősége',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Két belső szögfelező metszéspontja',
-            latexContent: 'e \\text{ az } \\alpha \\text{ felezője}, f \\text{ a } \\beta \\text{ felezője}, \\quad O = e \\cap f',
-            explanation: 'A két szögfelező metszéspontja O.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Távolság a szögszáraktól',
-            latexContent: 'd(O, AB) = d(O, AC) \\quad \\text{és} \\quad d(O, AB) = d(O, BC)',
-            explanation: 'A szögfelező mértani hely definíciója szerint O egyenlő távol van a közrezáró oldalaktól.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Harmadik szögfelező illeszkedése',
-            latexContent: 'd(O, AC) = d(O, BC) \\implies O \\text{ illeszkedik a } \\gamma \\text{ szögfelezőjére is.}',
-            explanation: 'O mindhárom oldaltól r távolságra van, tehát O a beírható kör középpontja.'
+            title: 'Beírható kör középpontja',
+            latexContent: 'd(O,AB)=d(O,BC)=d(O,CA)=r',
+            explanation: 'Legyen e az α, f a β szögfelezője, O = e ∩ f. A szögfelező mértani helye: pontjai egyenlő távol vannak a két szártól, ezért d(O,AB) = d(O,AC) és d(O,BA) = d(O,BC). Innen d(O,AC) = d(O,BC) is, tehát O a γ szögfelezőjén is rajta van. O mindhárom oldaltól ugyanarra az r távolságra van: ez a beírható kör középpontja, r a sugár. Megjegyzés: a magasságpont / súlypont más mértani hely; itt a kulcs az „egyenlő oldaltávolság”.'
           }
         ]
       },
@@ -198,25 +150,13 @@ Georg Cantor 19. századi német matematikus vezetett be olyan új forradalmi fo
         theoremNumber: 5,
         title: 'A tengelyponti parabola egyenletének levezetése a mértani hely definíciójából',
         statementLatex: 'y = \\frac{1}{2p}x^2',
-        proofTitle: 'Koordinátageometriai levezetés d(P,F) = d(P,v) alapján',
+        proofTitle: 'Levezetés a mértani helyből: d(P,F)=d(P,v)',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Fókuszpont és vezéregyenes koordinátái',
-            latexContent: 'F\\left(0, \\frac{p}{2}\\right), \\quad v: y = -\\frac{p}{2}, \\quad Q(x, y) \\in \\text{Parabola}',
-            explanation: 'Az origó a tengelypont, a fókuszpont és a vezéregyenes távolsága a p paraméter.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Távolságok egyenlőségének felírása',
-            latexContent: 'QF = QS \\implies \\sqrt{x^2 + \\left(y - \\frac{p}{2}\\right)^2} = y - \\left(-\\frac{p}{2}\\right) = y + \\frac{p}{2}',
-            explanation: 'A Q pont fókuszponttól és a vezéregyenestől mért távolságai egyenlők.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Négyzetre emelés és rendezés',
-            latexContent: 'x^2 + y^2 - py + \\frac{p^2}{4} = y^2 + py + \\frac{p^2}{4} \\implies x^2 = 2py \\implies y = \\frac{1}{2p}x^2',
-            explanation: 'A tagok összevonása után megkapjuk az y = x² / (2p) kanonikus egyenletet.'
+            title: 'y = x²/(2p) előállítása',
+            latexContent: 'F\\left(0,\\frac{p}{2}\\right),\\; v: y=-\\frac{p}{2} \\implies \\sqrt{x^2+(y-\\frac{p}{2})^2}=y+\\frac{p}{2} \\implies y=\\frac{1}{2p}x^2',
+            explanation: 'A parabola definíciója: azon P(x,y) pontok, amelyek egy F fókusztól és egy v vezéregyenestől egyenlő távol vannak. Tengelyponti helyzetben F(0, p/2), v: y = −p/2 (p>0). A távolságok: d(P,F)=√(x²+(y−p/2)²), d(P,v)=y+p/2 (a felső félsíkban). Egyenlőség, majd mindkét oldal nemnegatív volta miatt négyzetre emelés: x²+(y−p/2)² = (y+p/2)². Kibontva a y² és p²/4 tagok kiesnek, marad x² = 2py, azaz y = x²/(2p). Ellenőrzés: x=0 → y=0 (tengelypont); p nagyobb → „laposabb” parabola.'
           }
         ]
       }
@@ -293,7 +233,7 @@ Georg Cantor 19. századi német matematikus vezetett be olyan új forradalmi fo
       }
     ],
     memorizationMaterial: "## Bemagolandó — Halmazok, halmazműveletek, nevezetes ponthalmazok\n\n### Fő azonosságok\n\n$\\overline{A \\cup B} = \\overline{A} \\cap \\overline{B}, \\quad \\overline{A \\cap B} = \\overline{A} \\cup \\overline{B}$\n\n$|A \\cup B| = |A| + |B| - |A \\cap B|$\n\n$|A \\cup B \\cup C| = |A|+|B|+|C| - |A\\cap B| - |A\\cap C| - |B\\cap C| + |A\\cap B\\cap C|$\n\n### Definíciók\n\n**Halmaz / elem:** alapfogalom; $x \\in A$ vagy $x \\notin A$ egyértelműen eldönthető.\n\n**Üres halmaz:** $\\emptyset$ — minden halmaz részhalmaza.\n\n**Részhalmaz:** $A \\subseteq B \\iff (\\forall x)(x\\in A \\Rightarrow x\\in B)$. Valódi: $A \\subset B$ és $A \\neq B$.\n\n**Unió / metszet / különbség / komplementer:**\n$A\\cup B=\\{x\\mid x\\in A\\lor x\\in B\\},\\quad A\\cap B=\\{x\\mid x\\in A\\land x\\in B\\}$\n$A\\setminus B=\\{x\\mid x\\in A\\land x\\notin B\\},\\quad \\overline{A}=U\\setminus A$\n\n**Szimmetrikus differencia:** $A\\Delta B=(A\\setminus B)\\cup(B\\setminus A)=(A\\cup B)\\setminus(A\\cap B)$.\n\n**Descartes-szorzat:** $A\\times B=\\{(x,y)\\mid x\\in A,\\ y\\in B\\}$.\n\n**Hatványhalmaz:** $|\\mathcal{P}(A)|=2^{|A|}$ (véges $A$-ra).\n\n**Intervallum:** $[a;b]=\\{x\\in\\mathbb{R}:a\\le x\\le b\\}$, $]a;b[=\\{x\\in\\mathbb{R}:a<x<b\\}$.\n\n### Nevezetes ponthalmazok (definíciók)\n\n- **Középpárhuzamos:** két párhuzamos egyenestől egyenlő távolságra lévő pontok (felezi a távolságot).\n- **Szakaszfelező merőleges:** pontok, amelyek a szakasz végpontjaitól egyenlő távol vannak.\n- **Szögfelező:** pontok, amelyek a szögszáraktól egyenlő távol vannak.\n- **Kör:** $\\{P:\\,d(P,O)=r\\}$; **gömb:** térbeli analóg; **hengerfelület:** tengelytől $R$ távolság.\n- **Parabola:** $d(P,F)=d(P,v)$.\n- **Ellipszis:** $d(P,F_1)+d(P,F_2)=2a>F_1F_2$.\n- **Hiperbola:** $|d(P,F_1)-d(P,F_2)|=2a<F_1F_2$.\n\n### Tételek\n\n**Tétel.** $n$ elemű halmaz részhalmazainak száma $2^n$.\n\n**Tétel.** Metszet és unió asszociatív.\n\n**Tétel.** A háromszög oldalfelező merőlegesei egy pontban metszik egymást (köré írt kör középpontja).\n\n**Tétel.** A háromszög belső szögfelezői egy pontban metszik egymást (beírt kör középpontja).\n\n**Tétel.** Tengelyponti parabola: $y=\\dfrac{1}{2p}x^2$.",
-    oralExamPlan: "## Szóbeli felelet vázlata — Halmazok (15–20 perc · 35 pont)\n\n**Célidő:** 15–20 perc · **Max pont:** 35/35\n\n### 0–2 perc · Bevezetés (szerkezet)\nEuler–Venn körök, Cantor szerepe. Mondd ki: a felelet menete = fogalmak → műveletek → ponthalmazok → tétel → alkalmazás → feladat.\n\n### 2–5 perc · Definíciók (2 pont)\nVálassz **egy** pontos definíciót (pl. unió + metszet, vagy parabola mint mértani hely). Emeld ki: üres halmaz részhalmaz, de nem feltétlenül elem; különbség nem kommutatív.\n\n### 5–8 perc · Elméleti áttekintés (szerkezet 10-ből)\nMűveleti tulajdonságok: kommutatív / asszociatív / disztributív. De Morgan. Logikai szita 2 és 3 halmazra. 1–2 nevezetes ponthalmaz (sík + tér).\n\n### 8–13 perc · Tétel + bizonyítás (6 pont)\nAjánlott: **$2^n$ részhalmaz** (döntési fa + binomiális), *vagy* **szögfelezők / felezőmerőlegesek** egy pontban. Mondd ki feltételeket, majd 3–4 lépéses bizonyítást.\n\n### 13–15 perc · Alkalmazások (4 pont)\nBelül: ÉT megadása, SQL/halmazművelet, komplementer módszer. Kívül: rendszertan vagy frakciók — **röviden magyarázd**, ne csak sorold.\n\n### 15–18 perc · Feladat (8 pont)\nVenn / logikai szita vagy mértani hely. Írj Venn-diagramot, ellenőrizd a szitát: $|A\\cup B\\cup C|$.\n\n### Zárás · Nyelv (5 pont)\nSzakszavak: diszjunkt, komplementer, mértani hely. Szemkontaktus, folyamatos előadás.\n\n### Pontozási emlékeztető\nSzerkezet 10 · Definíció 2 · Tétel+biz. 6 · Feladat 8 · Alkalmazás 4 · Nyelv 5",
+    oralExamPlan: "## Szóbeli felelet vázlata — Halmazok (15–20 perc · 35 pont)\n\n**Célidő:** 15–20 perc · **Max pont:** 35/35\n\n### 0–2 perc · Bevezetés (szerkezet)\nEuler–Venn körök, Cantor szerepe. Mondd ki: a felelet menete = fogalmak → műveletek → ponthalmazok → tétel → alkalmazás → feladat.\n\n### 2–5 perc · Definíciók (2 pont)\nVálassz **egy** pontos definíciót (pl. unió + metszet, vagy parabola mint mértani hely). Emeld ki: üres halmaz részhalmaz, de nem feltétlenül elem; különbség nem kommutatív.\n\n### 5–8 perc · Elméleti áttekintés (szerkezet 10-ből)\nMűveleti tulajdonságok: kommutatív / asszociatív / disztributív. De Morgan. Logikai szita 2 és 3 halmazra. 1–2 nevezetes ponthalmaz (sík + tér).\n\n### 8–13 perc · Tétel + bizonyítás (6 pont)\nAjánlott: **$2^n$ részhalmaz** ($2\cdot2\cdots2=2^n$), *vagy* **szögfelezők / felezőmerőlegesek** egy pontban. Mondd ki feltételeket, majd rövid levezetést.\n\n### 13–15 perc · Alkalmazások (4 pont)\nBelül: ÉT megadása, SQL/halmazművelet, komplementer módszer. Kívül: rendszertan vagy frakciók — **röviden magyarázd**, ne csak sorold.\n\n### 15–18 perc · Feladat (8 pont)\nVenn / logikai szita vagy mértani hely. Írj Venn-diagramot, ellenőrizd a szitát: $|A\\cup B\\cup C|$.\n\n### Zárás · Nyelv (5 pont)\nSzakszavak: diszjunkt, komplementer, mértani hely. Szemkontaktus, folyamatos előadás.\n\n### Pontozási emlékeztető\nSzerkezet 10 · Definíció 2 · Tétel+biz. 6 · Feladat 8 · Alkalmazás 4 · Nyelv 5",
     visualizerType: 'sets'
   },
   {
@@ -392,56 +332,26 @@ Georg Cantor a 19. század végén dolgozta ki a végtelen halmazok számosság�
         theoremNumber: 1,
         title: 'A √2 szám irracionális szám',
         statementLatex: '\\sqrt{2} \\notin \\mathbb{Q}',
-        proofTitle: 'Indirekt bizonyítás a paritás vizsgálatával',
+        proofTitle: 'Indirekt bizonyítás paritással',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Indirekt feltevés',
-            latexContent: '\\text{Tegyük fel, hogy } \\sqrt{2} \\in \\mathbb{Q} \\implies \\sqrt{2} = \\frac{p}{q} \\quad (p, q \\in \\mathbb{Z}^+, \\; \\text{lnko}(p,q) = 1)',
-            explanation: 'Feltesszük, hogy √2 felírható tovább nem egyszerűsíthető tört alakjában.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Négyzetre emelés és p párossága',
-            latexContent: '2 = \\frac{p^2}{q^2} \\implies p^2 = 2q^2 \\implies p^2 \\text{ páros } \\implies p \\text{ páros } \\implies p = 2k',
-            explanation: 'Mivel 2q² osztható 2-vel, p² páros. Mivel páratlan szám négyzete páratlan, p szükségképpen páros.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Behelyettesítés és q párossága',
-            latexContent: '(2k)^2 = 2q^2 \\implies 4k^2 = 2q^2 \\implies q^2 = 2k^2 \\implies q \\text{ páros}',
-            explanation: 'A behelyettesítés után kiderül, hogy q² is páros, ami miatt q is páros kell legyen.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Ellentmondás levonása',
-            latexContent: '2 \\mid p \\land 2 \\mid q \\implies \\text{lnko}(p, q) \\ge 2 \\quad (\\text{Ellentmondás!})',
-            explanation: 'Mivel mind p, mind q páros, a tört egyszerűsíthető lenne 2-vel, ami ellentmond annak, hogy lnko(p,q)=1 volt. Tehát a feltevésünk hamis, √2 valóban irracionális.'
+            title: '√2 ∉ ℚ',
+            latexContent: '\\sqrt{2}=\\frac{p}{q}\\ (\\mathrm{lnko}=1) \\implies p^2=2q^2 \\implies p,q\\ \\text{páros} \\implies \\text{ellentmondás}',
+            explanation: 'Tegyük fel indirekten, hogy √2 racionális: √2 = p/q, ahol p,q pozitív egészek és lnko(p,q)=1 (tovább nem egyszerűsíthető tört). Négyzetre emelve: 2 = p²/q², tehát p² = 2q². Így p² páros ⇒ p páros (páratlan négyzete páratlan), azaz p = 2k. Beírva: 4k² = 2q² ⇒ q² = 2k² ⇒ q is páros. De akkor p és q is osztható 2-vel, ellentmond az lnko(p,q)=1 feltevésnek. Tehát √2 nem racionális. Tipikus vizsgacsapda: ne felejtsd el kimondani, hogy a tört egyszerűsíthetetlen — enélkül nincs ellentmondás.'
           }
         ]
       },
       {
         theoremNumber: 2,
         title: 'A racionális számok tizedes tört alakja minden esetben szakaszosan ismétlődő',
-        proofTitle: 'Bizonyítás a maradékos osztás skatulyaelvével',
+        proofTitle: 'Bizonyítás: maradékos osztás + skatulyaelv',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Kijelölt írásbeli osztás',
-            latexContent: '\\frac{p}{q} = p : q',
-            explanation: 'A közönséges tört értéke az írásbeli osztási algoritmussal határozható meg.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Lehetséges maradékok száma',
-            latexContent: 'r_i \\in \\{0, 1, 2, \\dots, q - 1\\}',
-            explanation: 'A q-val való osztás során a lehetséges maradékok száma legfeljebb q darab.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Ciklus kialakulása (Skatulyaelv)',
-            latexContent: '\\text{Ha } r_k = 0 \\implies \\text{véges tizedes tört.} \\quad \\text{Ha } r_k \\neq 0 \\implies \\text{legfeljebb } q-1 \\text{ lépés után ismétlődik!}',
-            explanation: 'Ha fellép a 0 maradék, az osztás véget ér (véges tört). Ha nem lép fel 0, legkésőbb q lépésen belül egy korábbi maradék visszatér, így a számjegyek szükségképpen periodikusan ismétlődnek.'
+            title: 'Véges vagy szakaszos tizedes tört',
+            latexContent: 'p:q\\ \\text{maradékai}\\in\\{0,1,\\ldots,q-1\\}',
+            explanation: 'A p/q tört tizedes alakját írásbeli osztással kapjuk. Minden lépésben a maradék 0,1,…,q−1 közül kerül ki — legfeljebb q lehetőség. Ha valamikor 0 a maradék, az osztás véget ér: véges tizedes tört. Ha soha nem 0, akkor legkésőbb q lépés után egy korábbi maradéknak meg kell ismétlődnie (skatulyaelv). Ugyanattól a maradéktól ugyanaz a számjegysorozat indul újra → végtelen szakaszos (periodikus) tizedes tört. Fordítva: minden szakaszos tizedes tört visszavezethető közönséges törtre. Példa: 1/7 = 0,142857… szakasz hossza 6 < 7.'
           }
         ]
       }
@@ -635,25 +545,13 @@ A modern informatikai világ a kettes és tizenhatos számrendszerre épül.`,
       {
         theoremNumber: 1,
         title: 'Végtelen sok prímszám létezik (Eukleidész tétele)',
-        proofTitle: 'Indirekt bizonyítás a szorzathoz adott 1 konstrukciójával',
+        proofTitle: 'Eukleidész indirekt konstrukciója',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Indirekt feltevés',
-            latexContent: '\\text{Tegyük fel, hogy véges sok prímszám létezik: } p_1, p_2, \\dots, p_k',
-            explanation: 'Feltesszük, hogy a prímszámok listája véges.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Az N segédszám megkonstruálása',
-            latexContent: 'N = (p_1 \\cdot p_2 \\dotsm p_k) + 1',
-            explanation: 'Megszorozzuk az összes ismert prímszámot és hozzáadunk 1-et. Mivel p_i ≥ 2, N > 1.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Oszthatóság vizsgálata és ellentmondás',
-            latexContent: 'N \\pmod{p_i} = 1 \\quad (\\forall i \\in \\{1, \\dots, k\\})',
-            explanation: 'Az N számot a lista bármelyik p_i prímjével osztva 1-et kapunk maradékul. Az aritmetika alaptétele szerint viszont N-nek (mivel N > 1) rendelkeznie kell prímosztóval! Ez a prímosztó nem szerepelhet az eddigi listában, ami ellentmondás. Tehát a prímszámok száma végtelen.'
+            title: 'N = p₁⋯pₖ + 1',
+            latexContent: 'N=(p_1\\cdots p_k)+1 \\not\\equiv 0\\pmod{p_i}',
+            explanation: 'Tegyük fel, hogy csak véges sok prím van: p₁,…,pₖ. Képezzük N = (p₁·p₂····pₖ)+1. N>1, tehát van prímosztója. De N-et bármelyik listabeli pᵢ-vel osztva 1 a maradék, tehát egyik pᵢ sem osztja N-et. Így N prímosztója új prím — ellentmondás. A lista tetszőleges véges volt, ezért végtelen sok prímszám létezik. Fontos: N maga nem feltétlenül prím (pl. 2·3·5·7·11·13+1 összetett lehet), de mindig van a listán kívüli prímosztója.'
           }
         ]
       }
@@ -838,21 +736,9 @@ Ez vált később a digitális számítógépek és a modern programozás alapk�
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Kombinációk felírása',
-            latexContent: 'p, q, r \\in \\{I, H\\}^3 \\implies 2^3 = 8 \\text{ lehetséges sor}',
-            explanation: 'Felírjuk a 3 kijelentés összes lehetséges igazságérték-kombinációját.'
-          },
-          {
-            stepNumber: 2,
-            title: 'A bal és jobb oldal oszlopainak kiszámítása',
-            latexContent: '\\text{Bal oldal: } p \\land (q \\lor r), \\quad \\text{Jobb oldal: } (p \\land q) \\lor (p \\land r)',
-            explanation: 'Soronként kiértékeljük a műveleti sorrend betartásával a két kifejezést.'
-          },
-          {
-            stepNumber: 3,
             title: 'Azonosság megállapítása',
-            latexContent: '\\forall \\text{ sorban a két oszlop logikai értéke azonos } \\implies \\text{ekvivalensek.}',
-            explanation: 'Mind a 8 sorban egyezést kapunk, így a disztributivitás tételét igazoltuk.'
+            latexContent: 'p, q, r \\in \\{I, H\\}^3 \\implies 2^3 = 8 \\text{ lehetséges sor} \\ \\text{Bal oldal: } p \\land (q \\lor r), \\quad \\text{Jobb oldal: } (p \\land q) \\lor (p \\land r) \\ \\forall \\text{ sorban a két oszlop logikai értéke azonos } \\implies \\text{ekvivalensek.}',
+            explanation: 'Cél: belátni, hogy A konjunkció disztributív a diszjunkcióra nézve: p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r). Felírjuk a 3 kijelentés összes lehetséges igazságérték-kombinációját. Ez előkészíti a következő lépést (Kombinációk felírása). Soronként kiértékeljük a műveleti sorrend betartásával a két kifejezést. Ez előkészíti a következő lépést (A bal és jobb oldal oszlopainak kiszámítása). Mind a 8 sorban egyezést kapunk, így a disztributivitás tételét igazoltuk. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -864,15 +750,9 @@ Ez vált később a digitális számítógépek és a modern programozás alapk�
         proofSteps: [
           {
             stepNumber: 1,
-            title: '4 soros igazságtábla felvétele',
-            latexContent: 'p, q \\in \\{I, H\\}^2 \\implies 4 \\text{ sor}',
-            explanation: 'Két változóra vizsgáljuk a kifejezéseket.'
-          },
-          {
-            stepNumber: 2,
             title: 'Oszlopok egyezése',
-            latexContent: '\\neg(p \\land q) \\text{ értékei: } (H, I, I, I), \\quad \\neg p \\lor \\neg q \\text{ értékei: } (H, I, I, I)',
-            explanation: 'Az oszlopok minden sorban egybeesnek, így az azonosság fennáll.'
+            latexContent: 'p, q \\in \\{I, H\\}^2 \\implies 4 \\text{ sor} \\ \\neg(p \\land q) \\text{ értékei: } (H, I, I, I), \\quad \\neg p \\lor \\neg q \\text{ értékei: } (H, I, I, I)',
+            explanation: 'Cél: belátni, hogy A De Morgan-azonosságok igazolása igazságtáblával. Két változóra vizsgáljuk a kifejezéseket. Ez előkészíti a következő lépést (4 soros igazságtábla felvétele). Az oszlopok minden sorban egybeesnek, így az azonosság fennáll. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -1056,15 +936,9 @@ A hatványfogalom fokozatos kiterjesztése negatív, tört és irracionális kit
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Tényezős szorzatok felírása',
-            latexContent: 'a^n = \\underbrace{a \\cdot a \\dotsm a}_{n \\text{ tényező}}, \\quad a^m = \\underbrace{a \\cdot a \\dotsm a}_{m \\text{ tényező}}',
-            explanation: 'Alkalmazzuk a pozitív egész kitevőjű hatvány definícióját.'
-          },
-          {
-            stepNumber: 2,
             title: 'Összeszorzás és csoportosítás',
             latexContent: 'a^n \\cdot a^m = (a \\cdot a \\dotsm a) \\cdot (a \\cdot a \\dotsm a) = \\underbrace{a \\cdot a \\dotsm a}_{n+m \\text{ tényező}} = a^{n+m}',
-            explanation: 'A szorzás asszociativitása miatt a zárójelek elhagyhatók, és összesen n+m darab tényezőt kapunk.'
+            explanation: 'Cél: belátni, hogy Azonos alapú hatványok szorzatának azonossága: a^n · a^m = a^(n+m). Alkalmazzuk a pozitív egész kitevőjű hatvány definícióját. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. A szorzás asszociativitása miatt a zárójelek elhagyhatók, és összesen n+m darab tényezőt kapunk. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       },
@@ -1076,21 +950,9 @@ A hatványfogalom fokozatos kiterjesztése negatív, tört és irracionális kit
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Nemnegativitás rögzítése',
-            latexContent: '\\sqrt{ab} \\ge 0, \\quad \\sqrt{a} \\cdot \\sqrt{b} \\ge 0 \\quad (a \\ge 0, b \\ge 0)',
-            explanation: 'Mindkét oldal a négyzetgyök definíciója miatt nemnegatív.'
-          },
-          {
-            stepNumber: 2,
-            title: 'A jobb oldal négyzetre emelése',
-            latexContent: '(\\sqrt{a} \\cdot \\sqrt{b})^2 = (\\sqrt{a})^2 \\cdot (\\sqrt{b})^2 = a \\cdot b',
-            explanation: 'Felhasználjuk a szorzat hatványozásának azonosságát és a négyzetgyök definícióját.'
-          },
-          {
-            stepNumber: 3,
             title: 'Egyenlőség levonása',
-            latexContent: '(\\sqrt{a \\cdot b})^2 = a \\cdot b = (\\sqrt{a} \\cdot \\sqrt{b})^2 \\implies \\sqrt{a \\cdot b} = \\sqrt{a} \\cdot \\sqrt{b}',
-            explanation: 'Mivel mindkét nemnegatív kifejezés négyzete ab, a két kifejezés megegyezik.'
+            latexContent: '\\sqrt{ab} \\ge 0, \\quad \\sqrt{a} \\cdot \\sqrt{b} \\ge 0 \\quad (a \\ge 0, b \\ge 0) \\ (\\sqrt{a} \\cdot \\sqrt{b})^2 = (\\sqrt{a})^2 \\cdot (\\sqrt{b})^2 = a \\cdot b',
+            explanation: 'Cél: belátni, hogy Szorzatból tényezőnként vonhatunk négyzetgyököt: √(a · b) = √a · √b. Mindkét oldal a négyzetgyök definíciója miatt nemnegatív. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. Felhasználjuk a szorzat hatványozásának azonosságát és a négyzetgyök definícióját. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. Mivel mindkét nemnegatív kifejezés négyzete ab, a két kifejezés megegyezik. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }

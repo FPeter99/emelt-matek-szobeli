@@ -123,21 +123,9 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egy csúcsból induló átlók",
-            latexContent: "n-3",
-            explanation: "Egy csúcsból nem húzható átló önmagába és a két szomszédos csúcsba, ezért $n-3$ átló indul."
-          },
-          {
-            stepNumber: 2,
-            title: "Összes átlóvég",
-            latexContent: "n(n-3)",
-            explanation: "Minden csúcsból $n-3$ átló indul, így összesen $n(n-3)$ átlóvéget számolunk."
-          },
-          {
-            stepNumber: 3,
-            title: "Kettős számlálás",
+            title: "dₙ = n(n−3)/2",
             latexContent: "d_n=\\frac{n(n-3)}{2}",
-            explanation: "Minden átlónak két végpontja van, ezért az átlók száma az átlóvégek számának fele."
+            explanation: "Egy csúcsból nem húzható átló önmagába és a két szomszédba, tehát egy csúcsból n−3 átló indul. n csúcsból ez n(n−3) átlóvég. Minden átlót kétszer számoltunk (két végpont), ezért az átlók száma n(n−3)/2. Ellenőrzés: négyszög n=4 → 2 átló; ötszög → 5; hatszög → 9."
           }
         ]
       },
@@ -149,21 +137,9 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egy csúcsból húzott átlók",
-            latexContent: "n-3 \\text{ átló} \\implies n-2 \\text{ háromszög}",
-            explanation: "Egy csúcsból a nem szomszédos csúcsokba húzott átlók a sokszöget $n-2$ háromszögre bontják."
-          },
-          {
-            stepNumber: 2,
-            title: "Háromszögek szögösszege",
-            latexContent: "(n-2)\\cdot180^\\circ",
-            explanation: "Minden háromszög belső szögeinek összege $180^\\circ$; a háromszögek szögei együtt éppen a sokszög belső szögeit adják."
-          },
-          {
-            stepNumber: 3,
             title: "Külső szögek",
-            latexContent: "\\sum \\text{ külső} = 360^\\circ",
-            explanation: "A sokszög körüljárásakor a külső szögek összege egy teljes fordulat, azaz $360^\\circ$."
+            latexContent: "n-3 \\text{ átló} \\implies n-2 \\text{ háromszög} \\ (n-2)\\cdot180^\\circ \\ \\sum \\text{ külső} = 360^\\circ",
+            explanation: "Cél: belátni, hogy A belső szögek összege. Egy csúcsból a nem szomszédos csúcsokba húzott átlók a sokszöget $n-2$ háromszögre bontják. Minden háromszög belső szögeinek összege $180^\\circ$; a háromszögek szögei együtt éppen a sokszög belső szögeit adják. A sokszög körüljárásakor a külső szögek összege egy teljes fordulat, azaz $360^\\circ$. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -171,25 +147,13 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         theoremNumber: 3,
         title: "Fokszámtétel (kézfogási lemma)",
         statementLatex: "\\sum_{v\\in V}\\deg(v)=2|E|",
-        proofTitle: "Élek végpontjainak megszámlálása",
+        proofTitle: "Kézfogási lemma",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egy él hozzájárulása",
-            latexContent: "e=\\{u,v\\} \\text{ két fokszámhoz ad 1-et}",
-            explanation: "Minden él két csúcsot köt össze, ezért a fokszámok összegéhez pontosan 2-vel járul hozzá."
-          },
-          {
-            stepNumber: 2,
-            title: "Összegzés",
-            latexContent: "\\sum_{v\\in V}\\deg(v)=2|E|",
-            explanation: "Az összes él hozzájárulását összeadva a fokszámok összegét kapjuk, ami éppen $2|E|$."
-          },
-          {
-            stepNumber: 3,
-            title: "Paritási következmény",
-            latexContent: "\\#\\{v:\\deg(v)\\text{ páratlan}\\} \\equiv 0 \\pmod 2",
-            explanation: "Páros összegben a páratlan tagok száma csak páros lehet; ezért a páratlan fokú csúcsok száma mindig páros."
+            title: "Σ deg(v) = 2|E|",
+            latexContent: "\\sum_v \\deg(v)=2|E|",
+            explanation: "Minden él pontosan két csúcsot érint, ezért ha összeadjuk az összes csúcs fokszámát, minden élt kétszer számolunk. Innen az élek száma fele a fokszámösszegnek. Következmény: páratlan fokú csúcsok száma páros. „Kézfogás”: minden kézfogás két kezet érint."
           }
         ]
       },
@@ -201,27 +165,9 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Szükségesség",
-            latexContent: "\\text{minden áthaladás 2 élt használ}",
-            explanation: "Ha egy zárt vonal minden élt pontosan egyszer jár be, akkor minden csúcsba ugyanannyiszor lépünk be, mint ahányszor kilépünk, ezért a fokszám páros."
-          },
-          {
-            stepNumber: 2,
-            title: "Összefüggőség",
-            latexContent: "\\text{izolált csúcsok nélküli komponens}",
-            explanation: "Ha a gráf nem összefüggő, a vonal nem tudja bejárni az összes élt."
-          },
-          {
-            stepNumber: 3,
-            title: "Elégségesség (vázlat)",
-            latexContent: "\\text{körök felbontása és összefűzése}",
-            explanation: "Páros fokszámok esetén a gráf élei körökre bonthatók; a köröket közös csúcsoknál összefűzve egyetlen zárt Euler-vonalat kapunk."
-          },
-          {
-            stepNumber: 4,
             title: "Nyílt Euler-vonal",
-            latexContent: "\\text{pontosan 2 páratlan fokú csúcs}",
-            explanation: "Ha pontosan két páratlan fokú csúcs van, az Euler-vonal ezekből indul és ezekben végződik; több páratlan fok esetén nem létezik."
+            latexContent: "\\text{minden áthaladás 2 élt használ} \\ \\text{izolált csúcsok nélküli komponens} \\ \\text{körök felbontása és összefűzése} \\ \\text{pontosan 2 páratlan fokú csúcs}",
+            explanation: "Cél: belátni, hogy Az Euler-kör létezésének feltétele. Ha egy zárt vonal minden élt pontosan egyszer jár be, akkor minden csúcsba ugyanannyiszor lépünk be, mint ahányszor kilépünk, ezért a fokszám páros. Ha a gráf nem összefüggő, a vonal nem tudja bejárni az összes élt. Ez előkészíti a következő lépést (Összefüggőség). Páros fokszámok esetén a gráf élei körökre bonthatók; a köröket közös csúcsoknál összefűzve egyetlen zárt Euler-vonalat kapunk. Ha pontosan két páratlan fokú csúcs van, az Euler-vonal ezekből indul és ezekben végződik; több páratlan fok esetén nem létezik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ],
         notes: "A königsbergi hidak négy páratlan fokú csúcsot adnak, ezért a hét híd nem járható be Euler-vonallal."
@@ -234,27 +180,9 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Levél létezése",
-            latexContent: "\\exists v:\\deg(v)=1",
-            explanation: "Minden véges fának van legalább két 1 fokú csúcsa (levél); ellenkező esetben egy kör mentén végtelen sétát lehetne indítani."
-          },
-          {
-            stepNumber: 2,
-            title: "Levél elhagyása",
-            latexContent: "G' = G - v, \\quad |E'|=|E|-1, \\quad |V'|=|V|-1",
-            explanation: "A levél és a hozzá tartozó él elhagyása összefüggő, körmentes gráfot ad, tehát fát."
-          },
-          {
-            stepNumber: 3,
-            title: "Indukciós feltevés",
-            latexContent: "|E'|=|V'|-1",
-            explanation: "A kisebb fára az állítás igaz; visszahelyettesítve $|E|-1=(|V|-1)-1$, azaz $|E|=|V|-1$."
-          },
-          {
-            stepNumber: 4,
             title: "Megfordítás",
-            latexContent: "|E|=|V|-1 \\implies \\text{körmentes}",
-            explanation: "Ha egy összefüggő gráfban kör lenne, egy él elhagyásával is összefüggő maradna, és ismételgetve egy fát kapnánk, amelynek élszáma $|V|-1$; a kör jelenléte több élt jelentene, ami ellentmondás."
+            latexContent: "\\exists v:\\deg(v)=1 \\ G' = G - v, \\quad |E'|=|E|-1, \\quad |V'|=|V|-1 \\ |E'|=|V'|-1 \\ |E|=|V|-1 \\implies \\text{körmentes}",
+            explanation: "Cél: belátni, hogy A fa jellemzése. Minden véges fának van legalább két 1 fokú csúcsa (levél); ellenkező esetben egy kör mentén végtelen sétát lehetne indítani. A levél és a hozzá tartozó él elhagyása összefüggő, körmentes gráfot ad, tehát fát. Ez előkészíti a következő lépést (Levél elhagyása). A kisebb fára az állítás igaz; visszahelyettesítve $|E|-1=(|V|-1)-1$, azaz $|E|=|V|-1$. Az indirekt feltevésből a definíciók és a számelméleti / algebrai tulajdonságok segítségével ellentmondásra jutunk. Ha egy összefüggő gráfban kör lenne, egy él elhagyásával is összefüggő maradna, és ismételgetve egy fát kapnánk, amelynek élszáma $|V|-1$; a kör jelenléte több élt jelentene, ami ellentmondás. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -266,21 +194,9 @@ A szóbelin a két rész akkor működik jól, ha a jelölt fel tudja mutatni a 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Lehetséges fokszámok",
-            latexContent: "0,1,\\dots,n-1",
-            explanation: "$n$ csúcsú egyszerű gráfban minden fok $0$ és $n-1$ közé esik."
-          },
-          {
-            stepNumber: 2,
-            title: "Kizáró eset",
-            latexContent: "0 \\text{ és } n-1 \\text{ nem fordulhat elő egyszerre}",
-            explanation: "Ha lenne izolált csúcs (fok 0), akkor nem lehet olyan csúcs, amely mindenki máshoz kapcsolódik (fok $n-1$)."
-          },
-          {
-            stepNumber: 3,
             title: "Skatulyaelv",
-            latexContent: "n \\text{ csúcs, legfeljebb } n-1 \\text{ fokérték}",
-            explanation: "A $0$ és $n-1$ közül legfeljebb az egyik fordul elő, így legfeljebb $n-1$ különböző fokszám lehetséges $n$ csúcsra; a skatulyaelv szerint két csúcs foka azonos."
+            latexContent: "0,1,\\dots,n-1 \\ 0 \\text{ és } n-1 \\text{ nem fordulhat elő egyszerre} \\ n \\text{ csúcs, legfeljebb } n-1 \\text{ fokérték}",
+            explanation: "Cél: belátni, hogy Egyszerű gráfban van két azonos fokú csúcs. $n$ csúcsú egyszerű gráfban minden fok $0$ és $n-1$ közé esik. Ez előkészíti a következő lépést (Lehetséges fokszámok). Ha lenne izolált csúcs (fok 0), akkor nem lehet olyan csúcs, amely mindenki máshoz kapcsolódik (fok $n-1$). A $0$ és $n-1$ közül legfeljebb az egyik fordul elő, így legfeljebb $n-1$ különböző fokszám lehetséges $n$ csúcsra; a skatulyaelv szerint két csúcs foka azonos. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -543,27 +459,9 @@ A témakör a szóbelin azért kiemelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: "I. eset: a középpont a kerületi szög szárán",
-            latexContent: "OA=OC=r\\implies \\triangle OAC \\text{ egyenlő szárú}",
-            explanation: "Jelölje $\\alpha=\\angle OAC=\\angle ACO$. Az $AOC$ háromszög külső szöge az $O$ csúcsnál $\\beta=\\alpha+\\alpha=2\\alpha$."
-          },
-          {
-            stepNumber: 2,
-            title: "II. eset: a középpont a szögön belül",
-            latexContent: "\\beta=\\beta_1+\\beta_2=2\\alpha_1+2\\alpha_2=2\\alpha",
-            explanation: "A középponton át húzott átmérő két részre bontja a szöget; mindkét részre az I. eset érvényes, majd összeadjuk."
-          },
-          {
-            stepNumber: 3,
-            title: "III. eset: a középpont a szögön kívül",
-            latexContent: "\\beta=\\beta_1-\\beta_2=2\\alpha_1-2\\alpha_2=2\\alpha",
-            explanation: "Ugyanazzal az átmérővel a két I. eset különbsége adja az állítást."
-          },
-          {
-            stepNumber: 4,
             title: "Érintőszárú eset",
-            latexContent: "\\angle(\\text{érintő},AE)=\\tfrac12\\beta",
-            explanation: "Az érintő merőleges a sugárra; a sugár és a húr szögét $90^\\circ$-ra kiegészítve, majd a kerületi–középponti tételt alkalmazva kapjuk az érintő–húr szög értékét."
+            latexContent: "OA=OC=r\\implies \\triangle OAC \\text{ egyenlő szárú} \\ \\beta=\\beta_1+\\beta_2=2\\alpha_1+2\\alpha_2=2\\alpha \\ \\beta=\\beta_1-\\beta_2=2\\alpha_1-2\\alpha_2=2\\alpha \\ \\angle(\\text{érintő},AE)=\\tfrac12\\beta",
+            explanation: "Cél: belátni, hogy Kerületi–középponti szögek tétele. Jelölje $\\alpha=\\angle OAC=\\angle ACO$. Az $AOC$ háromszög külső szöge az $O$ csúcsnál $\\beta=\\alpha+\\alpha=2\\alpha$. A középponton át húzott átmérő két részre bontja a szöget; mindkét részre az I. eset érvényes, majd összeadjuk. Ugyanazzal az átmérővel a két I. eset különbsége adja az állítást. Ez előkészíti a következő lépést (III. eset: a középpont a szögön kívül). Az érintő merőleges a sugárra; a sugár és a húr szögét $90^\\circ$-ra kiegészítve, majd a kerületi–középponti tételt alkalmazva kapjuk az érintő–húr szög értékét. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ],
         notes: "A tétel mindhárom esetben ugyanazt az állítást adja; a vizsgán érdemes az I. esetet teljesen végigvezetni, a többit „ugyanígy, összeadással/kivonással” indokolni."
@@ -576,21 +474,9 @@ A témakör a szóbelin azért kiemelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Az ív félkör",
-            latexContent: "\\beta=180^\\circ",
-            explanation: "Az átmérő végpontjaihoz tartozó körív félkör, középponti szöge $180^\\circ$."
-          },
-          {
-            stepNumber: 2,
-            title: "Felezés",
-            latexContent: "\\alpha=\\beta/2=90^\\circ",
-            explanation: "A kerületi szög a középponti szög fele, tehát derékszög."
-          },
-          {
-            stepNumber: 3,
             title: "Megfordítás",
-            latexContent: "\\alpha=90^\\circ \\implies \\beta=180^\\circ",
-            explanation: "Ha a kerületi szög derékszög, a középponti $180^\\circ$, így a húr átmérő: a derékszögű háromszög átfogója a köré írt kör átmérője."
+            latexContent: "\\beta=180^\\circ \\ \\alpha=\\beta/2=90^\\circ \\ \\alpha=90^\\circ \\implies \\beta=180^\\circ",
+            explanation: "Cél: belátni, hogy Thalész-tétele. Az átmérő végpontjaihoz tartozó körív félkör, középponti szöge $180^\\circ$. Ez előkészíti a következő lépést (Az ív félkör). A kerületi szög a középponti szög fele, tehát derékszög. Ez előkészíti a következő lépést (Felezés). Ha a kerületi szög derékszög, a középponti $180^\\circ$, így a húr átmérő: a derékszögű háromszög átfogója a köré írt kör átmérője. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -602,21 +488,9 @@ A témakör a szóbelin azért kiemelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: "A szemközti szögekhez tartozó ívek",
-            latexContent: "2\\alpha+2\\gamma=360^\\circ",
-            explanation: "Az $\\alpha$ és $\\gamma$ kerületi szögekhez tartozó középponti szögek a két szemközti ívhez tartoznak, amelyek együtt a teljes kört kiadják."
-          },
-          {
-            stepNumber: 2,
-            title: "Osztás kettővel",
-            latexContent: "\\alpha+\\gamma=180^\\circ",
-            explanation: "Innen a szemközti szögek összege $180^\\circ$; ugyanígy $\\beta+\\delta=180^\\circ$."
-          },
-          {
-            stepNumber: 3,
             title: "Megfordítás",
-            latexContent: "\\alpha+\\gamma=180^\\circ \\implies A,B,C,D \\text{ egy körön}",
-            explanation: "A $B$ és $D$ csúcsok a $C$ csúcsból nézve $180^\\circ$-ra egészítik ki egymást, ezért ugyanazon látószögköríven vannak, azaz egy körön."
+            latexContent: "2\\alpha+2\\gamma=360^\\circ \\ \\alpha+\\gamma=180^\\circ \\ \\alpha+\\gamma=180^\\circ \\implies A,B,C,D \\text{ egy körön}",
+            explanation: "Cél: belátni, hogy Húrnégyszög tétele és megfordítása. Az $\\alpha$ és $\\gamma$ kerületi szögekhez tartozó középponti szögek a két szemközti ívhez tartoznak, amelyek együtt a teljes kört kiadják. Innen a szemközti szögek összege $180^\\circ$; ugyanígy $\\beta+\\delta=180^\\circ$. Ez előkészíti a következő lépést (Osztás kettővel). A $B$ és $D$ csúcsok a $C$ csúcsból nézve $180^\\circ$-ra egészítik ki egymást, ezért ugyanazon látószögköríven vannak, azaz egy körön. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -628,21 +502,9 @@ A témakör a szóbelin azért kiemelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Érintőszakaszok egy pontból",
-            latexContent: "PA=PA',\\quad PB=PB',\\quad PC=PC',\\quad PD=PD'",
-            explanation: "Külső pontból a körhöz húzott két érintőszakasz egyenlő hosszú (a derékszögű háromszögek egybevágók)."
-          },
-          {
-            stepNumber: 2,
-            title: "Az oldalak felírása",
-            latexContent: "a=x+y,\\ b=y+z,\\ c=z+w,\\ d=w+x",
-            explanation: "Minden csúcsnál a két szomszédos érintőszakasz hosszát jelöljük; az oldal a két szomszédos csúcs szakaszainak összege."
-          },
-          {
-            stepNumber: 3,
             title: "Összeadás",
-            latexContent: "a+c=(x+y)+(z+w)=(y+z)+(w+x)=b+d",
-            explanation: "A szemközti oldalpárok összege ugyanaz; a megfordítás a beírt kör szerkesztésével igazolható."
+            latexContent: "PA=PA',\\quad PB=PB',\\quad PC=PC',\\quad PD=PD' \\ a=x+y,\\ b=y+z,\\ c=z+w,\\ d=w+x \\ a+c=(x+y)+(z+w)=(y+z)+(w+x)=b+d",
+            explanation: "Cél: belátni, hogy Érintőnégyszög tétele. Külső pontból a körhöz húzott két érintőszakasz egyenlő hosszú (a derékszögű háromszögek egybevágók). Minden csúcsnál a két szomszédos érintőszakasz hosszát jelöljük; az oldal a két szomszédos csúcs szakaszainak összege. A szemközti oldalpárok összege ugyanaz; a megfordítás a beírt kör szerkesztésével igazolható. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -654,21 +516,9 @@ A témakör a szóbelin azért kiemelt, mert egyetlen ábrán egyszerre kérhet�
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Közös szög",
-            latexContent: "\\angle APE=\\angle EPB",
-            explanation: "A $P$ pontból induló érintő és szelő ugyanazt a szöget zárja be, hiszen a szelő egyenese átmegy $P$-n."
-          },
-          {
-            stepNumber: 2,
-            title: "Érintőszárú szög",
-            latexContent: "\\angle PEA=\\angle PBE",
-            explanation: "Az $EA$ húrhoz tartozó érintőszárú szög egyenlő az ugyanazon ívhez tartozó $EBA$ kerületi szöggel."
-          },
-          {
-            stepNumber: 3,
             title: "Hasonlóság és arány",
-            latexContent: "\\triangle PAE\\sim\\triangle PEB \\implies \\frac{PA}{PE}=\\frac{PE}{PB}\\implies PE^2=PA\\cdot PB",
-            explanation: "Két szög egyezik, tehát a háromszögek hasonlók; a megfelelő oldalak arányából adódik az állítás."
+            latexContent: "\\angle APE=\\angle EPB \\ \\angle PEA=\\angle PBE \\ \\triangle PAE\\sim\\triangle PEB \\implies \\frac{PA}{PE}=\\frac{PE}{PB}\\implies PE^2=PA\\cdot PB",
+            explanation: "Cél: belátni, hogy Érintő–szelő tétel. A $P$ pontból induló érintő és szelő ugyanazt a szöget zárja be, hiszen a szelő egyenese átmegy $P$-n. Az $EA$ húrhoz tartozó érintőszárú szög egyenlő az ugyanazon ívhez tartozó $EBA$ kerületi szöggel. Két szög egyezik, tehát a háromszögek hasonlók; a megfelelő oldalak arányából adódik az állítás. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -1001,27 +851,9 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Létezés",
-            latexContent: "\\vec v=\\overrightarrow{OP}",
-            explanation: "A $\\vec v$ vektort közös kezdőpontból ábrázoljuk: $O$ a kezdőpont, $P$ a végpont."
-          },
-          {
-            stepNumber: 2,
-            title: "Párhuzamosok",
-            latexContent: "P\\in e\\parallel\\vec j,\\quad P\\in f\\parallel\\vec i",
-            explanation: "A $P$ ponton át párhuzamost húzunk $\\vec j$-vel és $\\vec i$-vel; ezek az $\\vec i$, illetve $\\vec j$ egyenesét $V_1$-ben és $V_2$-ben metszik."
-          },
-          {
-            stepNumber: 3,
-            title: "Paralelogramma",
-            latexContent: "\\vec v=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}=v_1\\vec i+v_2\\vec j",
-            explanation: "Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$; a $\\overrightarrow{OV_1}$ vektor $\\vec i$ skalárszorosa."
-          },
-          {
-            stepNumber: 4,
             title: "Egyértelműség",
-            latexContent: "(v_1-v_1')\\vec i+(v_2-v_2')\\vec j=\\vec 0 \\implies v_1=v_1',\\ v_2=v_2'",
-            explanation: "Ha két felbontás létezne, különbségük nullvektor. Mivel $\\vec i,\\vec j$ nem egyállásúak, csak a triviális együtthatók adhatnak nullát, tehát a felbontás egyértelmű."
+            latexContent: "\\vec v=\\overrightarrow{OP} \\ P\\in e\\parallel\\vec j,\\quad P\\in f\\parallel\\vec i \\ \\vec v=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}=v_1\\vec i+v_2\\vec j \\ (v_1-v_1')\\vec i+(v_2-v_2')\\vec j=\\vec 0 \\implies v_1=v_1',\\ v_2=v_2'",
+            explanation: "Cél: belátni, hogy Vektorfelbontási tétel. A $\\vec v$ vektort közös kezdőpontból ábrázoljuk: $O$ a kezdőpont, $P$ a végpont. Ez előkészíti a következő lépést (Létezés). A $P$ ponton át párhuzamost húzunk $\\vec j$-vel és $\\vec i$-vel; ezek az $\\vec i$, illetve $\\vec j$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$; a $\\overrightarrow{OV_1}$ vektor $\\vec i$ skalárszorosa. Ha két felbontás létezne, különbségük nullvektor. Mivel $\\vec i,\\vec j$ nem egyállásúak, csak a triviális együtthatók adhatnak nullát, tehát a felbontás egyértelmű. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1033,27 +865,9 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Felbontás",
-            latexContent: "\\vec a=a_1\\vec i+a_2\\vec j,\\quad \\vec b=b_1\\vec i+b_2\\vec j",
-            explanation: "A vektorfelbontási tétel szerint mindkét vektor felírható az ortonormált bázisban."
-          },
-          {
-            stepNumber: 2,
-            title: "Disztributivitás",
-            latexContent: "\\vec a\\cdot\\vec b=a_1b_1(\\vec i\\cdot\\vec i)+(a_1b_2+a_2b_1)(\\vec i\\cdot\\vec j)+a_2b_2(\\vec j\\cdot\\vec j)",
-            explanation: "A szorzatot tagonként kifejtjük; a skaláris szorzat bilineáris."
-          },
-          {
-            stepNumber: 3,
-            title: "Bázis tulajdonságai",
-            latexContent: "\\vec i\\cdot\\vec i=\\vec j\\cdot\\vec j=1,\\quad \\vec i\\cdot\\vec j=0",
-            explanation: "Ortonormált bázisban az egységvektorok hossza $1$, hajlásszögük $90^\\circ$, így $\\cos90^\\circ=0$."
-          },
-          {
-            stepNumber: 4,
             title: "Eredmény",
             latexContent: "\\vec a\\cdot\\vec b=a_1b_1+a_2b_2",
-            explanation: "A vegyes tagok eltűnnek, marad a két tengely menti szorzat összege."
+            explanation: "Cél: belátni, hogy A skaláris szorzat koordinátás alakja. A vektorfelbontási tétel szerint mindkét vektor felírható az ortonormált bázisban. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. A szorzatot tagonként kifejtjük; a skaláris szorzat bilineáris. Ez előkészíti a következő lépést (Disztributivitás). Ortonormált bázisban az egységvektorok hossza $1$, hajlásszögük $90^\\circ$, így $\\cos90^\\circ=0$. A vegyes tagok eltűnnek, marad a két tengely menti szorzat összege. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1065,21 +879,9 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Oldalvektorok",
-            latexContent: "\\vec c=\\vec a-\\vec b",
-            explanation: "A háromszög két oldalvektora $\\vec a,\\vec b$ a közös csúcsból; a harmadik oldal a különbségük."
-          },
-          {
-            stepNumber: 2,
-            title: "Négyzetre emelés",
-            latexContent: "|\\vec c|^2=(\\vec a-\\vec b)^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b",
-            explanation: "Felhasználjuk, hogy $\\vec a\\cdot\\vec a=|\\vec a|^2$, és a skaláris szorzat kommutatív."
-          },
-          {
-            stepNumber: 3,
             title: "Szög behelyettesítése",
-            latexContent: "c^2=a^2+b^2-2ab\\cos\\gamma",
-            explanation: "$\\vec a\\cdot\\vec b=ab\\cos\\gamma$; $\\gamma=90^\\circ$ esetén visszakapjuk a Pitagorasz-tételt."
+            latexContent: "\\vec c=\\vec a-\\vec b \\ |\\vec c|^2=(\\vec a-\\vec b)^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b \\ c^2=a^2+b^2-2ab\\cos\\gamma",
+            explanation: "Cél: belátni, hogy A koszinusztétel levezetése skaláris szorzattal. A háromszög két oldalvektora $\\vec a,\\vec b$ a közös csúcsból; a harmadik oldal a különbségük. Felhasználjuk, hogy $\\vec a\\cdot\\vec a=|\\vec a|^2$, és a skaláris szorzat kommutatív. Ez előkészíti a következő lépést (Négyzetre emelés). $\\vec a\\cdot\\vec b=ab\\cos\\gamma$; $\\gamma=90^\\circ$ esetén visszakapjuk a Pitagorasz-tételt. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1091,15 +893,9 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Definíció",
-            latexContent: "\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi",
-            explanation: "Nemnulla vektorokra a hosszak pozitívak."
-          },
-          {
-            stepNumber: 2,
             title: "Merőlegesség",
-            latexContent: "\\varphi=90^\\circ \\implies \\cos\\varphi=0 \\implies \\vec a\\cdot\\vec b=0",
-            explanation: "Ha a szorzat nulla, a pozitív tényezők miatt $\\cos\\varphi=0$, azaz $\\varphi=90^\\circ$."
+            latexContent: "\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi \\ \\varphi=90^\\circ \\implies \\cos\\varphi=0 \\implies \\vec a\\cdot\\vec b=0",
+            explanation: "Cél: belátni, hogy Merőlegességi kritérium. Nemnulla vektorokra a hosszak pozitívak. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. Ha a szorzat nulla, a pozitív tényezők miatt $\\cos\\varphi=0$, azaz $\\varphi=90^\\circ$. Összefoglalva: a levezetés végén megkapjuk a tétel állítását. Mondd el szóban is: feltétel → kulcslépés → következtetés; egy számpéldával ellenőrizd, ha lehet."
           }
         ]
       },
@@ -1111,21 +907,9 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Összeg négyzete",
-            latexContent: "|\\vec a+\\vec b|^2=|\\vec a|^2+|\\vec b|^2+2\\vec a\\cdot\\vec b",
-            explanation: "A skaláris szorzat disztributivitása miatt."
-          },
-          {
-            stepNumber: 2,
-            title: "Különbség négyzete",
-            latexContent: "|\\vec a-\\vec b|^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b",
-            explanation: "Ugyanígy, csak a vegyes tag előjele negatív."
-          },
-          {
-            stepNumber: 3,
             title: "Összeadás",
-            latexContent: "|\\vec a+\\vec b|^2+|\\vec a-\\vec b|^2=2(|\\vec a|^2+|\\vec b|^2)",
-            explanation: "A vegyes tagok kiesnek. Szemléletesen: a paralelogramma átlóinak négyzetösszege az oldalak négyzetösszegének kétszerese."
+            latexContent: "|\\vec a+\\vec b|^2=|\\vec a|^2+|\\vec b|^2+2\\vec a\\cdot\\vec b \\ |\\vec a-\\vec b|^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b \\ |\\vec a+\\vec b|^2+|\\vec a-\\vec b|^2=2(|\\vec a|^2+|\\vec b|^2)",
+            explanation: "Cél: belátni, hogy Paralelogramma-azonosság. A skaláris szorzat disztributivitása miatt. Ez előkészíti a következő lépést (Összeg négyzete). Ugyanígy, csak a vegyes tag előjele negatív. Ez előkészíti a következő lépést (Különbség négyzete). A vegyes tagok kiesnek. Szemléletesen: a paralelogramma átlóinak négyzetösszege az oldalak négyzetösszegének kétszerese. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -1468,21 +1252,9 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Futópont",
-            latexContent: "P(x,y)\\in e,\\quad P_0(x_0,y_0)\\in e",
-            explanation: "Az egyenes tetszőleges $P$ pontját és egy rögzített $P_0$ pontját vesszük."
-          },
-          {
-            stepNumber: 2,
-            title: "Eltolásvektor",
-            latexContent: "\\overrightarrow{P_0P}=(x-x_0,\\,y-y_0)",
-            explanation: "Ez a vektor az egyenes irányába mutat, tehát merőleges a normálvektorra."
-          },
-          {
-            stepNumber: 3,
             title: "Merőlegesség",
-            latexContent: "\\vec n\\cdot\\overrightarrow{P_0P}=0 \\implies A(x-x_0)+B(y-y_0)=0",
-            explanation: "A skaláris szorzat koordinátás alakjából adódik az egyenlet. Megfordítva: a feltételt kielégítő pontok éppen az egyenesen vannak."
+            latexContent: "P(x,y)\\in e,\\quad P_0(x_0,y_0)\\in e \\ \\overrightarrow{P_0P}=(x-x_0,\\,y-y_0) \\ \\vec n\\cdot\\overrightarrow{P_0P}=0 \\implies A(x-x_0)+B(y-y_0)=0",
+            explanation: "Cél: belátni, hogy A normálvektoros egyenesegyenlet. Az egyenes tetszőleges $P$ pontját és egy rögzített $P_0$ pontját vesszük. Ez előkészíti a következő lépést (Futópont). Ez a vektor az egyenes irányába mutat, tehát merőleges a normálvektorra. Ez előkészíti a következő lépést (Eltolásvektor). A skaláris szorzat koordinátás alakjából adódik az egyenlet. Megfordítva: a feltételt kielégítő pontok éppen az egyenesen vannak. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1494,21 +1266,9 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Irányvektorok",
-            latexContent: "\\vec v_1=(1,m_1),\\quad \\vec v_2=(1,m_2)",
-            explanation: "Nem függőleges egyeneseknél az $x$ irányú egységnyi elmozduláshoz $m$ függőleges elmozdulás tartozik."
-          },
-          {
-            stepNumber: 2,
-            title: "Merőlegesség",
-            latexContent: "\\vec v_1\\cdot\\vec v_2=1+m_1m_2=0",
-            explanation: "Két egyenes pontosan akkor merőleges, ha irányvektoraik merőlegesek."
-          },
-          {
-            stepNumber: 3,
             title: "Rendezés",
-            latexContent: "m_1m_2=-1",
-            explanation: "Innen $m_2=-1/m_1$. Függőleges és vízszintes egyenes esetén a szorzat nem értelmezhető, ott a normálvektorokkal kell dolgozni."
+            latexContent: "\\vec v_1=(1,m_1),\\quad \\vec v_2=(1,m_2) \\ \\vec v_1\\cdot\\vec v_2=1+m_1m_2=0 \\ m_1m_2=-1",
+            explanation: "Cél: belátni, hogy Merőleges egyenesek meredeksége. Nem függőleges egyeneseknél az $x$ irányú egységnyi elmozduláshoz $m$ függőleges elmozdulás tartozik. Két egyenes pontosan akkor merőleges, ha irányvektoraik merőlegesek. Ez előkészíti a következő lépést (Merőlegesség). Innen $m_2=-1/m_1$. Függőleges és vízszintes egyenes esetén a szorzat nem értelmezhető, ott a normálvektorokkal kell dolgozni. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1520,27 +1280,9 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egy pont az egyenesen",
-            latexContent: "P_1(x_1,y_1)\\in e \\implies Ax_1+By_1+C=0",
-            explanation: "Válasszunk egy tetszőleges $P_1$ pontot az egyenesen."
-          },
-          {
-            stepNumber: 2,
-            title: "Eltolásvektor",
-            latexContent: "\\overrightarrow{P_1P_0}=(x_0-x_1,\\,y_0-y_1)",
-            explanation: "A keresett távolság ennek a vektornak a normálvektor irányára eső vetületének hossza."
-          },
-          {
-            stepNumber: 3,
-            title: "Vetítés",
-            latexContent: "d=\\frac{|\\vec n\\cdot\\overrightarrow{P_1P_0}|}{|\\vec n|}=\\frac{|A(x_0-x_1)+B(y_0-y_1)|}{\\sqrt{A^2+B^2}}",
-            explanation: "A pont és az egyenes távolsága a normálvektorra vetített eltolás hossza."
-          },
-          {
-            stepNumber: 4,
             title: "Egyszerűsítés",
-            latexContent: "A(x_0-x_1)+B(y_0-y_1)=Ax_0+By_0+C",
-            explanation: "Felhasználtuk, hogy $Ax_1+By_1=-C$. Így megkapjuk a képletet; a számláló abszolút értéke biztosítja a nemnegatív távolságot."
+            latexContent: "P_1(x_1,y_1)\\in e \\implies Ax_1+By_1+C=0 \\ \\overrightarrow{P_1P_0}=(x_0-x_1,\\,y_0-y_1) \\ d=\\frac{|\\vec n\\cdot\\overrightarrow{P_1P_0}|}{|\\vec n|}=\\frac{|A(x_0-x_1)+B(y_0-y_1)|}{\\sqrt{A^2+B^2}} \\ A(x_0-x_1)+B(y_0-y_1)=Ax_0+By_0+C",
+            explanation: "Cél: belátni, hogy Pont–egyenes távolság képlete. Válasszunk egy tetszőleges $P_1$ pontot az egyenesen. Ez előkészíti a következő lépést (Egy pont az egyenesen). A keresett távolság ennek a vektornak a normálvektor irányára eső vetületének hossza. Ez előkészíti a következő lépést (Eltolásvektor). A pont és az egyenes távolsága a normálvektorra vetített eltolás hossza. Ez előkészíti a következő lépést (Vetítés). Felhasználtuk, hogy $Ax_1+By_1=-C$. Így megkapjuk a képletet; a számláló abszolút értéke biztosítja a nemnegatív távolságot. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1552,21 +1294,9 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egyenletrendszer",
-            latexContent: "A_1x+B_1y=-C_1,\\quad A_2x+B_2y=-C_2",
-            explanation: "A két egyenes metszéspontja a két egyenlet közös megoldása."
-          },
-          {
-            stepNumber: 2,
-            title: "Determináns",
-            latexContent: "D=A_1B_2-A_2B_1",
-            explanation: "Ha $D\\neq0$, a rendszer egyértelműen megoldható, tehát egy metszéspont van."
-          },
-          {
-            stepNumber: 3,
             title: "Párhuzamos eset",
-            latexContent: "D=0:\\quad \\text{nincs megoldás vagy végtelen sok}",
-            explanation: "Ha $D=0$, a normálvektorok arányosak. Ha a konstansok aránya eltér, az egyenesek párhuzamosak (nincs megoldás); ha minden arány egyezik, egybeesnek (végtelen sok megoldás)."
+            latexContent: "A_1x+B_1y=-C_1,\\quad A_2x+B_2y=-C_2 \\ D=A_1B_2-A_2B_1 \\ D=0:\\quad \\text{nincs megoldás vagy végtelen sok}",
+            explanation: "Cél: belátni, hogy Két egyenes kölcsönös helyzete. A két egyenes metszéspontja a két egyenlet közös megoldása. Ez előkészíti a következő lépést (Egyenletrendszer). Ha $D\\neq0$, a rendszer egyértelműen megoldható, tehát egy metszéspont van. Ez előkészíti a következő lépést (Determináns). Ha $D=0$, a normálvektorok arányosak. Ha a konstansok aránya eltér, az egyenesek párhuzamosak (nincs megoldás); ha minden arány egyezik, egybeesnek (végtelen sok megoldás). Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1578,21 +1308,9 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Szintvonalak",
-            latexContent: "px+qy=c",
-            explanation: "A célfüggvény azonos értékeit párhuzamos egyenesek alkotják; a célfüggvény ezekre merőleges irányban nő vagy csökken."
-          },
-          {
-            stepNumber: 2,
-            title: "Tartomány konvexitása",
-            latexContent: "K=\\bigcap \\text{félsíkok}",
-            explanation: "Félsíkok metszete konvex; a maximumot a szintvonal addig tolja, amíg el nem éri a tartomány határát."
-          },
-          {
-            stepNumber: 3,
             title: "Csúcs vagy él",
-            latexContent: "\\text{szélsőérték csúcsban vagy él mentén}",
-            explanation: "Ha a szintvonal egy éllel párhuzamos, az él minden pontja optimális; ekkor is elegendő a két végcsúcsot kiszámítani."
+            latexContent: "px+qy=c \\ K=\\bigcap \\text{félsíkok} \\ \\text{szélsőérték csúcsban vagy él mentén}",
+            explanation: "Cél: belátni, hogy A lineáris programozás csúcspont-elve. A célfüggvény azonos értékeit párhuzamos egyenesek alkotják; a célfüggvény ezekre merőleges irányban nő vagy csökken. Félsíkok metszete konvex; a maximumot a szintvonal addig tolja, amíg el nem éri a tartomány határát. Ha a szintvonal egy éllel párhuzamos, az él minden pontja optimális; ekkor is elegendő a két végcsúcsot kiszámítani. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }
@@ -1958,21 +1676,9 @@ A szóbelin gyakori csapda, hogy a parabolát összekeverik a függvénnyel: az 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Definíció",
-            latexContent: "d(P,C)=r",
-            explanation: "A kör minden $P(x,y)$ pontja $r$ távolságra van a $C(u,v)$ középponttól."
-          },
-          {
-            stepNumber: 2,
-            title: "Távolságképlet",
-            latexContent: "\\sqrt{(x-u)^2+(y-v)^2}=r",
-            explanation: "A két pont távolságát koordinátákkal írjuk fel."
-          },
-          {
-            stepNumber: 3,
             title: "Négyzetre emelés",
-            latexContent: "(x-u)^2+(y-v)^2=r^2",
-            explanation: "Mindkét oldal nemnegatív, ezért az átalakítás ekvivalens; a kör egyenletét kapjuk."
+            latexContent: "d(P,C)=r \\ \\sqrt{(x-u)^2+(y-v)^2}=r \\ (x-u)^2+(y-v)^2=r^2",
+            explanation: "Cél: belátni, hogy A kör egyenlete. A kör minden $P(x,y)$ pontja $r$ távolságra van a $C(u,v)$ középponttól. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. A két pont távolságát koordinátákkal írjuk fel. Ez előkészíti a következő lépést (Távolságképlet). Mindkét oldal nemnegatív, ezért az átalakítás ekvivalens; a kör egyenletét kapjuk. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -1984,27 +1690,9 @@ A szóbelin gyakori csapda, hogy a parabolát összekeverik a függvénnyel: az 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Adatok",
-            latexContent: "F\\left(0,\\frac p2\\right),\\qquad v:\\ y=-\\frac p2",
-            explanation: "A tengelypontot az origóba tesszük, a tengelyt függőlegesnek választjuk; a fókusz és a vezéregyenes távolsága $p$."
-          },
-          {
-            stepNumber: 2,
-            title: "Távolságok",
-            latexContent: "d(Q,F)=\\sqrt{x^2+\\left(y-\\frac p2\\right)^2},\\qquad d(Q,v)=y+\\frac p2",
-            explanation: "A $Q(x,y)$ pont fókusztól mért távolsága a távolságképlet, a vezéregyenestől mért távolság a függőleges irányú eltérés."
-          },
-          {
-            stepNumber: 3,
-            title: "Egyenlőség",
-            latexContent: "x^2+\\left(y-\\frac p2\\right)^2=\\left(y+\\frac p2\\right)^2",
-            explanation: "A parabola definíciója szerint a két távolság egyenlő; mindkét oldalt négyzetre emeljük."
-          },
-          {
-            stepNumber: 4,
             title: "Rendezés",
-            latexContent: "x^2=2py",
-            explanation: "A $y^2$ tagok kiesnek: $x^2+y^2-py+\\frac{p^2}{4}=y^2+py+\\frac{p^2}{4}$, ahonnan $x^2=2py$."
+            latexContent: "F\\left(0,\\frac p2\\right),\\qquad v:\\ y=-\\frac p2 \\ d(Q,F)=\\sqrt{x^2+\\left(y-\\frac p2\\right)^2},\\qquad d(Q,v)=y+\\frac p2 \\ x^2+\\left(y-\\frac p2\\right)^2=\\left(y+\\frac p2\\right)^2 \\ x^2=2py",
+            explanation: "Cél: belátni, hogy A parabola egyenlete. A tengelypontot az origóba tesszük, a tengelyt függőlegesnek választjuk; a fókusz és a vezéregyenes távolsága $p$. A $Q(x,y)$ pont fókusztól mért távolsága a távolságképlet, a vezéregyenestől mért távolság a függőleges irányú eltérés. A parabola definíciója szerint a két távolság egyenlő; mindkét oldalt négyzetre emeljük. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. A $y^2$ tagok kiesnek: $x^2+y^2-py+\\frac{p^2}{4}=y^2+py+\\frac{p^2}{4}$, ahonnan $x^2=2py$. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -2016,21 +1704,9 @@ A szóbelin gyakori csapda, hogy a parabolát összekeverik a függvénnyel: az 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Merőleges vetület",
-            latexContent: "T=\\text{a } C \\text{ vetülete az } e \\text{ egyenesre}",
-            explanation: "A $C$ középpontból az egyenesre bocsátott merőleges talppontja $T$; ekkor $CT=d$."
-          },
-          {
-            stepNumber: 2,
-            title: "Derékszögű háromszög",
-            latexContent: "CP^2=d^2+TP^2",
-            explanation: "Ha $P$ az egyenes és a kör közös pontja, akkor $CP=r$, és a Pitagorasz-tétel adja a $TP$ hosszt."
-          },
-          {
-            stepNumber: 3,
             title: "Esetek",
-            latexContent: "d<r \\iff TP>0,\\quad d=r \\iff TP=0,\\quad d>r \\iff \\text{nincs valós } TP",
-            explanation: "A $TP^2=r^2-d^2$ kifejezés előjele dönt: két megoldás, egy megoldás vagy nulla megoldás."
+            latexContent: "T=\\text{a } C \\text{ vetülete az } e \\text{ egyenesre} \\ CP^2=d^2+TP^2 \\ d<r \\iff TP>0,\\quad d=r \\iff TP=0,\\quad d>r \\iff \\text{nincs valós } TP",
+            explanation: "Cél: belátni, hogy Kör és egyenes kölcsönös helyzete. A $C$ középpontból az egyenesre bocsátott merőleges talppontja $T$; ekkor $CT=d$. Ez előkészíti a következő lépést (Merőleges vetület). Ha $P$ az egyenes és a kör közös pontja, akkor $CP=r$, és a Pitagorasz-tétel adja a $TP$ hosszt. A $TP^2=r^2-d^2$ kifejezés előjele dönt: két megoldás, egy megoldás vagy nulla megoldás. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -2042,21 +1718,9 @@ A szóbelin gyakori csapda, hogy a parabolát összekeverik a függvénnyel: az 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Gyöktényezős alak",
-            latexContent: "f(x)=a(x-x_1)(x-x_2)",
-            explanation: "Ha $D>0$, a másodfokú polinom két valós gyökkel rendelkezik, és gyöktényezős alakba írható."
-          },
-          {
-            stepNumber: 2,
-            title: "Előjelvizsgálat",
-            latexContent: "x<x_1:\\ (-)(-)=+,\\quad x_1<x<x_2:\\ (+)(-)=-,\\quad x>x_2:\\ (+)(+)=+",
-            explanation: "$a>0$ esetén a szorzat előjele a gyökök között negatív, azokon kívül pozitív. A grafikon felfelé nyitott parabola, amely a gyökök között az $x$-tengely alatt fut."
-          },
-          {
-            stepNumber: 3,
             title: "Megoldáshalmaz",
-            latexContent: "f(x)<0 \\iff x\\in(x_1,x_2)",
-            explanation: "A relációs jel irányától függően a belső intervallum vagy annak komplementere a megoldás; $a<0$ esetén minden előjel megfordul."
+            latexContent: "f(x)=a(x-x_1)(x-x_2) \\ x<x_1:\\ (-)(-)=+,\\quad x_1<x<x_2:\\ (+)(-)=-,\\quad x>x_2:\\ (+)(+)=+ \\ f(x)<0 \\iff x\\in(x_1,x_2)",
+            explanation: "Cél: belátni, hogy Másodfokú egyenlőtlenség megoldása. Ha $D>0$, a másodfokú polinom két valós gyökkel rendelkezik, és gyöktényezős alakba írható. $a>0$ esetén a szorzat előjele a gyökök között negatív, azokon kívül pozitív. A grafikon felfelé nyitott parabola, amely a gyökök között az $x$-tengely alatt fut. A relációs jel irányától függően a belső intervallum vagy annak komplementere a megoldás; $a<0$ esetén minden előjel megfordul. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
@@ -2068,27 +1732,9 @@ A szóbelin gyakori csapda, hogy a parabolát összekeverik a függvénnyel: az 
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Egyenes a ponton át",
-            latexContent: "y-y_0=m(x-x_0)",
-            explanation: "A $P_0(x_0,y_0)$ a parabolán van, tehát $y_0^2=2px_0$; az érintő meredekségét $m$ jelöli."
-          },
-          {
-            stepNumber: 2,
-            title: "Behelyettesítés",
-            latexContent: "\\left(y_0+m(x-x_0)\\right)^2=2px",
-            explanation: "Az egyenes egyenletét a parabola egyenletébe írjuk; ez $x$-ben másodfokú egyenlet."
-          },
-          {
-            stepNumber: 3,
-            title: "Kettős gyök",
-            latexContent: "D=0 \\implies m=\\frac{p}{y_0}",
-            explanation: "Érintés esetén a másodfokú egyenletnek egyetlen (kettős) gyöke van, amiből $m=p/y_0$ adódik."
-          },
-          {
-            stepNumber: 4,
             title: "Átrendezés",
-            latexContent: "y\\,y_0=p(x+x_0)",
-            explanation: "Az $m=p/y_0$ behelyettesítésével és $y_0^2=2px_0$ felhasználásával kapjuk az érintő egyenletét."
+            latexContent: "y-y_0=m(x-x_0) \\ \\left(y_0+m(x-x_0)\\right)^2=2px \\ D=0 \\implies m=\\frac{p}{y_0} \\ y\\,y_0=p(x+x_0)",
+            explanation: "Cél: belátni, hogy A parabola érintője adott pontban. A $P_0(x_0,y_0)$ a parabolán van, tehát $y_0^2=2px_0$; az érintő meredekségét $m$ jelöli. Ez előkészíti a következő lépést (Egyenes a ponton át). Az egyenes egyenletét a parabola egyenletébe írjuk; ez $x$-ben másodfokú egyenlet. Ez előkészíti a következő lépést (Behelyettesítés). Érintés esetén a másodfokú egyenletnek egyetlen (kettős) gyöke van, amiből $m=p/y_0$ adódik. Az $m=p/y_0$ behelyettesítésével és $y_0^2=2px_0$ felhasználásával kapjuk az érintő egyenletét. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       }

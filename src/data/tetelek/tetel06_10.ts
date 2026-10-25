@@ -102,25 +102,13 @@ Tőle függetlenül a skót John Napier 1614-ben publikálta a logaritmus elmél
         theoremNumber: 1,
         title: 'Szorzat logaritmusa egyenlő a tényezők logaritmusának összegével',
         statementLatex: '\\log_a (b \\cdot c) = \\log_a b + \\log_a c \\quad (a, b, c > 0, a \\neq 1)',
-        proofTitle: 'Bizonyítás a logaritmus definíciója és az exponenciális függvény szigorú monotonitása alapján',
+        proofTitle: 'Bizonyítás a logaritmus definíciójával',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Tényezők felírása hatványalakban',
-            latexContent: 'b = a^{\\log_a b}, \\quad c = a^{\\log_a c}, \\quad b \\cdot c = a^{\\log_a (b \\cdot c)}',
-            explanation: 'Alkalmazzuk a logaritmus alapvető definícióját mindkét tényezőre és a szorzatukra.'
-          },
-          {
-            stepNumber: 2,
-            title: 'A szorzat átalakítása hatványazonossággal',
-            latexContent: 'b \\cdot c = a^{\\log_a b} \\cdot a^{\\log_a c} = a^{\\log_a b + \\log_a c}',
-            explanation: 'Felhasználjuk az azonos alapú hatványok szorzására vonatkozó azonosságot.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Exponenciális függvény szigorú monotonitásának alkalmazása',
-            latexContent: 'a^{\\log_a (b \\cdot c)} = a^{\\log_a b + \\log_a c} \\implies \\log_a (b \\cdot c) = \\log_a b + \\log_a c',
-            explanation: 'Mivel az a alapú exponenciális függvény szigorúan monoton (kölcsönösen egyértelmű), az egyenlőség pontosan akkor áll fenn, ha a kitevők egyenlőek.'
+            title: 'log_c(xy) = log_c x + log_c y',
+            latexContent: '\\log_c(xy)=\\log_c x+\\log_c y',
+            explanation: 'Legyen log_c x = α, log_c y = β, azaz x = c^α, y = c^β (c>0, c≠1, x,y>0). Ekkor xy = c^α · c^β = c^{α+β}, ezért log_c(xy) = α+β = log_c x + log_c y. A hatványok szorzatának azonossága a kulcs. Ellenőrzés: log₁₀(100·1000)=log₁₀ 100000=5, és 2+3=5.'
           }
         ]
       },
@@ -128,19 +116,13 @@ Tőle függetlenül a skót John Napier 1614-ben publikálta a logaritmus elmél
         theoremNumber: 2,
         title: 'Hányados logaritmusa egyenlő a számláló és a nevező logaritmusának különbségével',
         statementLatex: '\\log_a \\left(\\frac{b}{c}\\right) = \\log_a b - \\log_a c \\quad (a, b, c > 0, a \\neq 1)',
-        proofTitle: 'Bizonyítás a hatványok hányadosának azonosságával',
+        proofTitle: 'Bizonyítás a hatványok hányadosával',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'A hányados felírása',
-            latexContent: '\\frac{b}{c} = \\frac{a^{\\log_a b}}{a^{\\log_a c}} = a^{\\log_a b - \\log_a c}',
-            explanation: 'Azonos alapú hatványok osztásánál a kitevőket kivonjuk.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Azonosítás és az alapok elhagyása',
-            latexContent: 'a^{\\log_a (b / c)} = a^{\\log_a b - \\log_a c} \\implies \\log_a \\left(\\frac{b}{c}\\right) = \\log_a b - \\log_a c',
-            explanation: 'A szigorú monotonitás miatt a kitevők megegyeznek.'
+            title: 'log_c(x/y) = log_c x − log_c y',
+            latexContent: '\\log_c\\frac{x}{y}=\\log_c x-\\log_c y',
+            explanation: 'Legyen log_c x = α, log_c y = β, tehát x = c^α, y = c^β. A hányados: x/y = c^α / c^β = c^{α−β}. A logaritmus definíciója szerint log_c(x/y) = α−β = log_c x − log_c y. Speciálisan log_c(1/y) = −log_c y. Ellenőrzés: log₂(8/2)=log₂4=2, és 3−1=2. Feltétel: x,y>0, c>0, c≠1.'
           }
         ]
       },
@@ -148,19 +130,13 @@ Tőle függetlenül a skót John Napier 1614-ben publikálta a logaritmus elmél
         theoremNumber: 3,
         title: 'Hatvány logaritmusa egyenlő a kitevő és az alap logaritmusának szorzatával',
         statementLatex: '\\log_a (b^n) = n \\cdot \\log_a b \\quad (a, b > 0, a \\neq 1, n \\in \\mathbb{R})',
-        proofTitle: 'Bizonyítás a hatvány hatványozásának azonosságával',
+        proofTitle: 'Bizonyítás a hatvány hatványozásával',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'A b hatványalakjának n-edik hatványa',
-            latexContent: 'b = a^{\\log_a b} \\implies b^n = (a^{\\log_a b})^n = a^{n \\cdot \\log_a b}',
-            explanation: 'Hatvány hatványozásakor a kitevőket összeszorozzuk.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Összevetés a logaritmus definíciójával',
-            latexContent: 'b^n = a^{\\log_a (b^n)} \\implies a^{\\log_a (b^n)} = a^{n \\cdot \\log_a b} \\implies \\log_a (b^n) = n \\cdot \\log_a b',
-            explanation: 'A szigorú monotonitás miatt a kitevők egyenlősége adódik.'
+            title: 'log_c(x^r) = r log_c x',
+            latexContent: '\\log_c(x^r)=r\\log_c x',
+            explanation: 'Legyen log_c x = α, azaz x = c^α. Emeljük r-edik hatványra: x^r = (c^α)^r = c^{αr}. Innen log_c(x^r) = αr = r log_c x — ez a „kitevő kiemelése” a logaritmus elé. Példa: log₃(9⁵)=5·log₃9=5·2=10. Ugyanez működik negatív vagy tört r-re is (ha x>0 és az alap megengedett).'
           }
         ]
       },
@@ -168,25 +144,13 @@ Tőle függetlenül a skót John Napier 1614-ben publikálta a logaritmus elmél
         theoremNumber: 4,
         title: 'Áttérés új alapú logaritmusra (Bázisváltás)',
         statementLatex: '\\log_a b = \\frac{\\log_c b}{\\log_c a} \\quad (a, b, c > 0, a \\neq 1, c \\neq 1)',
-        proofTitle: 'Bizonyítás mindkét oldal c alapú logaritmusának vételével',
+        proofTitle: 'Bázisváltási képlet',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Alapazonosság felírása',
-            latexContent: 'b = a^{\\log_a b}',
-            explanation: 'A logaritmus alapdefinícióját használjuk.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Mindkét oldal c alapú logaritmusának vétele',
-            latexContent: '\\log_c b = \\log_c (a^{\\log_a b}) = \\log_a b \\cdot \\log_c a',
-            explanation: 'A hatvány logaritmusára vonatkozó szabály szerint a kitevő szorzóként kiemelhető.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Leosztás log_c a-val',
-            latexContent: '\\log_c a \\neq 0 \\; (a \\neq 1) \\implies \\log_a b = \\frac{\\log_c b}{\\log_c a}',
-            explanation: 'Mivel a ≠ 1, log_c a ≠ 0, leoszthatunk vele és megkaptuk az alapváltási tételt.'
+            title: 'log_b a = log_c a / log_c b',
+            latexContent: '\\log_b a=\\frac{\\log_c a}{\\log_c b}',
+            explanation: 'Legyen log_b a = x, azaz a = b^x. Vegyük mindkét oldal c alapú logaritmusát: log_c a = x log_c b, innen x = log_c a / log_c b. Gyakorlat: számológépen gyakran csak ln vagy log₁₀ van — ezzel váltasz tetszőleges alapra. Speciálisan log_b a = 1/log_a b.'
           }
         ]
       }
@@ -368,27 +332,9 @@ A 16. században François Viète (1540–1603) francia matematikus vezette be a
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Kiemelés a főegyütthatóval',
-            latexContent: 'ax^2 + bx + c = 0 \\implies a \\left( x^2 + \\frac{b}{a}x + \\frac{c}{a} \\right) = 0 \\implies x^2 + \\frac{b}{a}x + \\frac{c}{a} = 0',
-            explanation: 'Mivel a ≠ 0, mindkét oldalt leoszthatjuk a-val.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Teljes négyzetté alakítás',
-            latexContent: '\\left(x + \\frac{b}{2a}\\right)^2 - \\frac{b^2}{4a^2} + \\frac{c}{a} = 0',
-            explanation: 'Az x² + (b/a)x tagokat teljes négyzetté alakítjuk: (x + b/(2a))² = x² + (b/a)x + b²/(4a²).'
-          },
-          {
-            stepNumber: 3,
-            title: 'Konstansok átvitele és közös nevező',
-            latexContent: '\\left(x + \\frac{b}{2a}\\right)^2 = \\frac{b^2}{4a^2} - \\frac{4ac}{4a^2} = \\frac{b^2 - 4ac}{4a^2}',
-            explanation: 'Áthozzuk a konstans tagokat a jobb oldalra és 4a² közös nevezőre hozzuk.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Gyökvonás és kifejezés x-re',
-            latexContent: 'x + \\frac{b}{2a} = \\pm \\frac{\\sqrt{b^2 - 4ac}}{2a} \\implies x_{1,2} = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}',
-            explanation: 'Négyzetgyököt vonunk mindkét oldalból és kivonjuk a b/(2a) tagot, megkapva a megoldóképletet.'
+            title: 'x = (−b ± √(b²−4ac))/(2a)',
+            latexContent: 'ax^2+bx+c=0 \\implies x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}',
+            explanation: 'Feltétel: a≠0. Osszunk a-val: x² + (b/a)x + c/a = 0. Emeljük ki a lineáris tagot teljes négyzetté: x² + (b/a)x = (x + b/(2a))² − (b/(2a))². Átrendezve: (x + b/(2a))² = (b²−4ac)/(4a²). Gyökvonás (ha D=b²−4ac≥0 a valós esetben): x + b/(2a) = ± √D /(2a), innen x = (−b ± √D)/(2a). A D diszkrimináns dönt: D>0 két valós gyök, D=0 eggyel (kétszeres), D<0 nincs valós gyök. Viète: összeg −b/a, szorzat c/a — ellenőrizheted a képletből.'
           }
         ]
       },
@@ -400,15 +346,9 @@ A 16. században François Viète (1540–1603) francia matematikus vezette be a
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Gyökök összeadása',
-            latexContent: 'x_1 + x_2 = \\frac{-b + \\sqrt{D}}{2a} + \\frac{-b - \\sqrt{D}}{2a} = \\frac{-2b}{2a} = -\\frac{b}{a}',
-            explanation: 'A számlálókban a +√D és -√D kiejtik egymást.'
-          },
-          {
-            stepNumber: 2,
             title: 'Gyökök megszorzása (Nevezetes azonosság)',
             latexContent: 'x_1 \\cdot x_2 = \\frac{(-b + \\sqrt{D})(-b - \\sqrt{D})}{4a^2} = \\frac{(-b)^2 - (\\sqrt{D})^2}{4a^2} = \\frac{b^2 - (b^2 - 4ac)}{4a^2} = \\frac{4ac}{4a^2} = \\frac{c}{a}',
-            explanation: 'Alkalmazzuk az (u + v)(u - v) = u² - v² azonosságot u = -b és v = √D helyettesítéssel.'
+            explanation: 'Cél: belátni, hogy A Viète-formulák bizonyítása. A számlálókban a +√D és -√D kiejtik egymást. Ez előkészíti a következő lépést (Gyökök összeadása). Alkalmazzuk az (u + v)(u - v) = u² - v² azonosságot u = -b és v = √D helyettesítéssel. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -566,50 +506,26 @@ A leíró statisztika az adatokat tömöríti és ábrázolja, míg a matematika
         theoremNumber: 1,
         title: 'Két pozitív szám számtani és mértani közepe közötti egyenlőtlenség algebrai bizonyítása',
         statementLatex: '\\frac{a+b}{2} \\ge \\sqrt{ab} \\quad (a, b > 0)',
-        proofTitle: 'Bizonyítás teljes négyzet képzésével',
+        proofTitle: 'Algebrai bizonyítás teljes négyzettel',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Átrendezés és beszorzás 2-vel',
-            latexContent: '\\frac{a+b}{2} \\ge \\sqrt{ab} \\iff a + b \\ge 2\\sqrt{ab}',
-            explanation: 'Mivel 2 > 0, az egyenlőtlenség iránya változatlan.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Nullára rendezés és teljes négyzet felismerése',
-            latexContent: 'a - 2\\sqrt{ab} + b \\ge 0 \\iff (\\sqrt{a})^2 - 2\\sqrt{a}\\sqrt{b} + (\\sqrt{b})^2 \\ge 0 \\iff (\\sqrt{a} - \\sqrt{b})^2 \\ge 0',
-            explanation: 'Kihasználjuk, hogy a = (√a)² és b = (√b)², így a bal oldal az ismert (u - v)² teljes négyzet alakot ölti.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Konklúzió levonása',
-            latexContent: '(\\sqrt{a} - \\sqrt{b})^2 \\ge 0 \\quad (\\forall a, b > 0 \\text{ valós számra fennáll})',
-            explanation: 'Bármely valós szám négyzete nemnegatív, így az egyenlőtlenség minden pozitív számpárra teljesül. Egyenlőség pontosan akkor áll fenn, ha √a = √b, azaz a = b.'
+            title: '(√a − √b)² ≥ 0',
+            latexContent: '(\\sqrt{a}-\\sqrt{b})^2\\ge 0 \\implies \\frac{a+b}{2}\\ge\\sqrt{ab}',
+            explanation: 'Legyen a,b>0. A négyzet nemnegatív: (√a − √b)² ≥ 0. Kibontva: a − 2√(ab) + b ≥ 0, azaz a+b ≥ 2√(ab), innen (a+b)/2 ≥ √(ab). Egyenlőség pontosan akkor, ha √a=√b, azaz a=b. Ez a két pozitív számra vonatkozó AM–GM. Ellenőrzés: a=b=4 → mindkét közép 4; a=1,b=9 → számtani 5, mértani 3, és 5>3.'
           }
         ]
       },
       {
         theoremNumber: 2,
         title: 'Két pozitív szám számtani és mértani közepe közötti egyenlőtlenség geometriai bizonyítása',
-        proofTitle: 'Bizonyítás a Thalész-kör és a magasságtétel segítségével',
+        proofTitle: 'Geometriai bizonyítás Thalész-körrel',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Thalész-kör felvétele p + q átmérővel',
-            latexContent: 'd = p + q \\implies r = \\frac{p+q}{2} \\quad (\\text{a kör sugara})',
-            explanation: 'Rajzoljunk fel egy kört, melynek átmérője p + q szakasz.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Átfogóhoz tartozó magasság és a magasságtétel',
-            latexContent: 'm = \\sqrt{p \\cdot q}',
-            explanation: 'A szakaszok határpontjában az átmérőre állított merőleges körívig terjedő szakasza a derékszögű háromszög m magassága, ami a magasságtétel szerint √(pq).'
-          },
-          {
-            stepNumber: 3,
-            title: 'Magasság és sugár viszonya',
-            latexContent: 'm \\le r \\implies \\sqrt{pq} \\le \\frac{p+q}{2}',
-            explanation: 'A körben bármely merőleges magasság legfeljebb a kör sugarával lehet egyenlő (amikor az átmérő felezőpontjában van állítva). Ezzel a geometriai állítást igazoltuk.'
+            title: 'Magasságtétel a Thalész-körön',
+            latexContent: '\\frac{a+b}{2}\\ge\\sqrt{ab}',
+            explanation: 'Rajzoljunk a számtani közép sugarú félkört az a+b átmérőjű szakaszra (Thalész). Az átmérő egyik végpontjától a távolságra mért pontból emelt merőleges metszi a kört; a magasságtétel / derékszögű háromszög magassága éppen √(ab)-t ad. A körön a magasság legfeljebb a sugár, ezért √(ab) ≤ (a+b)/2. Egyenlőség, ha a magasság a középpontba esik — azaz a=b. Szemléletes: a mértani közép „nem nyúlhat túl” a félkör sugarán.'
           }
         ]
       },
@@ -621,15 +537,9 @@ A leíró statisztika az adatokat tömöríti és ábrázolja, míg a matematika
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Négyzetre emelés és rendezés',
-            latexContent: '\\left(\\frac{a+b}{2}\\right)^2 \\le \\frac{a^2+b^2}{2} \\iff \\frac{a^2 + 2ab + b^2}{4} \\le \\frac{a^2+b^2}{2}',
-            explanation: 'Mindkét oldal pozitív, így a négyzetre emelés ekvivalens átalakítás.'
-          },
-          {
-            stepNumber: 2,
             title: 'Beszorzás 4-gyel és nullára rendezés',
-            latexContent: 'a^2 + 2ab + b^2 \\le 2a^2 + 2b^2 \\iff 0 \\le a^2 - 2ab + b^2 \\iff 0 \\le (a - b)^2',
-            explanation: 'Áthozva mindent a jobb oldalra ismét a nemnegatív (a - b)² teljes négyzetet kapjuk, ami mindig igaz.'
+            latexContent: '\\left(\\frac{a+b}{2}\\right)^2 \\le \\frac{a^2+b^2}{2} \\iff \\frac{a^2 + 2ab + b^2}{4} \\le \\frac{a^2+b^2}{2} \\ a^2 + 2ab + b^2 \\le 2a^2 + 2b^2 \\iff 0 \\le a^2 - 2ab + b^2 \\iff 0 \\le (a - b)^2',
+            explanation: 'Cél: belátni, hogy Két pozitív szám számtani és négyzetes közepe közötti egyenlőtlenség bizonyítása. Mindkét oldal pozitív, így a négyzetre emelés ekvivalens átalakítás. Ez előkészíti a következő lépést (Négyzetre emelés és rendezés). Áthozva mindent a jobb oldalra ismét a nemnegatív (a - b)² teljes négyzetet kapjuk, ami mindig igaz. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -827,46 +737,22 @@ A számsorozatok összegzésének törvényeit az ifjú Carl Friedrich Gauss fed
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Bázislépés n = 1-re',
-            latexContent: 'a_1 = a_1 + (1 - 1)d = a_1 + 0 \\cdot d = a_1 \\quad (\\text{Igaz!})',
-            explanation: 'Az állítás n = 1 esetén nyilvánvalóan teljesül.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Indukciós feltevés n = k-ra',
-            latexContent: 'a_k = a_1 + (k - 1)d \\quad (\\text{Feltesszük, hogy igaz})',
-            explanation: 'Feltételezzük, hogy az összefüggés érvényes k indexre.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Öröklődés igazolása n = k + 1-re',
-            latexContent: 'a_{k+1} = a_k + d = [a_1 + (k - 1)d] + d = a_1 + kd = a_1 + [(k+1) - 1]d',
-            explanation: 'A számtani sorozat definíciója szerint a_(k+1) = a_k + d. Behelyettesítve az indukciós feltevést megkapjuk a k+1-re vonatkozó képletet. Ezzel a tételt igazoltuk.'
+            title: 'aₙ = a₁ + (n−1)d',
+            latexContent: 'a_n=a_1+(n-1)d',
+            explanation: 'Definíció: minden taghoz d-t adunk (differencia). Bázis: n=1-re a₁ = a₁ + 0·d igaz. Indukciós feltevés: aₖ = a₁+(k−1)d. Következő tag: aₖ₊₁ = aₖ + d = a₁+(k−1)d + d = a₁+kd = a₁+((k+1)−1)d. Tehát minden n-re igaz. Szemlélet: az elsőtől az n-edikig (n−1) darab ugrás, mindegyik d. Példa: 3,7,11,… → d=4, a₅=3+4·4=19.'
           }
         ]
       },
       {
         theoremNumber: 2,
         title: 'A számtani sorozat első n tagjának összegképlete: S_n = n(a_1 + a_n)/2',
-        proofTitle: 'Bizonyítás a Gauss-féle megfordításos összegzéssel',
+        proofTitle: 'Gauss-féle megfordításos összegzés',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Az összeg felírása kétféle sorrendben',
-            latexContent: 'S_n = a_1 + a_2 + \\dotsm + a_{n-1} + a_n \\\\ S_n = a_n + a_{n-1} + \\dotsm + a_2 + a_1',
-            explanation: 'Írjuk fel az első n tag összegét növekvő és csökkenő indexek szerint.'
-          },
-          {
-            stepNumber: 2,
-            title: 'A két sor összeadása oszloponként',
-            latexContent: '2S_n = (a_1 + a_n) + (a_2 + a_{n-1}) + \\dotsm + (a_n + a_1)',
-            explanation: 'Összeadjuk az egymás alatt álló tagpárokat.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Tagpárok azonossága és rendezés',
-            latexContent: 'a_k + a_{n-k+1} = [a_1 + (k-1)d] + [a_1 + (n-k)d] = a_1 + [a_1 + (n-1)d] = a_1 + a_n',
-            explanation: 'Mivel mind az n darab oszlop összege azonos: a_1 + a_n, ezért 2S_n = n(a_1 + a_n), amiből 2-vel osztva adódik a képlet.'
+            title: 'Sₙ = n(a₁+aₙ)/2',
+            latexContent: 'S_n=\\frac{n}{2}(a_1+a_n)',
+            explanation: 'Írjuk fel Sₙ = a₁+a₂+…+aₙ és fordítva Sₙ = aₙ+…+a₁. Páronként: (a₁+aₙ), (a₂+aₙ₋₁), … — mindegyik összeg ugyanaz, mert számtani sorozatban a szélső párok összege állandó (2a₁+(n−1)d = a₁+aₙ). n ilyen pár van, ezért 2Sₙ = n(a₁+aₙ), azaz Sₙ = n(a₁+aₙ)/2. Ekvivalens alak: Sₙ = n(2a₁+(n−1)d)/2. Klasszikus példa: 1+…+100 = 100·101/2 = 5050.'
           }
         ]
       },
@@ -878,15 +764,9 @@ A számsorozatok összegzésének törvényeit az ifjú Carl Friedrich Gauss fed
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'A szimmetrikus tagok kifejtése',
-            latexContent: 'a_{n-k} = a_1 + (n - k - 1)d, \\quad a_{n+k} = a_1 + (n + k - 1)d',
-            explanation: 'Alkalmazzuk az n-edik tag képletét n-k és n+k indexekre.'
-          },
-          {
-            stepNumber: 2,
             title: 'Összegzés és osztás 2-vel',
-            latexContent: '\\frac{a_{n-k} + a_{n+k}}{2} = \\frac{2a_1 + (2n - 2)d + kd - kd}{2} = \\frac{2[a_1 + (n - 1)d]}{2} = a_n',
-            explanation: '+kd és -kd kiejtik egymást, és pontosan a_n-et kapjuk vissza.'
+            latexContent: 'a_{n-k} = a_1 + (n - k - 1)d, \\quad a_{n+k} = a_1 + (n + k - 1)d \\ \\frac{a_{n-k} + a_{n+k}}{2} = \\frac{2a_1 + (2n - 2)d + kd - kd}{2} = \\frac{2[a_1 + (n - 1)d]}{2} = a_n',
+            explanation: 'Cél: belátni, hogy Számtani sorozat bármely tagja a szimmetrikus elemek számtani közepe. Alkalmazzuk az n-edik tag képletét n-k és n+k indexekre. Ez előkészíti a következő lépést (A szimmetrikus tagok kifejtése). +kd és -kd kiejtik egymást, és pontosan a_n-et kapjuk vissza. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását.'
           }
         ]
       }
@@ -1074,52 +954,22 @@ A mértani sorozat ma a banki hitelezés, a járadékszámítás és a természe
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Bázislépés n = 1-re',
-            latexContent: 'a_1 = a_1 \\cdot q^{1-1} = a_1 \\cdot q^0 = a_1 \\cdot 1 = a_1 \\quad (\\text{Igaz!})',
-            explanation: 'Az állítás n = 1-re nyilvánvalóan teljesül.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Indukciós feltevés n = k-ra',
-            latexContent: 'a_k = a_1 \\cdot q^{k-1} \\quad (\\text{Feltesszük, hogy igaz})',
-            explanation: 'Feltételezzük a képlet helyességét k-ra.'
-          },
-          {
-            stepNumber: 3,
-            title: 'Öröklődés igazolása n = k + 1-re',
-            latexContent: 'a_{k+1} = a_k \\cdot q = (a_1 \\cdot q^{k-1}) \\cdot q = a_1 \\cdot q^k = a_1 \\cdot q^{(k+1) - 1}',
-            explanation: 'A mértani sorozat definíciója szerint a_(k+1) = a_k · q. Behelyettesítve megkapjuk a k+1-re érvényes képletet.'
+            title: 'aₙ = a₁ · qⁿ⁻¹',
+            latexContent: 'a_n=a_1 q^{n-1}',
+            explanation: 'Definíció: minden tagot q-val szorzunk (kvóciens). Bázis n=1: a₁ = a₁ q⁰. Ha aₖ = a₁ q^{k−1}, akkor aₖ₊₁ = aₖ·q = a₁ q^k = a₁ q^{(k+1)−1}. Tehát igaz minden n-re. Szemlélet: az elsőtől az n-edikig (n−1) szorzás q-val. Példa: 2,6,18,54 → q=3, a₄=2·3³=54.'
           }
         ]
       },
       {
         theoremNumber: 2,
         title: 'A mértani sorozat első n tagjának összegképlete: S_n = a_1 (q^n - 1) / (q - 1)',
-        proofTitle: 'Algebrai levezetés beszorzással és kivonással',
+        proofTitle: 'Algebrai levezetés: S − qS',
         proofSteps: [
           {
             stepNumber: 1,
-            title: 'Az összeg felírása',
-            latexContent: 'S_n = a_1 + a_1 q + a_1 q^2 + \\dotsm + a_1 q^{n-1}',
-            explanation: 'Felírjuk az első n tag összegét.'
-          },
-          {
-            stepNumber: 2,
-            title: 'Mindkét oldal beszorzása q-val',
-            latexContent: 'q \\cdot S_n = a_1 q + a_1 q^2 + a_1 q^3 + \\dotsm + a_1 q^n',
-            explanation: 'Megszorozzuk az egyenlet mindkét oldalát q-val.'
-          },
-          {
-            stepNumber: 3,
-            title: 'A két egyenlet kivonása egymásból',
-            latexContent: 'q S_n - S_n = a_1 q^n - a_1 \\implies S_n (q - 1) = a_1 (q^n - 1)',
-            explanation: 'A belső tagok (teleszkópos módon) mind kiejtik egymást.'
-          },
-          {
-            stepNumber: 4,
-            title: 'Leosztás (q - 1)-gyel',
-            latexContent: 'S_n = a_1 \\frac{q^n - 1}{q - 1} \\quad (q \\neq 1)',
-            explanation: 'Mivel q ≠ 1, leoszthatunk (q - 1)-gyel, és megkaptuk a kívánt összegképletet.'
+            title: 'Sₙ = a₁(qⁿ−1)/(q−1)  (q≠1)',
+            latexContent: 'S_n=a_1\\frac{q^n-1}{q-1}\\quad(q\\ne1)',
+            explanation: 'Sₙ = a₁ + a₁q + … + a₁qⁿ⁻¹. Szorozzuk q-val: qSₙ = a₁q + … + a₁qⁿ. Kivonás: Sₙ − qSₙ = a₁ − a₁qⁿ = a₁(1−qⁿ). Így Sₙ(1−q) = a₁(1−qⁿ), tehát Sₙ = a₁(1−qⁿ)/(1−q) = a₁(qⁿ−1)/(q−1). Ha q=1, minden tag a₁, Sₙ = n a₁. Ellenőrzés: a₁=1,q=2,n=3 → S=1+2+4=7, és 1·(8−1)/(2−1)=7.'
           }
         ]
       }
