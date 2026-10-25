@@ -186,7 +186,8 @@ Georg Cantor 19. századi német matematikus vezetett be olyan új forradalmi fo
       {
         problemNumber: 3,
         question: 'Hányszor annyi 3 elemű részhalmaza van egy 10 elemű halmaznak, mint ahány 2 elemű részhalmaza?',
-        solutionLatex: '\\frac{\\binom{10}{3}}{\\binom{10}{2}} = \\frac{\\frac{10 \\cdot 9 \\cdot 8}{3 \\cdot 2 \\cdot 1}}{\\frac{10 \\cdot 9}{2 \\cdot 1}} = \\frac{120}{45} = \\frac{8}{3}\\text{-szor annyi.}'
+        solutionLatex: '\\begin{aligned} &\\text{10 elemből 3 kiválasztása (sorrend nélkül)} = \\binom{10}{3} = \\text{„10 alatt 3”} \\\\ &\\binom{10}{3} = \\dfrac{10 \\cdot 9 \\cdot 8}{3 \\cdot 2 \\cdot 1} = \\dfrac{720}{6} = 120 \\\\ &\\text{10 elemből 2 kiválasztása} = \\binom{10}{2} = \\text{„10 alatt 2”} \\\\ &\\binom{10}{2} = \\dfrac{10 \\cdot 9}{2 \\cdot 1} = \\dfrac{90}{2} = 45 \\\\ &\\dfrac{\\binom{10}{3}}{\\binom{10}{2}} = \\dfrac{120}{45} = \\dfrac{8}{3} \\end{aligned}',
+        explanation: 'A „10 alatt 3” (binomiális együttható) azt adja meg, hogy 10 elemből hányféleképpen tudunk kiválasztani 3-at, ha a sorrend nem számít — ez pont a 3 elemű részhalmazok száma. Ugyanígy a „10 alatt 2” a kételemű részhalmazok száma. A kérdés ezek hányadosa: 120/45 = 8/3-szor annyi a háromelemű, mint a kételemű.',
       }
     ],    oralPresentationOutline: [
       'Halmaz fogalma, elem, részhalmaz, üres halmaz, hatványhalmaz',

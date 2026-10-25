@@ -1,14 +1,34 @@
 import React, { useMemo, useState } from 'react';
 
-type Op = 'union' | 'intersection' | 'difference' | 'symdiff' | 'complementA' | 'complementB';
+type Op =
+  | 'union'
+  | 'intersection'
+  | 'difference'
+  | 'symdiff'
+  | 'complementA'
+  | 'complementB'
+  | 'demorganUnion'
+  | 'demorganIntersect';
 
-const OPS: { id: Op; label: string; latex: string }[] = [
+const OPS: { id: Op; label: string; latex: string; hint?: string }[] = [
   { id: 'union', label: 'Unió', latex: 'A ∪ B' },
   { id: 'intersection', label: 'Metszet', latex: 'A ∩ B' },
   { id: 'difference', label: 'Különbség', latex: 'A \\ B' },
   { id: 'symdiff', label: 'Szim. diff.', latex: 'A Δ B' },
-  { id: 'complementA', label: 'Ā', latex: 'U \ A = Ā' },
-  { id: 'complementB', label: 'B̄', latex: 'U \ B = B̄' },
+  { id: 'complementA', label: 'Ā', latex: 'U \\ A = Ā' },
+  { id: 'complementB', label: 'B̄', latex: 'U \\ B = B̄' },
+  {
+    id: 'demorganUnion',
+    label: 'De Morgan ¬(A∪B)',
+    latex: '¬(A ∪ B) = Ā ∩ B̄',
+    hint: 'Az unió komplementere a komplementerek metszete: azok a pontok, amelyek sem A-nak, sem B-nek nem elemei.',
+  },
+  {
+    id: 'demorganIntersect',
+    label: 'De Morgan ¬(A∩B)',
+    latex: '¬(A ∩ B) = Ā ∪ B̄',
+    hint: 'A metszet komplementere a komplementerek uniója: minden pont, amely nem tartozik mindkét halmazhoz egyszerre.',
+  },
 ];
 
 function inA(x: number, y: number) {
@@ -36,6 +56,12 @@ function highlighted(op: Op, a: boolean, b: boolean, u: boolean): boolean {
       return !a;
     case 'complementB':
       return !b;
+    case 'demorganUnion':
+      // ¬(A ∪ B) = Ā ∩ B̄
+      return !a && !b;
+    case 'demorganIntersect':
+      // ¬(A ∩ B) = Ā ∪ B̄
+      return !a || !b;
   }
 }
 
@@ -57,6 +83,7 @@ export const SetVisualizer: React.FC = () => {
   }, [op]);
 
   const current = OPS.find((o) => o.id === op)!;
+  const isDeMorgan = op === 'demorganUnion' || op === 'demorganIntersect';
 
   return (
     <div className="bg-zinc-950/80 border border-zinc-800 rounded-xl p-4 my-2 text-white">
@@ -66,7 +93,8 @@ export const SetVisualizer: React.FC = () => {
             Interaktív Venn-diagram
           </h4>
           <p className="text-xs text-zinc-400 mt-1">
-            Halmazművelet: <span className="text-emerald-300 font-mono">{current.latex}</span> — a kiemelt pontok a művelet eredménye az U alaphalmazon.
+            Halmazművelet: <span className="text-emerald-300 font-mono">{current.latex}</span> — a
+            kiemelt pontok a művelet eredménye az U alaphalmazon.
           </p>
         </div>
         <button
@@ -86,8 +114,12 @@ export const SetVisualizer: React.FC = () => {
             onClick={() => setOp(o.id)}
             className={`text-xs px-3 py-1.5 rounded-lg border font-mono transition-all ${
               op === o.id
-                ? 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300'
-                : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
+                ? isDeMorgan && (o.id === 'demorganUnion' || o.id === 'demorganIntersect')
+                  ? 'bg-amber-500/20 border-amber-500/50 text-amber-200'
+                  : 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300'
+                : o.id === 'demorganUnion' || o.id === 'demorganIntersect'
+                  ? 'bg-zinc-900 border-amber-500/30 text-amber-200/80 hover:text-amber-100'
+                  : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white'
             }`}
           >
             {o.label}
@@ -109,7 +141,7 @@ export const SetVisualizer: React.FC = () => {
               cx={p.x}
               cy={p.y}
               r={p.on ? 3.2 : 1.6}
-              fill={p.on ? '#34d399' : '#27272a'}
+              fill={p.on ? (isDeMorgan ? '#fbbf24' : '#34d399') : '#27272a'}
               opacity={p.on ? 0.95 : 0.45}
             />
           ))}
@@ -128,9 +160,16 @@ export const SetVisualizer: React.FC = () => {
         </svg>
       </div>
 
+      {current.hint && (
+        <div className="mt-3 rounded-lg border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs text-amber-100 leading-relaxed">
+          <span className="font-mono text-amber-300">De Morgan-példa:</span> {current.hint}
+        </div>
+      )}
+
       <p className="text-xs text-zinc-500 mt-3 leading-relaxed">
-        Tipikus felelet-mondat: „Az unió azon elemek halmaza, amelyek legalább az egyiknek elemei; a metszet mindkettőnek;
-        a különbség csak A-nak; a komplementer az alaphalmaz A-n kívüli része.” De Morgan: a komplementer felcseréli az uniót és a metszetet.
+        Tipikus felelet-mondat: „Az unió azon elemek halmaza, amelyek legalább az egyiknek elemei; a metszet
+        mindkettőnek; a különbség csak A-nak; a komplementer az alaphalmaz A-n kívüli része.” De Morgan: a
+        komplementer felcseréli az uniót és a metszetet — próbáld ki a két De Morgan gombot!
       </p>
     </div>
   );
