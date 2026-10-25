@@ -1,6 +1,6 @@
 import React from 'react';
-import { Category, FilterState } from '../types/math';
-import { Search, Bookmark, CheckCircle2, Layers } from 'lucide-react';
+import { Category, Difficulty, FilterState } from '../types/math';
+import { Search, Bookmark, CheckCircle2, Layers, Gauge } from 'lucide-react';
 
 interface FilterBarProps {
   filters: FilterState;
@@ -19,6 +19,29 @@ const CATEGORIES: (Category | 'Összes')[] = [
   'Koordinátageometria és vektorok',
   'Gráfelmélet és statisztika',
 ];
+
+const DIFFICULTIES: (Difficulty | 'Összes')[] = [
+  'Összes',
+  '1: alap alatti',
+  '2: bemelegítő',
+  '3: trückös',
+];
+
+const difficultyButtonClass = (diff: Difficulty | 'Összes', isActive: boolean) => {
+  if (!isActive) {
+    return 'bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700';
+  }
+  switch (diff) {
+    case '1: alap alatti':
+      return 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300 shadow-sm';
+    case '2: bemelegítő':
+      return 'bg-amber-500/15 border-amber-500/40 text-amber-300 shadow-sm';
+    case '3: trückös':
+      return 'bg-rose-500/15 border-rose-500/40 text-rose-300 shadow-sm';
+    default:
+      return 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300 shadow-sm';
+  }
+};
 
 export const FilterBar: React.FC<FilterBarProps> = ({
   filters,
@@ -48,6 +71,27 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 }`}
               >
                 {cat}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Difficulty filter row */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none text-xs">
+          <span className="text-zinc-500 font-mono text-xs flex items-center gap-1 shrink-0 mr-1">
+            <Gauge className="w-3.5 h-3.5" /> Nehézség:
+          </span>
+          {DIFFICULTIES.map((diff) => {
+            const isActive = filters.difficulty === diff;
+            return (
+              <button
+                key={diff}
+                onClick={() => setFilters((prev) => ({ ...prev, difficulty: diff }))}
+                className={`px-3 py-1.5 rounded-xl font-medium transition-all whitespace-nowrap shrink-0 border ${
+                  difficultyButtonClass(diff, isActive)
+                }`}
+              >
+                {diff}
               </button>
             );
           })}

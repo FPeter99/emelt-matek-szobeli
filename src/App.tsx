@@ -26,6 +26,7 @@ const readStoredIds = (key: string): string[] => {
 const EMPTY_FILTERS: FilterState = {
   searchQuery: '',
   category: 'Összes',
+  difficulty: 'Összes',
   onlyFavorites: false,
   onlyCompleted: false,
 };
@@ -123,6 +124,11 @@ export const App: React.FC = () => {
 
       // Category filter
       if (filterState.category !== 'Összes' && t.category !== filterState.category) {
+        return false;
+      }
+
+      // Difficulty filter
+      if (filterState.difficulty !== 'Összes' && t.difficulty !== filterState.difficulty) {
         return false;
       }
 

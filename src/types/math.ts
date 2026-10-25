@@ -7,6 +7,8 @@ export type Category =
   | 'Koordinátageometria és vektorok'
   | 'Gráfelmélet és statisztika';
 
+export type Difficulty = '1: alap alatti' | '2: bemelegítő' | '3: trückös';
+
 export interface ProofStep {
   stepNumber: number;
   title: string;
@@ -54,7 +56,7 @@ export interface Tetel {
   title: string;
   category: Category;
   tags: string[];
-  difficulty: '1: alap alatti' | '2: bemelegítő' | '3: trückös';
+  difficulty: Difficulty;
   summary: string;
   statementLatex: string;
   conditionsLatex?: string;
@@ -94,6 +96,7 @@ export interface Tetel {
 export interface FilterState {
   searchQuery: string;
   category: Category | 'Összes';
+  difficulty: Difficulty | 'Összes';
   onlyFavorites: boolean;
   onlyCompleted: boolean;
 }
