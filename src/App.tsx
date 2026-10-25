@@ -44,10 +44,10 @@ export const App: React.FC = () => {
 
   const [filterState, setFilterState] = useState<FilterState>(EMPTY_FILTERS);
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [drawerSpecialPage, setDrawerSpecialPage] = useState<'none' | 'memorize' | 'oral'>('none');
+  const [drawerSpecialPage, setDrawerSpecialPage] = useState<'none' | 'memorize' | 'oral' | 'essay'>('none');
   const [showOralGuide, setShowOralGuide] = useState(false);
 
-  const openTetel = (id: string, page: 'none' | 'memorize' | 'oral' = 'none') => {
+  const openTetel = (id: string, page: 'none' | 'memorize' | 'oral' | 'essay' = 'none') => {
     setDrawerSpecialPage(page);
     setSelectedId(id);
   };
@@ -182,6 +182,7 @@ export const App: React.FC = () => {
                   onSelect={() => openTetel(tetel.id, 'none')}
                   onOpenMemorize={() => openTetel(tetel.id, 'memorize')}
                   onOpenOralPlan={() => openTetel(tetel.id, 'oral')}
+                  onOpenEssay={() => openTetel(tetel.id, 'essay')}
                   onToggleFavorite={toggleFavorite}
                   onToggleCompleted={toggleCompleted}
                 />

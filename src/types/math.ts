@@ -77,6 +77,8 @@ export interface Tetel {
   memorizationMaterial?: string;
   /** Részletes, időzített szóbeli feleletterv bekezdésekben — külön oldalon. */
   oralExamPlan?: string;
+  /** Egybefüggő, ~10 perces kidolgozott szóbeli felelet (markdown + LaTeX). */
+  continuousEssay?: string;
   requiredDefinitions?: RequiredDefinition[];
   proofSteps?: ProofStep[];
   proofTitle?: string;

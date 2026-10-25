@@ -30,7 +30,8 @@ import {
   ListOrdered,
   Brain,
   Mic2,
-  ArrowLeft
+  ArrowLeft,
+  ScrollText
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -41,7 +42,7 @@ interface TetelDetailDrawerProps {
   onClose: () => void;
   onToggleFavorite: (id: string) => void;
   onToggleCompleted: (id: string) => void;
-  initialSpecialPage?: 'none' | 'memorize' | 'oral';
+  initialSpecialPage?: 'none' | 'memorize' | 'oral' | 'essay';
 }
 export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
   tetel,
@@ -52,7 +53,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
 }) => {
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<'all' | 'theory' | 'proofs' | 'practice' | 'applications'>('all');
-  const [specialPage, setSpecialPage] = useState<'none' | 'memorize' | 'oral'>(initialSpecialPage);
+  const [specialPage, setSpecialPage] = useState<'none' | 'memorize' | 'oral' | 'essay'>(initialSpecialPage);
   useEffect(() => {
     setSpecialPage(initialSpecialPage);
     setActiveTab('all');
@@ -179,7 +180,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               <ArrowLeft className="w-4 h-4" /> Vissza a teljes anyaghoz
             </button>
             <span className="text-xs font-mono text-zinc-500">
-              {specialPage === 'memorize' ? 'Bemagolandó tananyag' : 'Szóbeli felelet vázlata'}
+              {specialPage === 'memorize' ? 'Bemagolandó tananyag' : specialPage === 'oral' ? 'Szóbeli felelet vázlata' : 'Egybefüggő kidolgozott tétel'}
             </span>
           </div>
         )}
@@ -252,6 +253,19 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               </div>
             </div>
           )}
+          {specialPage === 'essay' && (
+            <div className="bg-zinc-900/50 border border-cyan-500/30 rounded-2xl p-6 sm:p-8">
+              <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-4">
+                <ScrollText className="w-4 h-4" />
+                <span>Egybefüggő kidolgozott tétel (~10 perc)</span>
+              </div>
+              <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:text-cyan-200 prose-strong:text-zinc-100 prose-p:leading-relaxed">
+                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+                  {tetel.continuousEssay || '## Még nincs kidolgozott szöveg\n\nEz a tétel egybefüggő felelete hamarosan elérhető.'}
+                </ReactMarkdown>
+              </div>
+            </div>
+          )}
           {specialPage === 'none' && (
           <>
           {/* Title & Tag Section */}
@@ -267,7 +281,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <button
               type="button"
               onClick={() => setSpecialPage('memorize')}
@@ -288,6 +302,17 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               <span>
                 <span className="block text-sm font-bold text-violet-200">Szóbeli felelet vázlata</span>
                 <span className="block text-xs text-zinc-400 mt-0.5">Időzített, bekezdésekre bontott 35/35-ös feleletterv</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setSpecialPage('essay')}
+              className="flex items-center gap-3 p-4 rounded-2xl border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/15 text-left transition-all"
+            >
+              <ScrollText className="w-6 h-6 text-cyan-300 shrink-0" />
+              <span>
+                <span className="block text-sm font-bold text-cyan-200">Egybefüggő kidolgozott tétel</span>
+                <span className="block text-xs text-zinc-400 mt-0.5">~10 perces, előadható szöveg képletekkel</span>
               </span>
             </button>
           </div>

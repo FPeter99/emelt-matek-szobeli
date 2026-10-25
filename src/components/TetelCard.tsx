@@ -1,13 +1,14 @@
 import React from 'react';
 import { Tetel } from '../types/math';
 import { MathRenderer } from './MathRenderer';
-import { Bookmark, CheckCircle2, ChevronRight, Brain, Mic2 } from 'lucide-react';
+import { Bookmark, CheckCircle2, ChevronRight, Brain, Mic2, ScrollText } from 'lucide-react';
 
 interface TetelCardProps {
   tetel: Tetel;
   onSelect: () => void;
   onOpenMemorize?: () => void;
   onOpenOralPlan?: () => void;
+  onOpenEssay?: () => void;
   onToggleFavorite: (id: string) => void;
   onToggleCompleted: (id: string) => void;
 }
@@ -17,6 +18,7 @@ export const TetelCard: React.FC<TetelCardProps> = ({
   onSelect,
   onOpenMemorize,
   onOpenOralPlan,
+  onOpenEssay,
   onToggleFavorite,
   onToggleCompleted,
 }) => {
@@ -122,27 +124,39 @@ export const TetelCard: React.FC<TetelCardProps> = ({
             <span className="text-[10px] text-zinc-500">+{tetel.tags.length - 3}</span>
           )}
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2">
           <button
             type="button"
             onClick={(e) => {
               e.stopPropagation();
-              (onOpenMemorize ?? onSelect)();
+              (onOpenEssay ?? onSelect)();
             }}
-            className="flex items-center justify-center gap-1.5 px-2 py-2 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-200 text-[11px] font-mono hover:bg-amber-500/20"
+            className="flex items-center justify-center gap-1.5 px-2 py-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-200 text-[11px] font-mono hover:bg-cyan-500/20"
           >
-            <Brain className="w-3.5 h-3.5" /> Bemagolandó
+            <ScrollText className="w-3.5 h-3.5" /> Egybefüggő kidolgozás
           </button>
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              (onOpenOralPlan ?? onSelect)();
-            }}
-            className="flex items-center justify-center gap-1.5 px-2 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-200 text-[11px] font-mono hover:bg-violet-500/20"
-          >
-            <Mic2 className="w-3.5 h-3.5" /> Feleletvázlat
-          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                (onOpenMemorize ?? onSelect)();
+              }}
+              className="flex items-center justify-center gap-1.5 px-2 py-2 rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-200 text-[11px] font-mono hover:bg-amber-500/20"
+            >
+              <Brain className="w-3.5 h-3.5" /> Bemagolandó
+            </button>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                (onOpenOralPlan ?? onSelect)();
+              }}
+              className="flex items-center justify-center gap-1.5 px-2 py-2 rounded-xl border border-violet-500/30 bg-violet-500/10 text-violet-200 text-[11px] font-mono hover:bg-violet-500/20"
+            >
+              <Mic2 className="w-3.5 h-3.5" /> Feleletvázlat
+            </button>
+          </div>
         </div>
         <div className="flex items-center justify-end gap-1 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform">
           <span>Kidolgozás</span>
