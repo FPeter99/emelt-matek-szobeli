@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea
+scripts/_*
+*.recovered
+index.html.recovered
+forras.txt
+mathPrompt.txt
