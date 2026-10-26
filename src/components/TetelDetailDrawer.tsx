@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Tetel } from '../types/math';
 import { MathRenderer } from './MathRenderer';
 import { MdMath } from './MdMath';
+import { AskAiButton } from './AskAiButton';
+import { openChatGptExplain } from '../utils/openChatGptExplain';
 import { FunctionPlotter } from './Visualizers/FunctionPlotter';
 import { GraphVisualizer } from './Visualizers/GraphVisualizer';
 import { VectorVisualizer } from './Visualizers/VectorVisualizer';
@@ -405,7 +407,23 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                   <h3 className="text-sm font-semibold text-emerald-300">{theorem.proofTitle}</h3>
                   <div className="space-y-3">
                     {theorem.proofSteps.map((step) => (
-                      <div key={step.stepNumber} className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 space-y-2">
+                      <div key={step.stepNumber} className="relative bg-zinc-950 border border-zinc-800 rounded-xl p-4 pr-12 space-y-2">
+                        <AskAiButton
+                          onClick={() =>
+                            openChatGptExplain({
+                              kind: 'proof',
+                              context: `${tetel.number}. tétel — ${tetel.title}`,
+                              title: `Bizonyítás: ${theorem.theoremNumber}. ${theorem.title} — ${step.stepNumber}. ${step.title}`,
+                              content: [
+                                theorem.statementLatex ? `Állítás: $${theorem.statementLatex}$` : null,
+                                `Képlet / levezetés:$$${step.latexContent}$$`,
+                                `Magyarázat: ${step.explanation}`,
+                              ]
+                                .filter(Boolean)
+                                .join('\n\n'),
+                            })
+                          }
+                        />
                         <h4 className="font-semibold text-zinc-100 text-sm">{step.stepNumber}. {step.title}</h4>
                         <div className="overflow-x-auto"><MathRenderer math={step.latexContent} block /></div>
                         <div className="prose prose-invert prose-sm max-w-none text-zinc-400 leading-relaxed prose-p:my-0 prose-strong:text-zinc-200">
@@ -434,8 +452,21 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 {(tetel.proofSteps ?? []).map((step) => (
                   <div
                     key={step.stepNumber}
-                    className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 space-y-3 relative hover:border-zinc-700 transition-colors"
+                    className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 pr-12 space-y-3 relative hover:border-zinc-700 transition-colors"
                   >
+                    <AskAiButton
+                      onClick={() =>
+                        openChatGptExplain({
+                          kind: 'proof',
+                          context: `${tetel.number}. tétel — ${tetel.title}`,
+                          title: `Bizonyítás — ${step.stepNumber}. ${step.title}`,
+                          content: [
+                            `Képlet / levezetés:$$${step.latexContent}$$`,
+                            `Magyarázat: ${step.explanation}`,
+                          ].join('\n\n'),
+                        })
+                      }
+                    />
                     <div className="flex items-center gap-3">
                       <span className="w-6 h-6 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs font-bold flex items-center justify-center shrink-0">
                         {step.stepNumber}
@@ -492,7 +523,23 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
             <div className="space-y-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2"><HelpCircle className="w-5 h-5 text-cyan-400" />Kidolgozott érettségi feladatok</h2>
               {tetel.practiceProblems.map((problem) => (
-                <div key={problem.problemNumber} className="bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 space-y-3">
+                <div key={problem.problemNumber} className="relative bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 pr-12 space-y-3">
+                  <AskAiButton
+                    onClick={() =>
+                      openChatGptExplain({
+                        kind: 'practice',
+                        context: `${tetel.number}. tétel — ${tetel.title}`,
+                        title: `${problem.problemNumber}. feladat`,
+                        content: [
+                          `Feladat: ${problem.question}`,
+                          `Megoldás:$$${problem.solutionLatex}$$`,
+                          problem.explanation ? `Magyarázat: ${problem.explanation}` : null,
+                        ]
+                          .filter(Boolean)
+                          .join('\n\n'),
+                      })
+                    }
+                  />
                   <h3 className="font-semibold text-cyan-300">{problem.problemNumber}. feladat</h3>
                   <div className="text-sm text-zinc-200 leading-relaxed"><MdMath inline className="inline">{problem.question}</MdMath></div>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 overflow-x-auto"><MathRenderer math={problem.solutionLatex} block /></div>
@@ -509,7 +556,20 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
             <div className="space-y-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2"><HelpCircle className="w-5 h-5 text-cyan-400" />Gyakorló feladatok</h2>
               {tetel.applications.map((app, idx) => (
-                <div key={idx} className="bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 space-y-3">
+                <div key={idx} className="relative bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 pr-12 space-y-3">
+                  <AskAiButton
+                    onClick={() =>
+                      openChatGptExplain({
+                        kind: 'practice',
+                        context: `${tetel.number}. tétel — ${tetel.title}`,
+                        title: app.title,
+                        content: [
+                          `Feladat: ${app.problem}`,
+                          `Megoldás:$$${app.solutionLatex}$$`,
+                        ].join('\n\n'),
+                      })
+                    }
+                  />
                   <h3 className="font-semibold text-cyan-300">{app.title}</h3>
                   <div className="text-sm text-zinc-200"><MdMath inline className="inline">{app.problem}</MdMath></div>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 overflow-x-auto"><MathRenderer math={app.solutionLatex} block /></div>
@@ -549,7 +609,20 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               </h2>
               <div className="space-y-4">
                 {tetel.applications.map((app, idx) => (
-                  <div key={idx} className="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 space-y-3">
+                  <div key={idx} className="relative bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 pr-12 space-y-3">
+                    <AskAiButton
+                      onClick={() =>
+                        openChatGptExplain({
+                          kind: 'practice',
+                          context: `${tetel.number}. tétel — ${tetel.title}`,
+                          title: app.title,
+                          content: [
+                            `Feladat: ${app.problem}`,
+                            `Megoldás:$$${app.solutionLatex}$$`,
+                          ].join('\n\n'),
+                        })
+                      }
+                    />
                     <h3 className="font-semibold text-white text-sm">
                       {app.title}
                     </h3>
