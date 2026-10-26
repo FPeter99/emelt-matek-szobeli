@@ -852,8 +852,8 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
           {
             stepNumber: 1,
             title: "Létezés és egyértelműség",
-            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ e &\\parallel \\vec{i},\\ e\\ni O \\\\ f &\\parallel \\vec{j},\\ f\\ni P \\\\ e\\cap f &= \\{Q\\} \\\\ \\vec{v} &= \\overrightarrow{OQ}+\\overrightarrow{QP} = v_1\\vec{i}+v_2\\vec{j}\\end{aligned}",
-            explanation: "A létezést és az egyértelműséget geometriailag egyszerre igazolhatjuk. Az $O$ ponton át $\\vec{i}$-vel párhuzamos, a $P$ ponton át pedig $\\vec{j}$-vel párhuzamos egyenest húzzunk. Mivel a két bázisvektor nem párhuzamos, a két egyenes pontosan egy pontban metszi egymást. Ez a $Q$ metszéspont egyértelműen meghatározott, ezért a hozzá tartozó két vektorösszetevő is egyértelműen meghatározható. Így a felbontás létezik és egyértelmű, tehát a feladatnak pontosan egy megoldása van."
+            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ &= \\overrightarrow{OQ}+\\overrightarrow{QP} \\\\ &= v_1\\vec{i}+v_2\\vec{j}\\end{aligned}",
+            explanation: "A létezést és az egyértelműséget geometriailag egyszerre igazolhatjuk. Az $O$ ponton át $\\vec{i}$-vel párhuzamos, a $P$ ponton át pedig $\\vec{j}$-vel párhuzamos egyenest húzunk. Mivel a két bázisvektor nem párhuzamos, a két egyenes pontosan egy $Q$ pontban metszi egymást.\n\nA szokásos koordináta-rendszerben $\\vec{i}=(1;0)$ a vízszintes, $\\vec{j}=(0;1)$ pedig a függőleges egységvektor. Ezért az $\\overrightarrow{OQ}$ vektor $v_1\\vec{i}$-vel, a $\\overrightarrow{QP}$ vektor pedig $v_2\\vec{j}$-vel egyenlő. Így\n\n$$\\vec{v}=\\overrightarrow{OP}=\\overrightarrow{OQ}+\\overrightarrow{QP}=v_1\\vec{i}+v_2\\vec{j}.$$\n\nMivel a $Q$ metszéspont egyértelműen meghatározott, a felbontás is egyértelmű. Ezzel bizonyítottuk a vektorfelbontási tételt."
           }
         ]
       },
