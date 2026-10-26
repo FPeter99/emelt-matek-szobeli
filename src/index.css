@@ -74,3 +74,16 @@
   overflow-x: auto;
   overflow-y: hidden;
 }
+
+
+/* Keep KaTeX MathML visually hidden (screen-reader only) so formulas don't double-render */
+.katex .katex-mathml {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}

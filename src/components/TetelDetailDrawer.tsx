@@ -336,10 +336,10 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
           {(activeTab === 'all' || activeTab === 'theory') && tetel.introduction && (
             <div className="bg-zinc-900/40 border border-purple-500/30 rounded-2xl p-6">
               <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-3"><History className="w-5 h-5 text-purple-400" />Történeti bevezetés</h2>
-              <div className="text-sm text-zinc-300 leading-relaxed space-y-3">
-                {tetel.introduction.split(/\n\n+/).map((para, idx) => (
-                  <p key={idx}>{para.trim()}</p>
-                ))}
+              <div className="prose prose-invert prose-sm max-w-none text-zinc-300 leading-relaxed prose-p:my-3 prose-strong:text-zinc-100">
+                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+                  {tetel.introduction}
+                </ReactMarkdown>
               </div>
             </div>
           )}
@@ -421,7 +421,11 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                       <div key={step.stepNumber} className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 space-y-2">
                         <h4 className="font-semibold text-zinc-100 text-sm">{step.stepNumber}. {step.title}</h4>
                         <div className="overflow-x-auto"><MathRenderer math={step.latexContent} block /></div>
-                        <p className="text-sm text-zinc-400 leading-relaxed">{step.explanation}</p>
+                        <div className="prose prose-invert prose-sm max-w-none text-zinc-400 leading-relaxed prose-p:my-0 prose-strong:text-zinc-200">
+                          <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+                            {step.explanation}
+                          </ReactMarkdown>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -458,9 +462,11 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                     <div className="bg-zinc-950 border border-zinc-800/80 rounded-lg p-3 text-emerald-300 font-mono text-sm overflow-x-auto text-center">
                       <MathRenderer math={step.latexContent} block />
                     </div>
-                    <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
-                      {step.explanation}
-                    </p>
+                    <div className="prose prose-invert prose-sm max-w-none text-zinc-400 leading-relaxed prose-p:my-0">
+                      <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+                        {step.explanation}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -505,7 +511,13 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                   <h3 className="font-semibold text-cyan-300">{problem.problemNumber}. feladat</h3>
                   <p className="text-sm text-zinc-200 leading-relaxed">{problem.question}</p>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 overflow-x-auto"><MathRenderer math={problem.solutionLatex} block /></div>
-                  {problem.explanation && <p className="text-sm text-zinc-400">{problem.explanation}</p>}
+                  {problem.explanation && (
+                    <div className="prose prose-invert prose-sm max-w-none text-zinc-400 prose-p:my-0">
+                      <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
+                        {problem.explanation}
+                      </ReactMarkdown>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -525,13 +537,29 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
           {(activeTab === 'all' || activeTab === 'applications') && tetel.applicationsInside && (
             <div className="bg-zinc-900/40 border border-cyan-500/20 rounded-2xl p-6 space-y-3">
               <h2 className="text-lg font-bold text-white">Alkalmazások a matematikán belül</h2>
-              <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">{tetel.applicationsInside.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
+              <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">
+                {tetel.applicationsInside.map((item, idx) => (
+                  <li key={idx}>
+                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={{ p: ({children}) => <span>{children}</span> }}>
+                      {item}
+                    </ReactMarkdown>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
           {(activeTab === 'all' || activeTab === 'applications') && tetel.applicationsOutside && (
             <div className="bg-zinc-900/40 border border-purple-500/20 rounded-2xl p-6 space-y-3">
               <h2 className="text-lg font-bold text-white">Alkalmazások a matematikán kívül</h2>
-              <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">{tetel.applicationsOutside.map((item, idx) => <li key={idx}>{item}</li>)}</ul>
+              <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">
+                {tetel.applicationsOutside.map((item, idx) => (
+                  <li key={idx}>
+                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={{ p: ({children}) => <span>{children}</span> }}>
+                      {item}
+                    </ReactMarkdown>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
           {(activeTab === 'all' || activeTab === 'applications') && tetel.applications && tetel.applications.length > 0 && (

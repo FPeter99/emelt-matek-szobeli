@@ -763,8 +763,8 @@ Szerkezet 10 · Definíció 2 · Tétel+biz. 6 · Feladat 8 · Alkalmazás 4 · 
     ],
     difficulty: "1: alap alatti",
     summary: "A vektor fogalma és műveletei; a vektorfelbontási tétel és egyértelműsége; koordináták ortonormált bázisban; a skaláris szorzat geometriai és koordinátás alakja; hajlásszög, merőlegesség, munka.",
-    statementLatex: "\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi=a_1b_1+a_2b_2",
-    conditionsLatex: "\\vec a=(a_1,a_2),\\ \\vec b=(b_1,b_2),\\ \\vec a,\\vec b\\neq\\vec 0",
+    statementLatex: "\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\varphi=a_1b_1+a_2b_2",
+    conditionsLatex: "\\vec{a}=(a_1,a_2),\\ \\vec{b}=(b_1,b_2),\\ \\vec{a},\\vec{b}\\neq\\vec{0}",
     formulaSheetReference: "Hivatalos Képlettár 2026: vektorok",
     formulaSheetReferences: [
       "Matematika képlettár 2026 (OH) – Koordinátageometria, 9. oldal"
@@ -773,100 +773,100 @@ Szerkezet 10 · Definíció 2 · Tétel+biz. 6 · Feladat 8 · Alkalmazás 4 · 
 
 William Rowan Hamilton (1805–1865) használta először a „vector” szót, és a kvaterniók elméletében dolgozta ki a vektorszámítás alapjait; Josiah Willard Gibbs és Oliver Heaviside alakította ki a ma tanított vektoralgebrát.
 
-A skaláris szorzat kettős szerepet játszik: fizikailag a munka ($W=\\vec F\\cdot\\vec s$), geometriailag pedig a hajlásszög és a merőlegesség mérőeszköze.
+A skaláris szorzat kettős szerepet játszik: fizikailag a munka ($W=\\vec{F}\\cdot\\vec{s}$), geometriailag pedig a hajlásszög és a merőlegesség mérőeszköze.
 
 A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeverik: a vektor nem pont, hanem irányított szakasz, a skaláris szorzat eredménye pedig szám.`,
     detailedTheory: `### 1. A vektor fogalma
 
 - **Vektor:** irányított szakasz, amelyet nagyság (hossz), állás és irány jellemez. A **szabad vektor** kezdőpontjától eltekintünk: ugyanaz a vektor minden eltolt példánya.
-- Jelölés: $\\vec a$, illetve $\\overrightarrow{AB}$ (kezdőpont $A$, végpont $B$). Hossza $|\\vec a|\\ge 0$.
+- Jelölés: $\\vec{a}$, illetve $\\overrightarrow{AB}$ (kezdőpont $A$, végpont $B$). Hossza $|\\vec{a}|\\ge 0$.
 
-- **Nullvektor:** $\\vec 0$, hossza $0$, iránya tetszőleges. **Egységvektor:** hossza $1$; ha $\\vec a\\neq\\vec 0$, akkor $\\vec a/|\\vec a|$ egységvektor.
+- **Nullvektor:** $\\vec{0}$, hossza $0$, iránya tetszőleges. **Egységvektor:** hossza $1$; ha $\\vec{a}\\neq\\vec{0}$, akkor $\\vec{a}/|\\vec{a}|$ egységvektor.
 
-- **Ellentett vektor:** $-\\vec a$, ugyanolyan hosszú, ellentétes irányú.
-- Két vektor **egyállású (párhuzamos)**, ha származtathatók egymásból skalár szorzással: $\\vec b=\\lambda\\vec a$ valamilyen $\\lambda\\neq 0$ valósra. **Merőlegesek**, ha hajlásszögük $90^\\circ$.
+- **Ellentett vektor:** $-\\vec{a}$, ugyanolyan hosszú, ellentétes irányú.
+- Két vektor **egyállású (párhuzamos)**, ha származtathatók egymásból skalár szorzással: $\\vec{b}=\\lambda\\vec{a}$ valamilyen $\\lambda\\neq 0$ valósra. **Merőlegesek**, ha hajlásszögük $90^\\circ$.
 
 - **Helyvektor:** a koordinátarendszer origójából a ponthoz mutató vektor; a pont és helyvektora kölcsönösen egyértelműen megfelel egymásnak.
 
 ### 2. Vektorműveletek
 
-- **Összeadás:** háromszög-szabály (egymás után fűzés) vagy paralelogramma-szabály (közös kezdőpontból). Kommutatív és asszociatív: $\\vec a+\\vec b=\\vec b+\\vec a$, $(\\vec a+\\vec b)+\\vec c=\\vec a+(\\vec b+\\vec c)$.
+- **Összeadás:** háromszög-szabály (egymás után fűzés) vagy paralelogramma-szabály (közös kezdőpontból). Kommutatív és asszociatív: $\\vec{a}+\\vec{b}=\\vec{b}+\\vec{a}$, $(\\vec{a}+\\vec{b})+\\vec{c}=\\vec{a}+(\\vec{b}+\\vec{c})$.
 
-- **Kivonás:** $\\vec a-\\vec b=\\vec a+(-\\vec b)$; ez a $\\overrightarrow{BA}$ vektor, ha $\\vec a=\\overrightarrow{OA}$, $\\vec b=\\overrightarrow{OB}$.
+- **Kivonás:** $\\vec{a}-\\vec{b}=\\vec{a}+(-\\vec{b})$; ez a $\\overrightarrow{BA}$ vektor, ha $\\vec{a}=\\overrightarrow{OA}$, $\\vec{b}=\\overrightarrow{OB}$.
 
-- **Skalárral szorzás:** $\\lambda\\vec a$ hossza $|\\lambda|\\,|\\vec a|$; iránya $\\lambda>0$ esetén azonos, $\\lambda<0$ esetén ellentétes, $\\lambda=0$ esetén nullvektor.
+- **Skalárral szorzás:** $\\lambda\\vec{a}$ hossza $|\\lambda|\\,|\\vec{a}|$; iránya $\\lambda>0$ esetén azonos, $\\lambda<0$ esetén ellentétes, $\\lambda=0$ esetén nullvektor.
 
-- **Disztributivitás:** $\\lambda(\\vec a+\\vec b)=\\lambda\\vec a+\\lambda\\vec b$, illetve $(\\lambda+\\mu)\\vec a=\\lambda\\vec a+\\mu\\vec a$.
+- **Disztributivitás:** $\\lambda(\\vec{a}+\\vec{b})=\\lambda\\vec{a}+\\lambda\\vec{b}$, illetve $(\\lambda+\\mu)\\vec{a}=\\lambda\\vec{a}+\\mu\\vec{a}$.
 
-- **Háromszög-egyenlőtlenség vektorokra:** $|\\vec a+\\vec b|\\le|\\vec a|+|\\vec b|$, egyenlőség pontosan akkor, ha $\\vec a$ és $\\vec b$ egyirányú.
+- **Háromszög-egyenlőtlenség vektorokra:** $|\\vec{a}+\\vec{b}|\\le|\\vec{a}|+|\\vec{b}|$, egyenlőség pontosan akkor, ha $\\vec{a}$ és $\\vec{b}$ egyirányú.
 
 ### 3. Vektorfelbontási tétel
 
-- Ha $\\vec i$ és $\\vec j$ **nem egyállású** (lineárisan független) vektorok a síkban, akkor minden $\\vec v$ síkvektor egyértelműen felírható
-  $$\\vec v=v_1\\vec i+v_2\\vec j$$
-  alakban. A $v_1,v_2$ számok a $\\vec v$ **koordinátái** az $(\\vec i,\\vec j)$ bázisban.
+- Ha $\\vec{i}$ és $\\vec{j}$ **nem egyállású** (lineárisan független) vektorok a síkban, akkor minden $\\vec{v}$ síkvektor egyértelműen felírható
+  $$\\vec{v}=v_1\\vec{i}+v_2\\vec{j}$$
+  alakban. A $v_1,v_2$ számok a $\\vec{v}$ **koordinátái** az $(\\vec{i},\\vec{j})$ bázisban.
 
-- **Ortonormált bázis:** $\\vec i\\perp\\vec j$ és $|\\vec i|=|\\vec j|=1$. Ekkor a koordináták geometriailag a tengelyekre eső vetületek hosszai (előjelesen).
+- **Ortonormált bázis:** $\\vec{i}\\perp\\vec{j}$ és $|\\vec{i}|=|\\vec{j}|=1$. Ekkor a koordináták geometriailag a tengelyekre eső vetületek hosszai (előjelesen).
 
-- **Térben** három nem egysíkú vektor alkot bázist: $\\vec v=v_1\\vec i+v_2\\vec j+v_3\\vec k$.
+- **Térben** három nem egysíkú vektor alkot bázist: $\\vec{v}=v_1\\vec{i}+v_2\\vec{j}+v_3\\vec{k}$.
 
 ### 4. Koordináták és műveletek
 
-- $\\vec a=(a_1,a_2)$, $\\vec b=(b_1,b_2)$ esetén:
-  $$\\vec a+\\vec b=(a_1+b_1,\\,a_2+b_2),\\qquad \\lambda\\vec a=(\\lambda a_1,\\lambda a_2),$$
-  $$|\\vec a|=\\sqrt{a_1^2+a_2^2}.$$
+- $\\vec{a}=(a_1,a_2)$, $\\vec{b}=(b_1,b_2)$ esetén:
+  $$\\vec{a}+\\vec{b}=(a_1+b_1,\\,a_2+b_2),\\qquad \\lambda\\vec{a}=(\\lambda a_1,\\lambda a_2),$$
+  $$|\\vec{a}|=\\sqrt{a_1^2+a_2^2}.$$
 - Két pont távolsága: $AB=|\\overrightarrow{AB}|=\\sqrt{(b_1-a_1)^2+(b_2-a_2)^2}$.
 
-- **Osztópont:** az $A$ és $B$ pontot $m:n$ arányban osztó $P$ helyvektora $\\vec p=\\frac{n\\vec a+m\\vec b}{m+n}$; felezőpontnál $\\vec p=(\\vec a+\\vec b)/2$.
+- **Osztópont:** az $A$ és $B$ pontot $m:n$ arányban osztó $P$ helyvektora $\\vec{p}=\\frac{n\\vec{a}+m\\vec{b}}{m+n}$; felezőpontnál $\\vec{p}=(\\vec{a}+\\vec{b})/2$.
 
-- **Súlypont:** $\\vec s=(\\vec a+\\vec b+\\vec c)/3$.
+- **Súlypont:** $\\vec{s}=(\\vec{a}+\\vec{b}+\\vec{c})/3$.
 
 ### 5. Skaláris szorzat
 
-- **Definíció:** $\\vec a\\cdot\\vec b=|\\vec a|\\,|\\vec b|\\cos\\varphi$, ahol $\\varphi\\in[0^\\circ,180^\\circ]$ a két vektor hajlásszöge. Az eredmény **skalár** (szám), nem vektor.
+- **Definíció:** $\\vec{a}\\cdot\\vec{b}=|\\vec{a}|\\,|\\vec{b}|\\cos\\varphi$, ahol $\\varphi\\in[0^\\circ,180^\\circ]$ a két vektor hajlásszöge. Az eredmény **skalár** (szám), nem vektor.
 
-- **Tulajdonságok:** kommutatív ($\\vec a\\cdot\\vec b=\\vec b\\cdot\\vec a$), disztributív ($\\vec a\\cdot(\\vec b+\\vec c)=\\vec a\\cdot\\vec b+\\vec a\\cdot\\vec c$), homogén ($(\\lambda\\vec a)\\cdot\\vec b=\\lambda(\\vec a\\cdot\\vec b)$). **Nem asszociatív:** $(\\vec a\\cdot\\vec b)\\cdot\\vec c$ jelentése $\\vec c$ skalárszorosa, míg $\\vec a\\cdot(\\vec b\\cdot\\vec c)$ az $\\vec a$ skalárszorosa — általában más vektorok.
+- **Tulajdonságok:** kommutatív ($\\vec{a}\\cdot\\vec{b}=\\vec{b}\\cdot\\vec{a}$), disztributív ($\\vec{a}\\cdot(\\vec{b}+\\vec{c})=\\vec{a}\\cdot\\vec{b}+\\vec{a}\\cdot\\vec{c}$), homogén ($(\\lambda\\vec{a})\\cdot\\vec{b}=\\lambda(\\vec{a}\\cdot\\vec{b})$). **Nem asszociatív:** $(\\vec{a}\\cdot\\vec{b})\\cdot\\vec{c}$ jelentése $\\vec{c}$ skalárszorosa, míg $\\vec{a}\\cdot(\\vec{b}\\cdot\\vec{c})$ az $\\vec{a}$ skalárszorosa — általában más vektorok.
 
-- **Koordinátás alak:** ortonormált bázisban $\\vec a\\cdot\\vec b=a_1b_1+a_2b_2$ (térben $+a_3b_3$).
+- **Koordinátás alak:** ortonormált bázisban $\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2$ (térben $+a_3b_3$).
 
-- **Hajlásszög:** $\\cos\\varphi=\\dfrac{\\vec a\\cdot\\vec b}{|\\vec a|\\,|\\vec b|}$.
+- **Hajlásszög:** $\\cos\\varphi=\\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|\\,|\\vec{b}|}$.
 
-- **Merőlegesség:** $\\vec a\\perp\\vec b\\iff\\vec a\\cdot\\vec b=0$ (nemnulla vektorokra).
+- **Merőlegesség:** $\\vec{a}\\perp\\vec{b}\\iff\\vec{a}\\cdot\\vec{b}=0$ (nemnulla vektorokra).
 
-- **Vetület:** $\\vec b$ vetülete $\\vec a$ irányára $\\dfrac{\\vec a\\cdot\\vec b}{|\\vec a|}$ (előjeles hossz).
+- **Vetület:** $\\vec{b}$ vetülete $\\vec{a}$ irányára $\\dfrac{\\vec{a}\\cdot\\vec{b}}{|\\vec{a}|}$ (előjeles hossz).
 
-- **Következmények:** $\\vec a\\cdot\\vec a=|\\vec a|^2$; $|\\vec a\\cdot\\vec b|\\le|\\vec a||\\vec b|$ (Cauchy–Schwarz); a paralelogramma-azonosság $|\\vec a+\\vec b|^2+|\\vec a-\\vec b|^2=2(|\\vec a|^2+|\\vec b|^2)$.
+- **Következmények:** $\\vec{a}\\cdot\\vec{a}=|\\vec{a}|^2$; $|\\vec{a}\\cdot\\vec{b}|\\le|\\vec{a}||\\vec{b}|$ (Cauchy–Schwarz); a paralelogramma-azonosság $|\\vec{a}+\\vec{b}|^2+|\\vec{a}-\\vec{b}|^2=2(|\\vec{a}|^2+|\\vec{b}|^2)$.
 
 ### 6. Alkalmazások
 
-- Fizika: munka $W=\\vec F\\cdot\\vec s=|\\vec F||\\vec s|\\cos\\varphi$; erőfelbontás ferde lejtőn; eredő erő.
+- Fizika: munka $W=\\vec{F}\\cdot\\vec{s}=|\\vec{F}||\\vec{s}|\\cos\\varphi$; erőfelbontás ferde lejtőn; eredő erő.
 - Geometria: hajlásszög, merőleges egyenes normálvektora, háromszög területe, koszinusztétel.
 - Grafika és navigáció: felületi normálisok, irányvektorok, vetítés.`,
     theorems: [
       {
         theoremNumber: 1,
         title: "Vektorfelbontási tétel",
-        statementLatex: "\\vec v=v_1\\vec i+v_2\\vec j \\text{ egyértelműen}",
+        statementLatex: "\\vec{v}=v_1\\vec{i}+v_2\\vec{j} \\text{ egyértelműen}",
         proofTitle: "Paralelogramma-szerkesztés és az egyértelműség",
         proofSteps: [
           {
             stepNumber: 1,
             title: "Egyértelműség",
-            latexContent: "\\vec v=\\overrightarrow{OP} \\ P\\in e\\parallel\\vec j,\\quad P\\in f\\parallel\\vec i \\ \\vec v=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}=v_1\\vec i+v_2\\vec j \\ (v_1-v_1')\\vec i+(v_2-v_2')\\vec j=\\vec 0 \\implies v_1=v_1',\\ v_2=v_2'",
-            explanation: "Cél: belátni, hogy Vektorfelbontási tétel. A $\\vec v$ vektort közös kezdőpontból ábrázoljuk: $O$ a kezdőpont, $P$ a végpont. Ez előkészíti a következő lépést (Létezés). A $P$ ponton át párhuzamost húzunk $\\vec j$-vel és $\\vec i$-vel; ezek az $\\vec i$, illetve $\\vec j$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$; a $\\overrightarrow{OV_1}$ vektor $\\vec i$ skalárszorosa. Ha két felbontás létezne, különbségük nullvektor. Mivel $\\vec i,\\vec j$ nem egyállásúak, csak a triviális együtthatók adhatnak nullát, tehát a felbontás egyértelmű. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
+            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ P\\in e\\parallel\\vec{j},\\quad P\\in f\\parallel\\vec{i} \\\\ \\vec{v} &= \\overrightarrow{OV_1}+\\overrightarrow{OV_2}=v_1\\vec{i}+v_2\\vec{j} \\\\ (v_1-v_1')\\vec{i}+(v_2-v_2')\\vec{j} &= \\vec{0} \\implies v_1=v_1',\\ v_2=v_2'\\end{aligned}",
+            explanation: "Cél: belátni, hogy Vektorfelbontási tétel. A $\\vec{v}$ vektort közös kezdőpontból ábrázoljuk: $O$ a kezdőpont, $P$ a végpont. Ez előkészíti a következő lépést (Létezés). A $P$ ponton át párhuzamost húzunk $\\vec{j}$-vel és $\\vec{i}$-vel; ezek az $\\vec{i}$, illetve $\\vec{j}$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$; a $\\overrightarrow{OV_1}$ vektor $\\vec{i}$ skalárszorosa. Ha két felbontás létezne, különbségük nullvektor. Mivel $\\vec{i},\\vec{j}$ nem egyállásúak, csak a triviális együtthatók adhatnak nullát, tehát a felbontás egyértelmű. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
       {
         theoremNumber: 2,
         title: "A skaláris szorzat koordinátás alakja",
-        statementLatex: "\\vec a\\cdot\\vec b=a_1b_1+a_2b_2",
+        statementLatex: "\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2",
         proofTitle: "Ortonormált bázisra való kifejtés",
         proofSteps: [
           {
             stepNumber: 1,
             title: "Eredmény",
-            latexContent: "\\vec a\\cdot\\vec b=a_1b_1+a_2b_2",
+            latexContent: "\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2",
             explanation: "Cél: belátni, hogy A skaláris szorzat koordinátás alakja. A vektorfelbontási tétel szerint mindkét vektor felírható az ortonormált bázisban. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. A szorzatot tagonként kifejtjük; a skaláris szorzat bilineáris. Ez előkészíti a következő lépést (Disztributivitás). Ortonormált bázisban az egységvektorok hossza $1$, hajlásszögük $90^\\circ$, így $\\cos90^\\circ=0$. A vegyes tagok eltűnnek, marad a két tengely menti szorzat összege. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
@@ -880,21 +880,21 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
           {
             stepNumber: 1,
             title: "Szög behelyettesítése",
-            latexContent: "\\vec c=\\vec a-\\vec b \\ |\\vec c|^2=(\\vec a-\\vec b)^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b \\ c^2=a^2+b^2-2ab\\cos\\gamma",
-            explanation: "Cél: belátni, hogy A koszinusztétel levezetése skaláris szorzattal. A háromszög két oldalvektora $\\vec a,\\vec b$ a közös csúcsból; a harmadik oldal a különbségük. Felhasználjuk, hogy $\\vec a\\cdot\\vec a=|\\vec a|^2$, és a skaláris szorzat kommutatív. Ez előkészíti a következő lépést (Négyzetre emelés). $\\vec a\\cdot\\vec b=ab\\cos\\gamma$; $\\gamma=90^\\circ$ esetén visszakapjuk a Pitagorasz-tételt. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
+            latexContent: "\\begin{aligned}\\vec{c} &= \\vec{a}-\\vec{b} \\\\ |\\vec{c}|^2 &= (\\vec{a}-\\vec{b})^2 = |\\vec{a}|^2+|\\vec{b}|^2-2\\vec{a}\\cdot\\vec{b} \\\\ c^2 &= a^2+b^2-2ab\\cos\\gamma\\end{aligned}",
+            explanation: "Cél: belátni, hogy A koszinusztétel levezetése skaláris szorzattal. A háromszög két oldalvektora $\\vec{a},\\vec{b}$ a közös csúcsból; a harmadik oldal a különbségük. Felhasználjuk, hogy $\\vec{a}\\cdot\\vec{a}=|\\vec{a}|^2$, és a skaláris szorzat kommutatív. Ez előkészíti a következő lépést (Négyzetre emelés). $\\vec{a}\\cdot\\vec{b}=ab\\cos\\gamma$; $\\gamma=90^\\circ$ esetén visszakapjuk a Pitagorasz-tételt. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
       },
       {
         theoremNumber: 4,
         title: "Merőlegességi kritérium",
-        statementLatex: "\\vec a\\perp\\vec b \\iff \\vec a\\cdot\\vec b=0",
+        statementLatex: "\\vec{a}\\perp\\vec{b} \\iff \\vec{a}\\cdot\\vec{b}=0",
         proofTitle: "A koszinuszos definícióból",
         proofSteps: [
           {
             stepNumber: 1,
             title: "Merőlegesség",
-            latexContent: "\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi \\ \\varphi=90^\\circ \\implies \\cos\\varphi=0 \\implies \\vec a\\cdot\\vec b=0",
+            latexContent: "\\begin{aligned}\\vec{a}\\cdot\\vec{b} &= |\\vec{a}||\\vec{b}|\\cos\\varphi \\\\ \\varphi=90^\\circ &\\implies \\cos\\varphi=0 \\implies \\vec{a}\\cdot\\vec{b}=0\\end{aligned}",
             explanation: "Cél: belátni, hogy Merőlegességi kritérium. Nemnulla vektorokra a hosszak pozitívak. A definíció szerinti átírás után a műveletek ismert azonosságait alkalmazzuk. Ha a szorzat nulla, a pozitív tényezők miatt $\\cos\\varphi=0$, azaz $\\varphi=90^\\circ$. Összefoglalva: a levezetés végén megkapjuk a tétel állítását. Mondd el szóban is: feltétel → kulcslépés → következtetés; egy számpéldával ellenőrizd, ha lehet."
           }
         ]
@@ -902,13 +902,13 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
       {
         theoremNumber: 5,
         title: "Paralelogramma-azonosság",
-        statementLatex: "|\\vec a+\\vec b|^2+|\\vec a-\\vec b|^2=2(|\\vec a|^2+|\\vec b|^2)",
+        statementLatex: "|\\vec{a}+\\vec{b}|^2+|\\vec{a}-\\vec{b}|^2=2(|\\vec{a}|^2+|\\vec{b}|^2)",
         proofTitle: "Két négyzet összeadása",
         proofSteps: [
           {
             stepNumber: 1,
             title: "Összeadás",
-            latexContent: "|\\vec a+\\vec b|^2=|\\vec a|^2+|\\vec b|^2+2\\vec a\\cdot\\vec b \\ |\\vec a-\\vec b|^2=|\\vec a|^2+|\\vec b|^2-2\\vec a\\cdot\\vec b \\ |\\vec a+\\vec b|^2+|\\vec a-\\vec b|^2=2(|\\vec a|^2+|\\vec b|^2)",
+            latexContent: "\\begin{aligned}|\\vec{a}+\\vec{b}|^2 &= |\\vec{a}|^2+|\\vec{b}|^2+2\\vec{a}\\cdot\\vec{b} \\\\ |\\vec{a}-\\vec{b}|^2 &= |\\vec{a}|^2+|\\vec{b}|^2-2\\vec{a}\\cdot\\vec{b} \\\\ |\\vec{a}+\\vec{b}|^2+|\\vec{a}-\\vec{b}|^2 &= 2(|\\vec{a}|^2+|\\vec{b}|^2)\\end{aligned}",
             explanation: "Cél: belátni, hogy Paralelogramma-azonosság. A skaláris szorzat disztributivitása miatt. Ez előkészíti a következő lépést (Összeg négyzete). Ugyanígy, csak a vegyes tag előjele negatív. Ez előkészíti a következő lépést (Különbség négyzete). A vegyes tagok kiesnek. Szemléletesen: a paralelogramma átlóinak négyzetösszege az oldalak négyzetösszegének kétszerese. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
@@ -921,7 +921,7 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
       "Osztópont, felezőpont, távolság."
     ],
     applicationsOutside: [
-      "Munka: $W=\\vec F\\cdot\\vec s$; ferde lejtőn az erőfelbontás.",
+      "Munka: $W=\\vec{F}\\cdot\\vec{s}$; ferde lejtőn az erőfelbontás.",
       "Számítógépes grafika: normálisok, árnyalás, vetítés.",
       "Navigáció: irány- és sebességvektorok.",
       "Statisztika: vektorok közötti korreláció szemlélete."
@@ -929,15 +929,15 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
     practiceProblems: [
       {
         problemNumber: 1,
-        question: "Adott $\\vec a=(3,4)$ és $\\vec b=(1,7)$. Számítsd ki a skaláris szorzatukat és a hajlásszögüket!",
-        solutionLatex: "\\vec a\\cdot\\vec b=3\\cdot1+4\\cdot7=31,\\quad |\\vec a|=5,\\quad |\\vec b|=5\\sqrt2,\\quad \\cos\\varphi=\\frac{31}{25\\sqrt2}\\approx0{,}877 \\implies \\varphi\\approx28{,}7^\\circ.",
+        question: "Adott $\\vec{a}=(3,4)$ és $\\vec{b}=(1,7)$. Számítsd ki a skaláris szorzatukat és a hajlásszögüket!",
+        solutionLatex: "\\vec{a}\\cdot\\vec{b}=3\\cdot1+4\\cdot7=31,\\quad |\\vec{a}|=5,\\quad |\\vec{b}|=5\\sqrt2,\\quad \\cos\\varphi=\\frac{31}{25\\sqrt2}\\approx0{,}877 \\implies \\varphi\\approx28{,}7^\\circ.",
         explanation: "A koordinátás alak és a hosszképlet után a koszinusz definíciójából kapjuk a szöget. Ellenőrzés: a szög hegyesszög, mert a skaláris szorzat pozitív."
       },
       {
         problemNumber: 2,
-        question: "Egy testre $\\vec F=(30,40)\\ \\mathrm{N}$ erő hat, miközben elmozdulása $\\vec s=(5,2)\\ \\mathrm{m}$. Mekkora a végzett munka?",
-        solutionLatex: "W=\\vec F\\cdot\\vec s=30\\cdot5+40\\cdot2=230\\ \\mathrm{J}.",
-        explanation: "A munka a skaláris szorzat: $W=|\\vec F||\\vec s|\\cos\\varphi$. Itt $|\\vec F|=50$, $|\\vec s|=\\sqrt{29}$, és $\\cos\\varphi=230/(50\\sqrt{29})$."
+        question: "Egy testre $\\vec{F}=(30,40)\\ \\mathrm{N}$ erő hat, miközben elmozdulása $\\vec{s}=(5,2)\\ \\mathrm{m}$. Mekkora a végzett munka?",
+        solutionLatex: "W=\\vec{F}\\cdot\\vec{s}=30\\cdot5+40\\cdot2=230\\ \\mathrm{J}.",
+        explanation: "A munka a skaláris szorzat: $W=|\\vec{F}||\\vec{s}|\\cos\\varphi$. Itt $|\\vec{F}|=50$, $|\\vec{s}|=\\sqrt{29}$, és $\\cos\\varphi=230/(50\\sqrt{29})$."
       },
       {
         problemNumber: 3,
@@ -947,8 +947,8 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
       },
       {
         problemNumber: 4,
-        question: "Bontsd fel a $\\vec v=(7,1)$ vektort a $\\vec a=(2,1)$ és $\\vec b=(1,3)$ irányára!",
-        solutionLatex: "\\vec v=\\alpha\\vec a+\\beta\\vec b:\\quad 2\\alpha+\\beta=7,\\ \\alpha+3\\beta=1 \\implies \\alpha=4,\\ \\beta=-1,\\quad \\vec v=4\\vec a-\\vec b.",
+        question: "Bontsd fel a $\\vec{v}=(7,1)$ vektort a $\\vec{a}=(2,1)$ és $\\vec{b}=(1,3)$ irányára!",
+        solutionLatex: "\\vec{v}=\\alpha\\vec{a}+\\beta\\vec{b}:\\quad 2\\alpha+\\beta=7,\\ \\alpha+3\\beta=1 \\implies \\alpha=4,\\ \\beta=-1,\\quad \\vec{v}=4\\vec{a}-\\vec{b}.",
         explanation: "A két koordinátaegyenletből álló rendszert megoldva $\\alpha=4$, $\\beta=-1$. Ellenőrzés: $4(2,1)-(1,3)=(7,1)$."
       },
       {
@@ -970,29 +970,29 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
     requiredDefinitions: [
       {
         term: "Vektor",
-        definitionLatex: "\\vec a=\\overrightarrow{AB},\\quad |\\vec a|=AB",
+        definitionLatex: "\\vec{a}=\\overrightarrow{AB},\\quad |\\vec{a}|=AB",
         explanation: "Irányított szakasz; jellemzője a nagyság, az állás és az irány."
       },
       {
         term: "Vektorfelbontás",
-        definitionLatex: "\\vec v=v_1\\vec i+v_2\\vec j",
+        definitionLatex: "\\vec{v}=v_1\\vec{i}+v_2\\vec{j}",
         explanation: "Nem egyállású bázisban minden vektor egyértelműen felbontható; a $v_1,v_2$ a koordináták."
       },
       {
         term: "Skaláris szorzat",
-        definitionLatex: "\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi",
+        definitionLatex: "\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\varphi",
         explanation: "Eredménye skalár; koordinátásan $a_1b_1+a_2b_2$."
       },
       {
         term: "Merőlegesség",
-        definitionLatex: "\\vec a\\perp\\vec b \\iff \\vec a\\cdot\\vec b=0",
+        definitionLatex: "\\vec{a}\\perp\\vec{b} \\iff \\vec{a}\\cdot\\vec{b}=0",
         explanation: "Nemnulla vektorokra a skaláris szorzat eltűnése ekvivalens a $90^\\circ$-os hajlásszöggel."
       }
     ],
     examinerTraps: [
       {
         question: "Asszociatív-e a skaláris szorzat?",
-        answer: "Nem. $(\\vec a\\cdot\\vec b)\\cdot\\vec c$ és $\\vec a\\cdot(\\vec b\\cdot\\vec c)$ általában más irányú vektorok; a skaláris szorzat csak kommutatív és disztributív.",
+        answer: "Nem. $(\\vec{a}\\cdot\\vec{b})\\cdot\\vec{c}$ és $\\vec{a}\\cdot(\\vec{b}\\cdot\\vec{c})$ általában más irányú vektorok; a skaláris szorzat csak kommutatív és disztributív.",
         dangerLevel: "Magas"
       },
       {
@@ -1006,21 +1006,21 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         dangerLevel: "Magas"
       },
       {
-        question: "Mit jelent a $\\vec a\\cdot\\vec b\\cdot\\vec c$ kifejezés?",
-        answer: "Értelmetlen, mert a skaláris szorzat két vektort vár. Először zárójelezni kell: $(\\vec a\\cdot\\vec b)\\vec c$ egy vektor, $\\vec a(\\vec b\\cdot\\vec c)$ szintén vektor.",
+        question: "Mit jelent a $\\vec{a}\\cdot\\vec{b}\\cdot\\vec{c}$ kifejezés?",
+        answer: "Értelmetlen, mert a skaláris szorzat két vektort vár. Először zárójelezni kell: $(\\vec{a}\\cdot\\vec{b})\\vec{c}$ egy vektor, $\\vec{a}(\\vec{b}\\cdot\\vec{c})$ szintén vektor.",
         dangerLevel: "Közepes"
       }
     ],
     applications: [
       {
         title: "Fizikai munka",
-        problem: "$\\vec F=(30,40)$ N, $\\vec s=(5,2)$ m. Mennyi a munka?",
+        problem: "$\\vec{F}=(30,40)$ N, $\\vec{s}=(5,2)$ m. Mennyi a munka?",
         solutionLatex: "W=230\\ \\mathrm{J}"
       },
       {
         title: "Vektorfelbontás",
-        problem: "$\\vec v=(7,1)$ felbontása $(2,1)$ és $(1,3)$ irányára?",
-        solutionLatex: "\\vec v=4\\vec a-\\vec b"
+        problem: "$\\vec{v}=(7,1)$ felbontása $(2,1)$ és $(1,3)$ irányára?",
+        solutionLatex: "\\vec{v}=4\\vec{a}-\\vec{b}"
       }
     ],
     scoringBreakdown: [
@@ -1061,23 +1061,23 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
 
 ### Fő állítás / képletek
 
-$\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi=a_1b_1+a_2b_2$
+$\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\varphi=a_1b_1+a_2b_2$
 
 ### Definíciók
 
-**Vektor:** $\\vec a=\\overrightarrow{AB},\\quad |\\vec a|=AB$
+**Vektor:** $\\vec{a}=\\overrightarrow{AB},\\quad |\\vec{a}|=AB$
 
 Irányított szakasz; jellemzője a nagyság, az állás és az irány.
 
-**Vektorfelbontás:** $\\vec v=v_1\\vec i+v_2\\vec j$
+**Vektorfelbontás:** $\\vec{v}=v_1\\vec{i}+v_2\\vec{j}$
 
 Nem egyállású bázisban minden vektor egyértelműen felbontható; a $v_1,v_2$ a koordináták.
 
-**Skaláris szorzat:** $\\vec a\\cdot\\vec b=|\\vec a||\\vec b|\\cos\\varphi$
+**Skaláris szorzat:** $\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\varphi$
 
 Eredménye skalár; koordinátásan $a_1b_1+a_2b_2$.
 
-**Merőlegesség:** $\\vec a\\perp\\vec b \\iff \\vec a\\cdot\\vec b=0$
+**Merőlegesség:** $\\vec{a}\\perp\\vec{b} \\iff \\vec{a}\\cdot\\vec{b}=0$
 
 Nemnulla vektorokra a skaláris szorzat eltűnése ekvivalens a $90^\\circ$-os hajlásszöggel.
 
@@ -1085,13 +1085,13 @@ Nemnulla vektorokra a skaláris szorzat eltűnése ekvivalens a $90^\\circ$-os h
 
 **Vektorfelbontási tétel**
 
-$\\vec v=v_1\\vec i+v_2\\vec j \\text{ egyértelműen}$
+$\\vec{v}=v_1\\vec{i}+v_2\\vec{j} \\text{ egyértelműen}$
 
 *Bizonyítás iránya:* Paralelogramma-szerkesztés és az egyértelműség
 
 **A skaláris szorzat koordinátás alakja**
 
-$\\vec a\\cdot\\vec b=a_1b_1+a_2b_2$
+$\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2$
 
 *Bizonyítás iránya:* Ortonormált bázisra való kifejtés
 
@@ -1103,7 +1103,7 @@ $c^2=a^2+b^2-2ab\\cos\\gamma$
 
 **Merőlegességi kritérium**
 
-$\\vec a\\perp\\vec b \\iff \\vec a\\cdot\\vec b=0$
+$\\vec{a}\\perp\\vec{b} \\iff \\vec{a}\\cdot\\vec{b}=0$
 
 *Bizonyítás iránya:* A koszinuszos definícióból
 
@@ -1162,7 +1162,7 @@ Szerkezet 10 · Definíció 2 · Tétel+biz. 6 · Feladat 8 · Alkalmazás 4 · 
     difficulty: "2: bemelegítő",
     summary: "Távolság, felezőpont, osztópont; az egyenes normálvektoros, irányvektoros, paraméteres, meredekséges és tengelymetszetes alakja; párhuzamosság és merőlegesség; pont–egyenes távolság; félsíkok, egyenlőtlenség-rendszerek és lineáris programozás.",
     statementLatex: "A(x-x_0)+B(y-y_0)=0,\\quad m_1m_2=-1,\\quad d=\\frac{|Ax_0+By_0+C|}{\\sqrt{A^2+B^2}}",
-    conditionsLatex: "\\vec n=(A,B)\\neq\\vec 0",
+    conditionsLatex: "\\vec{n}=(A,B)\\neq\\vec{0}",
     formulaSheetReference: "Hivatalos Képlettár 2026: egyenes",
     formulaSheetReferences: [
       "Matematika képlettár 2026 (OH) – Koordinátageometria, 9. oldal"
@@ -1190,12 +1190,12 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
 
 ### 2. Az egyenes öt alakja
 
-- **Normálvektoros:** ha $P_0(x_0,y_0)$ az egyenes pontja és $\\vec n=(A,B)$ a normálvektor ($\\vec n\\neq\\vec 0$), akkor
+- **Normálvektoros:** ha $P_0(x_0,y_0)$ az egyenes pontja és $\\vec{n}=(A,B)$ a normálvektor ($\\vec{n}\\neq\\vec{0}$), akkor
   $$A(x-x_0)+B(y-y_0)=0,\\qquad \\text{azaz } Ax+By-(Ax_0+By_0)=0.$$
 
-- **Irányvektoros:** $\\vec v=(v_1,v_2)$ az egyenes iránya; a normálvektor $\\vec n=(v_2,-v_1)$ (vagy $(-v_2,v_1)$).
+- **Irányvektoros:** $\\vec{v}=(v_1,v_2)$ az egyenes iránya; a normálvektor $\\vec{n}=(v_2,-v_1)$ (vagy $(-v_2,v_1)$).
 
-- **Paraméteres:** $P=P_0+t\\vec v$, azaz $x=x_0+tv_1$, $y=y_0+tv_2$, $t\\in\\mathbb R$.
+- **Paraméteres:** $P=P_0+t\\vec{v}$, azaz $x=x_0+tv_1$, $y=y_0+tv_2$, $t\\in\\mathbb R$.
 
 - **Meredekséges:** ha az egyenes nem függőleges, $y-y_0=m(x-x_0)$, ahol $m=\\tan\\alpha$ az $x$-tengely pozitív irányával bezárt szög tangense.
 
@@ -1253,7 +1253,7 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
           {
             stepNumber: 1,
             title: "Merőlegesség",
-            latexContent: "P(x,y)\\in e,\\quad P_0(x_0,y_0)\\in e \\ \\overrightarrow{P_0P}=(x-x_0,\\,y-y_0) \\ \\vec n\\cdot\\overrightarrow{P_0P}=0 \\implies A(x-x_0)+B(y-y_0)=0",
+            latexContent: "P(x,y)\\in e,\\quad P_0(x_0,y_0)\\in e \\ \\overrightarrow{P_0P}=(x-x_0,\\,y-y_0) \\ \\vec{n}\\cdot\\overrightarrow{P_0P}=0 \\implies A(x-x_0)+B(y-y_0)=0",
             explanation: "Cél: belátni, hogy A normálvektoros egyenesegyenlet. Az egyenes tetszőleges $P$ pontját és egy rögzített $P_0$ pontját vesszük. Ez előkészíti a következő lépést (Futópont). Ez a vektor az egyenes irányába mutat, tehát merőleges a normálvektorra. Ez előkészíti a következő lépést (Eltolásvektor). A skaláris szorzat koordinátás alakjából adódik az egyenlet. Megfordítva: a feltételt kielégítő pontok éppen az egyenesen vannak. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
@@ -1267,7 +1267,7 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
           {
             stepNumber: 1,
             title: "Rendezés",
-            latexContent: "\\vec v_1=(1,m_1),\\quad \\vec v_2=(1,m_2) \\ \\vec v_1\\cdot\\vec v_2=1+m_1m_2=0 \\ m_1m_2=-1",
+            latexContent: "\\vec{v}_1=(1,m_1),\\quad \\vec{v}_2=(1,m_2) \\ \\vec{v}_1\\cdot\\vec{v}_2=1+m_1m_2=0 \\ m_1m_2=-1",
             explanation: "Cél: belátni, hogy Merőleges egyenesek meredeksége. Nem függőleges egyeneseknél az $x$ irányú egységnyi elmozduláshoz $m$ függőleges elmozdulás tartozik. Két egyenes pontosan akkor merőleges, ha irányvektoraik merőlegesek. Ez előkészíti a következő lépést (Merőlegesség). Innen $m_2=-1/m_1$. Függőleges és vízszintes egyenes esetén a szorzat nem értelmezhető, ott a normálvektorokkal kell dolgozni. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
@@ -1281,7 +1281,7 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
           {
             stepNumber: 1,
             title: "Egyszerűsítés",
-            latexContent: "P_1(x_1,y_1)\\in e \\implies Ax_1+By_1+C=0 \\ \\overrightarrow{P_1P_0}=(x_0-x_1,\\,y_0-y_1) \\ d=\\frac{|\\vec n\\cdot\\overrightarrow{P_1P_0}|}{|\\vec n|}=\\frac{|A(x_0-x_1)+B(y_0-y_1)|}{\\sqrt{A^2+B^2}} \\ A(x_0-x_1)+B(y_0-y_1)=Ax_0+By_0+C",
+            latexContent: "P_1(x_1,y_1)\\in e \\implies Ax_1+By_1+C=0 \\ \\overrightarrow{P_1P_0}=(x_0-x_1,\\,y_0-y_1) \\ d=\\frac{|\\vec{n}\\cdot\\overrightarrow{P_1P_0}|}{|\\vec{n}|}=\\frac{|A(x_0-x_1)+B(y_0-y_1)|}{\\sqrt{A^2+B^2}} \\ A(x_0-x_1)+B(y_0-y_1)=Ax_0+By_0+C",
             explanation: "Cél: belátni, hogy Pont–egyenes távolság képlete. Válasszunk egy tetszőleges $P_1$ pontot az egyenesen. Ez előkészíti a következő lépést (Egy pont az egyenesen). A keresett távolság ennek a vektornak a normálvektor irányára eső vetületének hossza. Ez előkészíti a következő lépést (Eltolásvektor). A pont és az egyenes távolsága a normálvektorra vetített eltolás hossza. Ez előkészíti a következő lépést (Vetítés). Felhasználtuk, hogy $Ax_1+By_1=-C$. Így megkapjuk a képletet; a számláló abszolút értéke biztosítja a nemnegatív távolságot. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
           }
         ]
@@ -1331,7 +1331,7 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
       {
         problemNumber: 1,
         question: "Írd fel a $P(14,2)$ ponton átmenő, a $3x+2y=7$ egyenesre merőleges egyenes egyenletét!",
-        solutionLatex: "\\vec n_e=(3,2)\\implies \\vec v_f=(3,2)\\implies \\vec n_f=(-2,3);\\quad -2(x-14)+3(y-2)=0 \\implies 2x-3y=22.",
+        solutionLatex: "\\vec{n}_e=(3,2)\\implies \\vec{v}_f=(3,2)\\implies \\vec{n}_f=(-2,3);\\quad -2(x-14)+3(y-2)=0 \\implies 2x-3y=22.",
         explanation: "A merőleges egyenes normálvektora az eredeti egyenes irányvektora. Ellenőrzés: $P$ kielégíti az egyenletet ($28-6=22$), és a két normálvektor skaláris szorzata $3\\cdot2+2\\cdot(-3)=0$."
       },
       {
@@ -1371,7 +1371,7 @@ Az egyenes ötféle alakja közül a vizsgán a normálvektoros és a meredeksé
     requiredDefinitions: [
       {
         term: "Normálvektor és irányvektor",
-        definitionLatex: "\\vec n\\perp e,\\qquad \\vec v\\parallel e",
+        definitionLatex: "\\vec{n}\\perp e,\\qquad \\vec{v}\\parallel e",
         explanation: "A normálvektor merőleges az egyenesre, az irányvektor párhuzamos vele; egymásból 90°-os forgatással kaphatók."
       },
       {
@@ -1466,7 +1466,7 @@ $A(x-x_0)+B(y-y_0)=0,\\quad m_1m_2=-1,\\quad d=\\frac{|Ax_0+By_0+C|}{\\sqrt{A^2+
 
 ### Definíciók
 
-**Normálvektor és irányvektor:** $\\vec n\\perp e,\\qquad \\vec v\\parallel e$
+**Normálvektor és irányvektor:** $\\vec{n}\\perp e,\\qquad \\vec{v}\\parallel e$
 
 A normálvektor merőleges az egyenesre, az irányvektor párhuzamos vele; egymásból 90°-os forgatással kaphatók.
 
