@@ -865,9 +865,27 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Eredmény",
-            latexContent: "\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2",
-            explanation: "Cél: belátni, hogy A skaláris szorzat koordinátás alakja. A vektorfelbontási tétel szerint mindkét vektor felírható az ortonormált bázisban. Ez a teljes indukció része: a bázis ellenőrzi az első értéket, az indukciós lépés pedig továbbléptet. A szorzatot tagonként kifejtjük; a skaláris szorzat bilineáris. Ez előkészíti a következő lépést (Disztributivitás). Ortonormált bázisban az egységvektorok hossza $1$, hajlásszögük $90^\\circ$, így $\\cos90^\\circ=0$. A vegyes tagok eltűnnek, marad a két tengely menti szorzat összege. Ezzel a kívánt összefüggés adódik. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
+            title: "Felbontás ortonormált bázisban",
+            latexContent: "\\vec{a}=a_1\\vec{i}+a_2\\vec{j},\\qquad \\vec{b}=b_1\\vec{i}+b_2\\vec{j}",
+            explanation: "A vektorfelbontási tétel alapján a két vektor felírható az ortonormált bázis segítségével. A skaláris szorzat definíciója: $\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\alpha$. Az egységvektorok hossza $1$, a bázisvektorok pedig merőlegesek egymásra."
+          },
+          {
+            stepNumber: 2,
+            title: "Disztributív kifejtés",
+            latexContent: "\\begin{aligned}\\vec{a}\\cdot\\vec{b} &=(a_1\\vec{i}+a_2\\vec{j})\\cdot(b_1\\vec{i}+b_2\\vec{j}) \\\\ &=a_1b_1(\\vec{i}\\cdot\\vec{i})+a_1b_2(\\vec{i}\\cdot\\vec{j}) \\\\ &\\quad+a_2b_1(\\vec{j}\\cdot\\vec{i})+a_2b_2(\\vec{j}\\cdot\\vec{j})\\end{aligned}",
+            explanation: "A szorzatot tagonként kifejtjük a skaláris szorzat bilineáris tulajdonsága miatt."
+          },
+          {
+            stepNumber: 3,
+            title: "Bázisvektorok skaláris szorzatai",
+            latexContent: "\\begin{aligned}\\vec{i}\\cdot\\vec{i} &=1\\cdot1\\cdot\\cos0^\\circ=1 \\\\ \\vec{i}\\cdot\\vec{j} &=1\\cdot1\\cdot\\cos90^\\circ=0 \\\\ \\vec{j}\\cdot\\vec{i} &=1\\cdot1\\cdot\\cos90^\\circ=0 \\\\ \\vec{j}\\cdot\\vec{j} &=1\\cdot1\\cdot\\cos0^\\circ=1\\end{aligned}",
+            explanation: "Most kiszámítjuk a négy bázisvektor-szorzatot a definíció alapján."
+          },
+          {
+            stepNumber: 4,
+            title: "Visszahelyettesítés",
+            latexContent: "\\begin{aligned}\\vec{a}\\cdot\\vec{b} &=a_1b_1\\cdot1+a_1b_2\\cdot0 \\\\ &\\quad+a_2b_1\\cdot0+a_2b_2\\cdot1 \\\\ &=a_1b_1+a_2b_2\\end{aligned}",
+            explanation: "Ezeket visszahelyettesítjük. Tehát bebizonyítottuk a tételt:$$\\boxed{\\vec{a}\\cdot\\vec{b}=a_1b_1+a_2b_2}$$"
           }
         ]
       },
