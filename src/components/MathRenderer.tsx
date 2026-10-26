@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import katex from 'katex';
 
 interface MathRendererProps {
@@ -8,24 +8,24 @@ interface MathRendererProps {
 }
 
 export const MathRenderer: React.FC<MathRendererProps> = ({ math, block = false, className = '' }) => {
-  const containerRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      try {
-        katex.render(math, containerRef.current, {
-          displayMode: block,
-          throwOnError: false,
-          output: 'html',
-        });
-      } catch (error) {
-        console.error("KaTeX rendering error:", error);
-        if (containerRef.current) {
-          containerRef.current.innerText = math;
-        }
-      }
+  const html = useMemo(() => {
+    try {
+      return katex.renderToString(math, {
+        displayMode: block,
+        throwOnError: false,
+        output: 'html',
+        strict: 'ignore',
+      });
+    } catch (error) {
+      console.error('KaTeX rendering error:', error);
+      return math;
     }
   }, [math, block]);
 
-  return <span ref={containerRef} className={`inline-block ${className}`} />;
+  return (
+    <span
+      className={`katex-host ${block ? 'block overflow-x-auto' : 'inline-block'} ${className}`}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 };

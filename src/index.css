@@ -59,7 +59,7 @@
   box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.2);
 }
 
-/* KaTeX custom overrides for dark mode readability */
+/* KaTeX: dark mode + Tailwind preflight compatibility */
 .katex {
   font-size: 1.05em !important;
   color: #e4e4e7 !important;
@@ -75,15 +75,35 @@
   overflow-y: hidden;
 }
 
-
-/* Keep KaTeX MathML visually hidden (screen-reader only) so formulas don't double-render */
-.katex .katex-mathml {
+/* Never show MathML accessibility tree as visible stacked text */
+.katex .katex-mathml,
+.katex-mathml {
   position: absolute !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  padding: 0 !important;
-  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
   height: 1px !important;
   width: 1px !important;
   overflow: hidden !important;
   white-space: nowrap !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: -1px !important;
+}
+
+.katex-html {
+  display: inline-block;
+}
+
+/* Tailwind preflight zeroes borders; restore KaTeX fraction/sqrt lines */
+.katex .frac-line,
+.katex .sqrt-line,
+.katex .overline .overline-line,
+.katex .underline .underline-line,
+.katex .stretchy {
+  border-color: currentColor !important;
+}
+
+.prose .katex-display {
+  margin-top: 0.75em !important;
+  margin-bottom: 0.75em !important;
 }

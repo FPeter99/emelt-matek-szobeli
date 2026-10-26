@@ -927,7 +927,7 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
             stepNumber: 1,
             title: "Összeadás",
             latexContent: "\\begin{aligned}|\\vec{a}+\\vec{b}|^2 &= |\\vec{a}|^2+|\\vec{b}|^2+2\\vec{a}\\cdot\\vec{b} \\\\ |\\vec{a}-\\vec{b}|^2 &= |\\vec{a}|^2+|\\vec{b}|^2-2\\vec{a}\\cdot\\vec{b} \\\\ |\\vec{a}+\\vec{b}|^2+|\\vec{a}-\\vec{b}|^2 &= 2(|\\vec{a}|^2+|\\vec{b}|^2)\\end{aligned}",
-            explanation: "Cél: belátni, hogy Paralelogramma-azonosság. A skaláris szorzat disztributivitása miatt. Ez előkészíti a következő lépést (Összeg négyzete). Ugyanígy, csak a vegyes tag előjele negatív. Ez előkészíti a következő lépést (Különbség négyzete). A vegyes tagok kiesnek. Szemléletesen: a paralelogramma átlóinak négyzetösszege az oldalak négyzetösszegének kétszerese. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
+            explanation: "A bizonyítás során külön kiszámoljuk a $|\\vec{a}+\\vec{b}|^2$ és a $|\\vec{a}-\\vec{b}|^2$ kifejezéseket a skaláris szorzat disztributivitásával. Ezután összeadjuk őket. A vegyes tagok kiesnek, és megkapjuk a tétel jobb oldalát."
           }
         ]
       }

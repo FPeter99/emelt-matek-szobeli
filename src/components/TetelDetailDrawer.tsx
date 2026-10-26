@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tetel } from '../types/math';
 import { MathRenderer } from './MathRenderer';
+import { MdMath } from './MdMath';
 import { FunctionPlotter } from './Visualizers/FunctionPlotter';
 import { GraphVisualizer } from './Visualizers/GraphVisualizer';
 import { VectorVisualizer } from './Visualizers/VectorVisualizer';
@@ -33,10 +34,6 @@ import {
   ArrowLeft,
   ScrollText
 } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import remarkMath from 'remark-math';
-import remarkGfm from 'remark-gfm';
-import rehypeKatex from 'rehype-katex';
 interface TetelDetailDrawerProps {
   tetel: Tetel | null;
   onClose: () => void;
@@ -234,9 +231,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 <span>Bemagolandó tananyag</span>
               </div>
               <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:text-amber-200 prose-strong:text-zinc-100">
-                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                  {tetel.memorizationMaterial || memorizeFallback()}
-                </ReactMarkdown>
+                <MdMath>{tetel.memorizationMaterial || memorizeFallback()}</MdMath>
               </div>
             </div>
           )}
@@ -247,9 +242,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 <span>Szóbeli felelet vázlata (15–20 perc · 35 pont)</span>
               </div>
               <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:text-violet-200 prose-strong:text-zinc-100">
-                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                  {tetel.oralExamPlan || oralFallback()}
-                </ReactMarkdown>
+                <MdMath>{tetel.oralExamPlan || oralFallback()}</MdMath>
               </div>
             </div>
           )}
@@ -260,9 +253,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 <span>Egybefüggő kidolgozott tétel (~10 perc)</span>
               </div>
               <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-headings:text-cyan-200 prose-strong:text-zinc-100 prose-p:leading-relaxed">
-                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                  {tetel.continuousEssay || '## Még nincs kidolgozott szöveg\n\nEz a tétel egybefüggő felelete hamarosan elérhető.'}
-                </ReactMarkdown>
+                <MdMath>{tetel.continuousEssay || '## Még nincs kidolgozott szöveg\n\nEz a tétel egybefüggő felelete hamarosan elérhető.'}</MdMath>
               </div>
             </div>
           )}
@@ -337,9 +328,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
             <div className="bg-zinc-900/40 border border-purple-500/30 rounded-2xl p-6">
               <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-3"><History className="w-5 h-5 text-purple-400" />Történeti bevezetés</h2>
               <div className="prose prose-invert prose-sm max-w-none text-zinc-300 leading-relaxed prose-p:my-3 prose-strong:text-zinc-100">
-                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                  {tetel.introduction}
-                </ReactMarkdown>
+                <MdMath>{tetel.introduction}</MdMath>
               </div>
             </div>
           )}
@@ -347,7 +336,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
             <div className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-6 sm:p-8">
               <h2 className="text-lg font-bold text-white flex items-center gap-2 mb-5"><BookMarked className="w-5 h-5 text-emerald-400" />Részletes elmélet és magyarázat</h2>
               <div className="prose prose-invert prose-sm sm:prose-base max-w-none prose-p:my-3 prose-li:my-1 prose-headings:mt-6 prose-headings:mb-3 prose-headings:text-emerald-300 prose-strong:text-zinc-100 prose-li:marker:text-emerald-500 prose-a:text-cyan-300">
-                <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>{tetel.detailedTheory}</ReactMarkdown>
+                <MdMath className="prose prose-invert prose-sm sm:prose-base max-w-none">{tetel.detailedTheory}</MdMath>
               </div>
             </div>
           )}
@@ -363,7 +352,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                     <span className="w-5 h-5 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-400 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
                       {index + 1}
                     </span>
-                    <span>{item}</span>
+                    <MdMath inline className="inline flex-1">{item}</MdMath>
                   </li>
                 ))}
               </ul>
@@ -385,9 +374,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                     <div className="bg-zinc-950 border border-zinc-800 p-2.5 rounded-lg text-emerald-300 font-mono text-xs overflow-x-auto text-center">
                       <MathRenderer math={def.definitionLatex} block />
                     </div>
-                    <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                      {def.explanation}
-                    </p>
+                    <MdMath className="text-xs text-zinc-400 leading-relaxed prose prose-invert prose-sm max-w-none prose-p:my-0">{def.explanation}</MdMath>
                   </div>
                 ))}
               </div>
@@ -422,14 +409,12 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                         <h4 className="font-semibold text-zinc-100 text-sm">{step.stepNumber}. {step.title}</h4>
                         <div className="overflow-x-auto"><MathRenderer math={step.latexContent} block /></div>
                         <div className="prose prose-invert prose-sm max-w-none text-zinc-400 leading-relaxed prose-p:my-0 prose-strong:text-zinc-200">
-                          <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                            {step.explanation}
-                          </ReactMarkdown>
+                          <MdMath>{step.explanation}</MdMath>
                         </div>
                       </div>
                     ))}
                   </div>
-                  {theorem.notes && <p className="text-xs text-zinc-500 italic">{theorem.notes}</p>}
+                  {theorem.notes && <MdMath className="text-xs text-zinc-500 italic prose prose-invert prose-sm max-w-none prose-p:my-0">{theorem.notes}</MdMath>}
                 </section>
               ))}
             </div>
@@ -463,9 +448,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                       <MathRenderer math={step.latexContent} block />
                     </div>
                     <div className="prose prose-invert prose-sm max-w-none text-zinc-400 leading-relaxed prose-p:my-0">
-                      <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                        {step.explanation}
-                      </ReactMarkdown>
+                      <MdMath>{step.explanation}</MdMath>
                     </div>
                   </div>
                 ))}
@@ -483,9 +466,10 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 {tetel.examinerTraps.map((trap, idx) => (
                   <div key={idx} className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-4 space-y-2">
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-mono text-amber-400 font-bold">
-                        Kérdés #{idx + 1}: "{trap.question}"
-                      </span>
+                      <div className="text-xs text-amber-100/90 flex-1 min-w-0">
+                        <span className="font-mono text-amber-400 font-bold mr-1">Kérdés #{idx + 1}:</span>
+                        <MdMath inline className="inline">{trap.question}</MdMath>
+                      </div>
                       <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
                         trap.dangerLevel === 'Magas'
                           ? 'bg-rose-500/20 border-rose-500/40 text-rose-300'
@@ -494,9 +478,10 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                         Veszély: {trap.dangerLevel}
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-zinc-300 bg-zinc-950/80 p-3 rounded-lg border border-zinc-800">
-                      <strong>Helyes válasz / Helyreigazítás:</strong> {trap.answer}
-                    </p>
+                    <div className="text-xs sm:text-sm text-zinc-300 bg-zinc-950/80 p-3 rounded-lg border border-zinc-800">
+                      <strong className="text-zinc-200">Helyes válasz / Helyreigazítás:</strong>{' '}
+                      <MdMath inline className="inline">{trap.answer}</MdMath>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -509,13 +494,11 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               {tetel.practiceProblems.map((problem) => (
                 <div key={problem.problemNumber} className="bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 space-y-3">
                   <h3 className="font-semibold text-cyan-300">{problem.problemNumber}. feladat</h3>
-                  <p className="text-sm text-zinc-200 leading-relaxed">{problem.question}</p>
+                  <div className="text-sm text-zinc-200 leading-relaxed"><MdMath inline className="inline">{problem.question}</MdMath></div>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 overflow-x-auto"><MathRenderer math={problem.solutionLatex} block /></div>
                   {problem.explanation && (
                     <div className="prose prose-invert prose-sm max-w-none text-zinc-400 prose-p:my-0">
-                      <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]}>
-                        {problem.explanation}
-                      </ReactMarkdown>
+                      <MdMath>{problem.explanation}</MdMath>
                     </div>
                   )}
                 </div>
@@ -528,7 +511,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               {tetel.applications.map((app, idx) => (
                 <div key={idx} className="bg-zinc-900/50 border border-cyan-500/20 rounded-2xl p-5 space-y-3">
                   <h3 className="font-semibold text-cyan-300">{app.title}</h3>
-                  <p className="text-sm text-zinc-200">{app.problem}</p>
+                  <div className="text-sm text-zinc-200"><MdMath inline className="inline">{app.problem}</MdMath></div>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-4 overflow-x-auto"><MathRenderer math={app.solutionLatex} block /></div>
                 </div>
               ))}
@@ -540,9 +523,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">
                 {tetel.applicationsInside.map((item, idx) => (
                   <li key={idx}>
-                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={{ p: ({children}) => <span>{children}</span> }}>
-                      {item}
-                    </ReactMarkdown>
+                    <MdMath inline>{item}</MdMath>
                   </li>
                 ))}
               </ul>
@@ -554,9 +535,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
               <ul className="list-disc list-inside space-y-2 text-sm text-zinc-300">
                 {tetel.applicationsOutside.map((item, idx) => (
                   <li key={idx}>
-                    <ReactMarkdown remarkPlugins={[remarkMath, remarkGfm]} rehypePlugins={[rehypeKatex]} components={{ p: ({children}) => <span>{children}</span> }}>
-                      {item}
-                    </ReactMarkdown>
+                    <MdMath inline>{item}</MdMath>
                   </li>
                 ))}
               </ul>
@@ -574,9 +553,10 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                     <h3 className="font-semibold text-white text-sm">
                       {app.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-zinc-300 italic bg-zinc-950/60 p-3 rounded-lg border border-zinc-800">
-                      <strong>Feladat:</strong> {app.problem}
-                    </p>
+                    <div className="text-xs sm:text-sm text-zinc-300 italic bg-zinc-950/60 p-3 rounded-lg border border-zinc-800">
+                      <strong className="not-italic text-zinc-200">Feladat:</strong>{' '}
+                      <MdMath inline className="inline">{app.problem}</MdMath>
+                    </div>
                     <div className="bg-zinc-950 border border-zinc-800 p-3 rounded-lg text-emerald-300 font-mono text-xs overflow-x-auto">
                       <MathRenderer math={app.solutionLatex} block />
                     </div>
@@ -593,9 +573,7 @@ export const TetelDetailDrawer: React.FC<TetelDetailDrawerProps> = ({
                 <h3 className="text-xs font-mono text-purple-400 uppercase tracking-wider mb-1">
                   Matematikatörténeti Háttér
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  {tetel.historicalContext}
-                </p>
+                <MdMath className="text-xs text-zinc-400 leading-relaxed prose prose-invert prose-sm max-w-none prose-p:my-0">{tetel.historicalContext}</MdMath>
               </div>
             </div>
           )}
