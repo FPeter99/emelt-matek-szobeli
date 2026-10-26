@@ -26,8 +26,6 @@ const DIFFICULTIES: Difficulty[] = [
   '3: trückös',
 ];
 
-const difficultyLevel = (d: Difficulty): number => Number(d[0]);
-
 const difficultyButtonClass = (diff: Difficulty, isActive: boolean) => {
   if (!isActive) {
     return 'bg-zinc-900/60 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700';
@@ -48,12 +46,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   totalCount,
   filteredCount,
 }) => {
-  const selectedMax = filters.difficulty ? difficultyLevel(filters.difficulty) : null;
-
   const selectDifficulty = (diff: Difficulty) => {
     setFilters((prev) => ({
       ...prev,
-      // Clicking the same max again clears the filter (shows all three)
+      // Same button again clears the filter (shows all three)
       difficulty: prev.difficulty === diff ? null : diff,
     }));
   };
@@ -116,8 +112,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 <Gauge className="w-3.5 h-3.5" /> Nehézség:
               </span>
               {DIFFICULTIES.map((diff) => {
-                const level = difficultyLevel(diff);
-                const isActive = selectedMax !== null && level <= selectedMax;
+                const isActive = filters.difficulty === diff;
                 return (
                   <button
                     key={diff}

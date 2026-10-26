@@ -96,7 +96,7 @@ export interface Tetel {
 export interface FilterState {
   searchQuery: string;
   category: Category | 'Összes';
-  /** Max selected difficulty (inclusive of easier levels). null = all three. */
+  /** Selected difficulty. null = all three. */
   difficulty: Difficulty | null;
   onlyFavorites: boolean;
   onlyCompleted: boolean;
