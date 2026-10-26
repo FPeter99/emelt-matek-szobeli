@@ -851,9 +851,15 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         proofSteps: [
           {
             stepNumber: 1,
+            title: "Létezés (paralelogramma-szerkesztés)",
+            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ P &\\in e \\parallel \\vec{j},\\quad P \\in f \\parallel \\vec{i} \\\\ \\overrightarrow{OP} &= \\overrightarrow{OV_1}+\\overrightarrow{OV_2} \\\\ \\vec{v} &= v_1\\vec{i}+v_2\\vec{j}\\end{aligned}",
+            explanation: "Ábrázoljuk a $\\vec{v}$ vektort közös kezdőpontból: $O$ a kezdőpont, $P$ a végpont. A $P$ ponton át húzzunk párhuzamost $\\vec{j}$-vel, illetve $\\vec{i}$-vel; ezek az $\\vec{i}$ és $\\vec{j}$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$. Mivel $\\overrightarrow{OV_1}$ az $\\vec{i}$ irányába esik, $\\overrightarrow{OV_1}=v_1\\vec{i}$; hasonlóan $\\overrightarrow{OV_2}=v_2\\vec{j}$. Így $\\vec{v}=v_1\\vec{i}+v_2\\vec{j}$."
+          },
+          {
+            stepNumber: 2,
             title: "Egyértelműség",
-            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ P\\in e\\parallel\\vec{j},\\quad P\\in f\\parallel\\vec{i} \\\\ \\vec{v} &= \\overrightarrow{OV_1}+\\overrightarrow{OV_2}=v_1\\vec{i}+v_2\\vec{j} \\\\ (v_1-v_1')\\vec{i}+(v_2-v_2')\\vec{j} &= \\vec{0} \\implies v_1=v_1',\\ v_2=v_2'\\end{aligned}",
-            explanation: "Cél: belátni, hogy Vektorfelbontási tétel. A $\\vec{v}$ vektort közös kezdőpontból ábrázoljuk: $O$ a kezdőpont, $P$ a végpont. Ez előkészíti a következő lépést (Létezés). A $P$ ponton át párhuzamost húzunk $\\vec{j}$-vel és $\\vec{i}$-vel; ezek az $\\vec{i}$, illetve $\\vec{j}$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$; a $\\overrightarrow{OV_1}$ vektor $\\vec{i}$ skalárszorosa. Ha két felbontás létezne, különbségük nullvektor. Mivel $\\vec{i},\\vec{j}$ nem egyállásúak, csak a triviális együtthatók adhatnak nullát, tehát a felbontás egyértelmű. Összefoglalva: a levezetés végén megkapjuk a tétel állítását."
+            latexContent: "\\begin{aligned}\\vec{v} &= v_1\\vec{i}+v_2\\vec{j} = v_1'\\vec{i}+v_2'\\vec{j} \\\\ (v_1-v_1')\\vec{i}+(v_2-v_2')\\vec{j} &= \\vec{0} \\\\ v_1 &= v_1',\\qquad v_2 = v_2'\\end{aligned}",
+            explanation: "Tegyük fel, hogy $\\vec{v}$-nek két felbontása is létezik az $\\vec{i},\\vec{j}$ bázisban. A két felírás különbsége a nullvektor. Mivel $\\vec{i}$ és $\\vec{j}$ nem egyállásúak (lineárisan függetlenek), a nullvektor csak a triviális együtthatókkal áll elő. Ezért $v_1=v_1'$ és $v_2=v_2'$, tehát a felbontás egyértelmű."
           }
         ]
       },
