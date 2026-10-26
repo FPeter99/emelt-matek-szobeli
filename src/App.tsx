@@ -23,10 +23,12 @@ const readStoredIds = (key: string): string[] => {
   }
 };
 
+const difficultyLevel = (d: string): number => Number(d[0]);
+
 const EMPTY_FILTERS: FilterState = {
   searchQuery: '',
   category: 'Összes',
-  difficulty: 'Összes',
+  difficulty: null,
   onlyFavorites: false,
   onlyCompleted: false,
 };
@@ -127,8 +129,11 @@ export const App: React.FC = () => {
         return false;
       }
 
-      // Difficulty filter
-      if (filterState.difficulty !== 'Összes' && t.difficulty !== filterState.difficulty) {
+      // Difficulty filter: selected level includes all easier ones (1 / 1+2 / all)
+      if (
+        filterState.difficulty !== null &&
+        difficultyLevel(t.difficulty) > difficultyLevel(filterState.difficulty)
+      ) {
         return false;
       }
 
