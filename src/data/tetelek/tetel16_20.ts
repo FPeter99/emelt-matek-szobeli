@@ -847,19 +847,13 @@ A szóbelin a leggyakoribb hiba, hogy a jelölést és a szemléletet összekeve
         theoremNumber: 1,
         title: "Vektorfelbontási tétel",
         statementLatex: "\\vec{v}=v_1\\vec{i}+v_2\\vec{j} \\text{ egyértelműen}",
-        proofTitle: "Paralelogramma-szerkesztés és az egyértelműség",
+        proofTitle: "Geometriai szerkesztés: létezés és egyértelműség egyszerre",
         proofSteps: [
           {
             stepNumber: 1,
-            title: "Létezés (paralelogramma-szerkesztés)",
-            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ P &\\in e \\parallel \\vec{j},\\quad P \\in f \\parallel \\vec{i} \\\\ \\overrightarrow{OP} &= \\overrightarrow{OV_1}+\\overrightarrow{OV_2} \\\\ \\vec{v} &= v_1\\vec{i}+v_2\\vec{j}\\end{aligned}",
-            explanation: "Ábrázoljuk a $\\vec{v}$ vektort közös kezdőpontból: $O$ a kezdőpont, $P$ a végpont. A $P$ ponton át húzzunk párhuzamost $\\vec{j}$-vel, illetve $\\vec{i}$-vel; ezek az $\\vec{i}$ és $\\vec{j}$ egyenesét $V_1$-ben és $V_2$-ben metszik. Az $OV_1PV_2$ négyszög paralelogramma, ezért $\\overrightarrow{OP}=\\overrightarrow{OV_1}+\\overrightarrow{OV_2}$. Mivel $\\overrightarrow{OV_1}$ az $\\vec{i}$ irányába esik, $\\overrightarrow{OV_1}=v_1\\vec{i}$; hasonlóan $\\overrightarrow{OV_2}=v_2\\vec{j}$. Így $\\vec{v}=v_1\\vec{i}+v_2\\vec{j}$."
-          },
-          {
-            stepNumber: 2,
-            title: "Egyértelműség",
-            latexContent: "\\begin{aligned}\\vec{v} &= v_1\\vec{i}+v_2\\vec{j} = v_1'\\vec{i}+v_2'\\vec{j} \\\\ (v_1-v_1')\\vec{i}+(v_2-v_2')\\vec{j} &= \\vec{0} \\\\ v_1 &= v_1',\\qquad v_2 = v_2'\\end{aligned}",
-            explanation: "Tegyük fel, hogy $\\vec{v}$-nek két felbontása is létezik az $\\vec{i},\\vec{j}$ bázisban. A két felírás különbsége a nullvektor. Mivel $\\vec{i}$ és $\\vec{j}$ nem egyállásúak (lineárisan függetlenek), a nullvektor csak a triviális együtthatókkal áll elő. Ezért $v_1=v_1'$ és $v_2=v_2'$, tehát a felbontás egyértelmű."
+            title: "Létezés és egyértelműség",
+            latexContent: "\\begin{aligned}\\vec{v} &= \\overrightarrow{OP} \\\\ e &\\parallel \\vec{i},\\ e\\ni O \\\\ f &\\parallel \\vec{j},\\ f\\ni P \\\\ e\\cap f &= \\{Q\\} \\\\ \\vec{v} &= \\overrightarrow{OQ}+\\overrightarrow{QP} = v_1\\vec{i}+v_2\\vec{j}\\end{aligned}",
+            explanation: "A létezést és az egyértelműséget geometriailag egyszerre igazolhatjuk. Az $O$ ponton át $\\vec{i}$-vel párhuzamos, a $P$ ponton át pedig $\\vec{j}$-vel párhuzamos egyenest húzzunk. Mivel a két bázisvektor nem párhuzamos, a két egyenes pontosan egy pontban metszi egymást. Ez a $Q$ metszéspont egyértelműen meghatározott, ezért a hozzá tartozó két vektorösszetevő is egyértelműen meghatározható. Így a felbontás létezik és egyértelmű, tehát a feladatnak pontosan egy megoldása van."
           }
         ]
       },
